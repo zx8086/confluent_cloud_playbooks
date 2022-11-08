@@ -4,10 +4,10 @@
 ##                            ##
 ################################
 
-- name: Create ksqlDB Streams
+- name: Create ksqlDB Stream
   block:
 
-    - name: Create Create ksqlDB Streams JSON Body Document For API
+    - name: Create Create ksqlDB Stream JSON Body Document For API
       set_fact:
         json_body: "{{ lookup('template', 'templates/{{item}}.j2') }}"
 
@@ -15,7 +15,7 @@
       ansible.builtin.debug:
         var: json_body
 
-    - name: Create Create ksqlDB Streams via API
+    - name: Create Create ksqlDB Stream via API
       ansible.builtin.uri:
         url: "https://pksqlc-7z8zp.eu-central-1.aws.confluent.cloud:443/ksql"
         method: POST
@@ -30,12 +30,11 @@
         return_content: yes
       register: "{{item}}"
 
-    - name: Debug Variable - Create Create ksqlDB Streams via API
+    - name: Debug Variable - Create Create ksqlDB Stream via API
       ansible.builtin.debug:
         var: "{{item}}"
   loop:
     - S_HOMEASSISTANT
     - S_HOMEASSISTANT_MEDIA
     - S_HOMEASSISTANT_ENHANCED
-
 
