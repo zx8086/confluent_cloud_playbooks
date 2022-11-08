@@ -9,7 +9,7 @@
 
     - name: Create Create ksqlDB Streams JSON Body Document For API
       set_fact:
-        json_body: "{{ lookup('template', 'templates/create_streams.j2') }}"
+        json_body: "{{ lookup('template', 'templates/{{item}}.j2') }}"
 
     - name: Debug Variable - json_body
       ansible.builtin.debug:
@@ -28,8 +28,14 @@
         force: true
         status_code: [200, 201]
         return_content: yes
-      register: created_stream
+      register: "{{item}}"
 
     - name: Debug Variable - Create Create ksqlDB Streams via API
       ansible.builtin.debug:
-        var: created_stream
+        var: "{{item}}"
+  loop:
+    - S_HOMEASSISTANT
+    - S_HOMEASSISTANT_MEDIA
+    - S_HOMEASSISTANT_ENHANCED
+
+

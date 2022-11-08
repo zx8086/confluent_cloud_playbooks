@@ -1,0 +1,4 @@
+{
+  "ksql": "CREATE STREAM S_HOMEASSISTANT_MEDIA_II WITH (KAFKA_TOPIC='S_HOMEASSISTANT_MEDIA_II', KEY_FORMAT='NONE', PARTITIONS=3, REPLICAS=3, VALUE_FORMAT='JSON') AS SELECT CONTEXT->ID `id`, ENTITY_ID `entity`, STATE `state`, ATTRIBUTES['friendly_name'] `friendlyName`, ATTRIBUTES['app_name'] `appName`, ATTRIBUTES['app_id'] `appId`, ATTRIBUTES['media_content_type'] `contentType`, ATTRIBUTES['media_library_title'] `libraryTitle`, ATTRIBUTES['media_series_title'] `seriesTitle`, ATTRIBUTES['media_title'] `title`, ATTRIBUTES['media_summary'] `summary`, ATTRIBUTES['media_season'] `season`, ATTRIBUTES['media_position'] `position`, ATTRIBUTES['media_duration'] `duration`, LAST_UPDATED `lastUpdated`, LAST_CHANGED `lastChanged`, TIMESTAMPTOSTRING(S_HOMEASSISTANT.ROWTIME, 'yyyy-MM-dd HH:mm:ss') `entityTimestamp` FROM S_HOMEASSISTANT S_HOMEASSISTANT WHERE (S_HOMEASSISTANT.ENTITY_ID LIKE 'media_player%') EMIT CHANGES;",
+  "streamProperties":{}
+}
