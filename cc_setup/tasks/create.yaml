@@ -33,8 +33,8 @@
     - name: Debug Variable - Create Create ksqlDB Stream via API
       ansible.builtin.debug:
         var: "{{item}}"
-  loop:
-    - S_HOMEASSISTANT
-    - S_HOMEASSISTANT_MEDIA
-    - S_HOMEASSISTANT_ENHANCED
 
+    loop:
+      - S_HOMEASSISTANT
+      - S_HOMEASSISTANT_MEDIA
+      - S_HOMEASSISTANT_ENHANCED
