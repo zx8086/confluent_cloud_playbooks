@@ -4,8 +4,8 @@
 ##                            ##
 ################################
 
-- name: calling block with conditional on loop
-  include_tasks: create_stream_conditional_block.yaml
+- name: Create ksqlDB Streams
+  include_tasks: tasks/create_stream_block.yaml
   loop: ['S_HOMEASSISTANT','S_HOMEASSISTANT_MEDIA', 'S_HOMEASSISTANT_ENHANCED']
 
 # - name: Create ksqlDB Stream

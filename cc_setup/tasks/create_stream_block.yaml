@@ -1,4 +1,4 @@
-- name: Create ksqlDB Stream
+- name: Create ksqlDB Stream Block
   block:
 
     - name: Create Create ksqlDB Stream JSON Body Document For API
