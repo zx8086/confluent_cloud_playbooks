@@ -14,7 +14,6 @@
     - name: Debug Variable - json_body
       ansible.builtin.debug:
         var: json_body
-      # when: debug_variables | bool
 
     - name: Create Create ksqlDB Streams via API
       ansible.builtin.uri:
@@ -27,11 +26,10 @@
           Authorization: "Basic UzQ0WU5VQkZaQkZQNkVIUTpwNEl2TTB4SVo4Y2RPU0gxaUY2QXVlUnhWcDZEaHpjQTM0dlIvcXArY0ZQWll6RUxqVFQrZTZURE1MMjFhTkQ4"
         follow_redirects: yes
         force: true
-        status_code: [201]
+        status_code: [200, 201]
         return_content: yes
       register: created_stream
 
     - name: Debug Variable - Create Create ksqlDB Streams via API
       ansible.builtin.debug:
         var: created_stream
-      # when: debug_variables | bool
