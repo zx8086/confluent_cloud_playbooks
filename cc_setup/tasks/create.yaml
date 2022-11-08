@@ -10,3 +10,15 @@
     - S_HOMEASSISTANT
     - S_HOMEASSISTANT_MEDIA
     - S_HOMEASSISTANT_ENHANCED
+
+###############################
+##                           ##
+## - Create ksqlDB Tables  - ##
+##                           ##
+###############################
+
+- name: Create ksqlDB Tables
+  include_tasks: tasks/create_table_block.yaml
+  loop: 
+    - V_HOMEASSISTANT_ENTITY
+    - V_MET_WARNING
