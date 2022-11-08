@@ -14,7 +14,7 @@
     - name: Debug Variable - json_body
       ansible.builtin.debug:
         var: json_body
-      when: debug_variables | bool
+      # when: debug_variables | bool
 
     - name: Create Create ksqlDB Streams via API
       ansible.builtin.uri:
@@ -29,9 +29,9 @@
         force: true
         status_code: [201]
         return_content: yes
-      register: created_webhook
+      register: created_stream
 
-    - name: Debug Variable - created_webhook
+    - name: Debug Variable - Create Create ksqlDB Streams via API
       ansible.builtin.debug:
-        var: created_webhook
+        var: created_stream
       # when: debug_variables | bool
