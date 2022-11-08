@@ -4,37 +4,41 @@
 ##                            ##
 ################################
 
-- name: Create ksqlDB Stream
-  block:
+- name: calling block with conditional on loop
+  include_tasks: create_stream_conditional_block.yaml
+  loop: ['S_HOMEASSISTANT','S_HOMEASSISTANT_MEDIA', 'S_HOMEASSISTANT_ENHANCED']
 
-    - name: Create Create ksqlDB Stream JSON Body Document For API
-      set_fact:
-        json_body: "{{ lookup('template', 'templates/{{item}}.j2') }}"
+# - name: Create ksqlDB Stream
+#   block:
 
-    - name: Debug Variable - json_body
-      ansible.builtin.debug:
-        var: json_body
+#     - name: Create Create ksqlDB Stream JSON Body Document For API
+#       set_fact:
+#         json_body: "{{ lookup('template', 'templates/{{item}}.j2') }}"
 
-    - name: Create Create ksqlDB Stream via API
-      ansible.builtin.uri:
-        url: "https://pksqlc-7z8zp.eu-central-1.aws.confluent.cloud:443/ksql"
-        method: POST
-        body_format: json
-        body: "{{ json_body }}"
-        timeout: 90
-        headers:
-          Authorization: "Basic UzQ0WU5VQkZaQkZQNkVIUTpwNEl2TTB4SVo4Y2RPU0gxaUY2QXVlUnhWcDZEaHpjQTM0dlIvcXArY0ZQWll6RUxqVFQrZTZURE1MMjFhTkQ4"
-        follow_redirects: yes
-        force: true
-        status_code: [200, 201]
-        return_content: yes
-      register: "{{item}}"
+#     - name: Debug Variable - json_body
+#       ansible.builtin.debug:
+#         var: json_body
 
-    - name: Debug Variable - Create Create ksqlDB Stream via API
-      ansible.builtin.debug:
-        var: "{{item}}"
+#     - name: Create Create ksqlDB Stream via API
+#       ansible.builtin.uri:
+#         url: "https://pksqlc-7z8zp.eu-central-1.aws.confluent.cloud:443/ksql"
+#         method: POST
+#         body_format: json
+#         body: "{{ json_body }}"
+#         timeout: 90
+#         headers:
+#           Authorization: "Basic UzQ0WU5VQkZaQkZQNkVIUTpwNEl2TTB4SVo4Y2RPU0gxaUY2QXVlUnhWcDZEaHpjQTM0dlIvcXArY0ZQWll6RUxqVFQrZTZURE1MMjFhTkQ4"
+#         follow_redirects: yes
+#         force: true
+#         status_code: [200, 201]
+#         return_content: yes
+#       register: "{{item}}"
 
-    loop:
-      - S_HOMEASSISTANT
-      - S_HOMEASSISTANT_MEDIA
-      - S_HOMEASSISTANT_ENHANCED
+#     - name: Debug Variable - Create Create ksqlDB Stream via API
+#       ansible.builtin.debug:
+#         var: "{{item}}"
+  
+#     loop:
+#       - S_HOMEASSISTANT
+#       - S_HOMEASSISTANT_MEDIA
+#       - S_HOMEASSISTANT_ENHANCED
