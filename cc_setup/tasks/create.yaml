@@ -1,0 +1,37 @@
+################################
+##                            ##
+## - Create ksqlDB Streams  - ##
+##                            ##
+################################
+
+- name: Create ksqlDB Streams
+  block:
+
+    - name: Create Create ksqlDB Streams JSON Body Document For API
+      set_fact:
+        json_body: "{{ lookup('template', 'templates/create_streams.j2') }}"
+
+    - name: Debug Variable - json_body
+      ansible.builtin.debug:
+        var: json_body
+      when: debug_variables | bool
+
+    - name: Create Create ksqlDB Streams via API
+      ansible.builtin.uri:
+        url: "https://pksqlc-7z8zp.eu-central-1.aws.confluent.cloud:443/ksql"
+        method: POST
+        body_format: json
+        body: "{{ json_body }}"
+        timeout: 90
+        headers:
+          Authorization: "Basic UzQ0WU5VQkZaQkZQNkVIUTpwNEl2TTB4SVo4Y2RPU0gxaUY2QXVlUnhWcDZEaHpjQTM0dlIvcXArY0ZQWll6RUxqVFQrZTZURE1MMjFhTkQ4"
+        follow_redirects: yes
+        force: true
+        status_code: [201]
+        return_content: yes
+      register: created_webhook
+
+    - name: Debug Variable - created_webhook
+      ansible.builtin.debug:
+        var: created_webhook
+      # when: debug_variables | bool

@@ -1,0 +1,8 @@
+---
+- name:  Confluent Cloud
+  hosts: all
+  serial: 25
+  gather_facts: yes 
+  strategy: free
+  roles:
+    - { role: cc_setup, tags: cc_setup}
