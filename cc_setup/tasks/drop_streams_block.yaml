@@ -1,0 +1,30 @@
+- name: Drop ksqlDB Streams Block
+  block:
+  
+    - name: Drop ksqlDB Streams JSON Body Document For API
+      set_fact:
+        json_body: "{{ lookup('template', 'templates/DROP_STREAMS.j2') }}"
+
+    - name: Debug Variable - json_body
+      ansible.builtin.debug:
+        var: json_body
+
+    - name: Drop ksqlDB Streams via API
+      ansible.builtin.uri:
+        url: "{{ API_URL }}"
+        method: POST
+        body_format: json
+        body: "{{ json_body }}"
+        timeout: 90
+        headers:
+          Authorization: "{{ API_TOKEN }}"
+        follow_redirects: yes
+        force: true
+        status_code: [200, 201]
+        return_content: yes
+        no_log: True
+      register: dropped_ksql_stream
+
+    - name: Debug Variable - Drop ksqlDB Streams via API
+      ansible.builtin.debug:
+        var: dropped_ksql_stream

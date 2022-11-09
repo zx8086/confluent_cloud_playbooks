@@ -1,14 +1,24 @@
 #############################
 ##                         ##
-## - Delete ksqlDB Data  - ##
+## - Drop ksqlDB Tables  - ##
 ##                         ##
 #############################
 
-- name: Delete ksqlDB Streams
-  include_tasks: tasks/delete_tables_block.yaml
+- name: Drop ksqlDB Tables
+  include_tasks: tasks/drop_tables_block.yaml
   loop: 
     - V_MET_WARNING_II
     - V_HOMEASSISTANT_ENTITY_II
-    # - S_HOMEASSISTANT_ENHANCED_II
-    # - S_HOMEASSISTANT_MEDIA_II
-    # - S_HOMEASSISTANT_II
+
+##############################
+##                          ##
+## - Drop ksqlDB Streams  - ##
+##                          ##
+##############################
+
+- name: Drop ksqlDB Streams
+  include_tasks: tasks/drop_streams_block.yaml
+  loop: 
+    - S_HOMEASSISTANT_ENHANCED_II
+    - S_HOMEASSISTANT_MEDIA_II
+    - S_HOMEASSISTANT_II
