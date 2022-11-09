@@ -8,7 +8,7 @@
   include_tasks: tasks/drop_tables_block.yaml
   no_log: True
   loop: 
-    - V_MET_WARNING_II
+    # - V_MET_WARNING_II
     - V_HOMEASSISTANT_ENTITY_II
 
 ##############################
