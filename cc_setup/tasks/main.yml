@@ -1,7 +1,9 @@
 ---
 # tasks file for cc_setup
-- name: Create Initial ksqlDB Streams
+- name: Create Initial ksqlDB Setup
   import_tasks: create.yaml
   tags: create_ksqlDB_init_setup
 
-  
+- name: Create Initial ksqlDB Setup
+  import_tasks: delete.yaml
+  tags: delete_ksqlDB_init_setup
