@@ -1,2 +1,4 @@
 ---
 # vars file for cc_setup
+API_TOKEN: "Basic UzQ0WU5VQkZaQkZQNkVIUTpwNEl2TTB4SVo4Y2RPU0gxaUY2QXVlUnhWcDZEaHpjQTM0dlIvcXArY0ZQWll6RUxqVFQrZTZURE1MMjFhTkQ4"
+API_URL: "https://pksqlc-7z8zp.eu-central-1.aws.confluent.cloud:443/ksql"

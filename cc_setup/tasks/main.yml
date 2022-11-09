@@ -2,4 +2,6 @@
 # tasks file for cc_setup
 - name: Create Initial ksqlDB Streams
   import_tasks: create.yaml
-  tags: create_ksqlDB_data
+  tags: create_ksqlDB_init_setup
+
+  

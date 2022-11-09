@@ -11,13 +11,13 @@
 
     - name: Create Create ksqlDB Stream via API
       ansible.builtin.uri:
-        url: "https://pksqlc-7z8zp.eu-central-1.aws.confluent.cloud:443/ksql"
+        url: "{{ API_URL }}"
         method: POST
         body_format: json
         body: "{{ json_body }}"
         timeout: 90
         headers:
-          Authorization: "Basic UzQ0WU5VQkZaQkZQNkVIUTpwNEl2TTB4SVo4Y2RPU0gxaUY2QXVlUnhWcDZEaHpjQTM0dlIvcXArY0ZQWll6RUxqVFQrZTZURE1MMjFhTkQ4"
+          Authorization: "{{ API_TOKEN }}"
         follow_redirects: yes
         force: true
         status_code: [200, 201]
