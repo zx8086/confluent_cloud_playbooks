@@ -22,7 +22,6 @@
         force: true
         status_code: [200, 201]
         return_content: yes
-        no_log: True
       register: dropped_ksql_stream
 
     - name: Debug Variable - Drop ksqlDB Streams via API

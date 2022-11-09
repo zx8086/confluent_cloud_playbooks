@@ -22,7 +22,6 @@
         force: true
         status_code: [200, 201]
         return_content: yes
-        no_log: True
       register: deleted_ksql_table
 
     - name: Debug Variable - Delete ksqlDB Data via API
