@@ -9,3 +9,4 @@
   no_log: True
   loop: 
     - JiraSourceConnector_1
+    - ElasticsearchSinkConnector_0
