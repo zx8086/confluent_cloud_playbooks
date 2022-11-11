@@ -15,3 +15,11 @@
 - name: Delete Connector
   import_tasks: delete_connector.yaml
   tags: delete_connector
+
+- name: Get Topics
+  import_tasks: get_topics.yaml
+  tags: get_topics
+
+- name: Delete Topic
+  import_tasks: delete_topics.yaml
+  tags: delete_topic

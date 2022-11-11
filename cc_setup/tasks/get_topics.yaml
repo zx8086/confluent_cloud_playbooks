@@ -1,0 +1,18 @@
+- name: Get Topics via API
+  ansible.builtin.uri:
+    url: "{{KAFKA_CLUSTER_URL}}/kafka/v3/clusters/{{KAFKA_CLUSTER_ID}}/topics"
+    method: GET
+    body_format: json
+    headers:
+      Content-Type: "application/json"
+      Authorization: "{{KAFKA_CLOUD_API_TOKEN}}"
+    timeout: 90
+    force: yes
+    status_code: [200]
+    return_content: yes
+  ignore_errors: yes
+  register: get_topics
+
+- name: Debug Variable - Get Topics via API
+  ansible.builtin.debug:
+    var: get_topics
