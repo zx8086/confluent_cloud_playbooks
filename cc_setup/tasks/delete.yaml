@@ -35,7 +35,8 @@
   include_tasks: tasks/delete_topics_block.yaml
   no_log: True
   loop: 
-    - S_HOMEASSISTANT_MEDIA_II
-    - V_HOMEASSISTANT_ENTITY_II
     - S_HOMEASSISTANT_ENHANCED_II
+    - S_HOMEASSISTANT_MEDIA_II
+    - S_HOMEASSISTANT_II
     - V_MET_WARNING_II
+    - V_HOMEASSISTANT_ENTITY_II
