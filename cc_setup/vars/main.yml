@@ -2,3 +2,8 @@
 # vars file for cc_setup
 API_TOKEN: "Basic UzQ0WU5VQkZaQkZQNkVIUTpwNEl2TTB4SVo4Y2RPU0gxaUY2QXVlUnhWcDZEaHpjQTM0dlIvcXArY0ZQWll6RUxqVFQrZTZURE1MMjFhTkQ4"
 API_URL: "https://pksqlc-7z8zp.eu-central-1.aws.confluent.cloud:443/ksql"
+
+KAFKA_CLUSTER_ID: "lkc-57k1p8"
+KAFKA_CLUSTER_URL: "https://pkc-zpjg0.eu-central-1.aws.confluent.cloud:443"
+KAFKA_CLUSTER_USERNAME: "ZY2BB44XKYZVTKWM"
+KAFKA_CLUSTER_PASSWORD: "+6epNGKRq1M/G5L6TAvn6w6hHRb+0lBMUS+fhEw2eExKyJQwGdPve3GlA7BJgFRt"

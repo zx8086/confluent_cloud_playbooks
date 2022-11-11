@@ -11,18 +11,18 @@
 
     - name: Delete Kafka Topic via API
       ansible.builtin.uri:
-        url: "https://pkc-zpjg0.eu-central-1.aws.confluent.cloud:443/kafka/v3/clusters/lkc-57k1p8/topics/{{ item }}"
+        url: "{{KAFKA_CLUSTER_URL}}/kafka/v3/clusters/{{KAFKA_CLUSTER_ID}}/topics/{{ item }}"
         method: DELETE
         # body_format: json
         # body: "{{ json_body }}"
         timeout: 90
-        url_username: "ZY2BB44XKYZVTKWM"
-        url_password: "+6epNGKRq1M/G5L6TAvn6w6hHRb+0lBMUS+fhEw2eExKyJQwGdPve3GlA7BJgFRt"
+        url_username: "{{KAFKA_CLUSTER_USERNAME}}"
+        url_password: "{{KAFKA_CLUSTER_PASSWORD}}"
         follow_redirects: yes
         force_basic_auth: yes
         status_code: [204]
         return_content: yes
-      # ignore_errors: yes
+      ignore_errors: yes
       register: deleted_kafka_topic
 
     - name: Debug Variable - Delete Kafka Topics via API
