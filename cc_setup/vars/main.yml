@@ -64,3 +64,6 @@ JIRA_API_TOKEN: !vault |
           39336266323531353462653266313165633436643264626430336134313135356635376163323064
           3937646463613162360a306234396236613265353232613935623931323336633166313062383033
           64356561303237353637653134656239633566356365383235666166306563663265
+
+# Cloud API Keys – These grant access to the Confluent Cloud Control Plane APIs, such as for Provisioning and Metrics integrations.
+# Cluster API Keys – These grant access to a single Confluent cluster, such as a specific Kafka or Schema Registry cluster.
