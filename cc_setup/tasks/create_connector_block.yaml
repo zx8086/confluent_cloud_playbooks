@@ -19,11 +19,7 @@
           Authorization: "{{KAFKA_CLOUD_API_TOKEN}}"
         body: "{{ json_body }}"
         timeout: 90
-        # url_username: "{{KAFKA_CLOUD_API_KEY}}"
-        # url_password: "{{KAFKA_CLOUD_API_SECRET}}"
         force: yes
-        # follow_redirects: yes
-        # force_basic_auth: yes
         status_code: [201, 204]
         return_content: yes
       ignore_errors: yes

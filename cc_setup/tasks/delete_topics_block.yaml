@@ -13,11 +13,13 @@
       ansible.builtin.uri:
         url: "{{KAFKA_CLUSTER_URL}}/kafka/v3/clusters/{{KAFKA_CLUSTER_ID}}/topics/{{item}}"
         method: DELETE
-        # body_format: json
-        # body: "{{ json_body }}"
+        body_format: json
+        headers:
+          Content-Type: "application/json"
+          Authorization: "{{KAFKA_CLOUD_API_TOKEN}}"
+        body: "{{ json_body }}"
         timeout: 90
-        url_username: "{{KAFKA_CLUSTER_USERNAME}}"
-        url_password: "{{KAFKA_CLUSTER_PASSWORD}}"
+        force: yes
         follow_redirects: yes
         force_basic_auth: yes
         status_code: [204]

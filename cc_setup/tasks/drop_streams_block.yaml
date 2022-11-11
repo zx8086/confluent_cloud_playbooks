@@ -14,12 +14,12 @@
         url: "{{ API_URL }}"
         method: POST
         body_format: json
+        headers:
+          Content-Type: "application/json"
+          Authorization: "{{KAFKA_CLOUD_API_TOKEN}}"
         body: "{{ json_body }}"
         timeout: 90
-        headers:
-          Authorization: "{{ API_TOKEN }}"
-        follow_redirects: yes
-        force: true
+        force: yes
         status_code: [200, 201]
         return_content: yes
       register: dropped_ksql_stream
