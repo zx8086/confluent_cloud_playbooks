@@ -21,7 +21,7 @@
         follow_redirects: yes
         force_basic_auth: yes
         force: true
-        status_code: [200, 201]
+        status_code: [204]
         return_content: yes
       register: deleted_kafka_topic
 
