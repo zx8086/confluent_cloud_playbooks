@@ -9,7 +9,6 @@
         headers:
           Content-Type: "application/json"
           Authorization: "{{KAFKA_CLOUD_API_TOKEN}}"
-        body: "{{ json_body }}"
         timeout: 90
         force: yes
         follow_redirects: yes
