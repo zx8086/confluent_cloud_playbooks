@@ -20,7 +20,7 @@
         url_password: "{{KAFKA_CLOUD_API_SECRET}}"
         follow_redirects: yes
         force_basic_auth: yes
-        status_code: [201, 204]
+        status_code: [200, 204]
         return_content: yes
       # ignore_errors: yes
       register: deleted_connector
