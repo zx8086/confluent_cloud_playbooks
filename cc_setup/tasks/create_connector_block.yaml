@@ -13,7 +13,7 @@
       ansible.builtin.uri:
         url: "{{KAFKA_CLOUD_URL}}/environments/{{KAFKA_ENVIRONMENT_ID}}/clusters/{{KAFKA_CLUSTER_ID}}/connectors"
         method: POST
-        # body_format: json
+        body_format: json
         headers:
           Content-Type: "application/json"
           Authorization: "{{KAFKA_CLOUD_API_TOKEN}}"
