@@ -1,0 +1,30 @@
+- name: Create Connector Block
+  block:
+  
+    - name: Create Connector JSON Body Document For API
+      set_fact:
+        json_body: "{{ lookup('template', 'templates/{{ item }}.j2') }}"
+
+    - name: Debug Variable - json_body
+      ansible.builtin.debug:
+        var: json_body
+
+    - name: Create Connector via API
+      ansible.builtin.uri:
+        url: "{{KAFKA_CLOUD_URL}}/environments/{{KAFKA_ENVIRONMENT_ID}}/clusters/{{KAFKA_CLUSTER_ID}}/connectors/{{ item }}"
+        method: POST
+        body_format: json
+        body: "{{ json_body }}"
+        timeout: 90
+        url_username: "{{KAFKA_CLOUD_API_KEY}}"
+        url_password: "{{KAFKA_CLOUD_API_SECRET}}"
+        follow_redirects: yes
+        force_basic_auth: yes
+        status_code: [201, 204]
+        return_content: yes
+      ignore_errors: yes
+      register: created_connector
+
+    - name: Debug Variable - Create Connector via API
+      ansible.builtin.debug:
+        var: created_connector

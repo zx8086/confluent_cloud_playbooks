@@ -7,3 +7,7 @@
 - name: Create Initial ksqlDB Setup
   import_tasks: delete.yaml
   tags: delete_ksqlDB_init_setup
+
+- name: Create Connector
+  import_tasks: create_connector.yaml
+  tags: create_connector

@@ -1,0 +1,10 @@
+##########################
+##                      ##
+## - Create Connector - ##
+##                      ##
+##########################
+
+- name: Create Connector
+  include_tasks: tasks/create_connector_block.yaml
+  loop: 
+    - JiraSourceConnector_1

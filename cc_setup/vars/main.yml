@@ -3,7 +3,17 @@
 API_TOKEN: "Basic UzQ0WU5VQkZaQkZQNkVIUTpwNEl2TTB4SVo4Y2RPU0gxaUY2QXVlUnhWcDZEaHpjQTM0dlIvcXArY0ZQWll6RUxqVFQrZTZURE1MMjFhTkQ4"
 API_URL: "https://pksqlc-7z8zp.eu-central-1.aws.confluent.cloud:443/ksql"
 
+KAFKA_ENVIRONMENT_ID: "env-38jrqw"
 KAFKA_CLUSTER_ID: "lkc-57k1p8"
 KAFKA_CLUSTER_URL: "https://pkc-zpjg0.eu-central-1.aws.confluent.cloud:443"
 KAFKA_CLUSTER_USERNAME: "ZY2BB44XKYZVTKWM"
 KAFKA_CLUSTER_PASSWORD: "+6epNGKRq1M/G5L6TAvn6w6hHRb+0lBMUS+fhEw2eExKyJQwGdPve3GlA7BJgFRt"
+
+KAFKA_CLOUD_URL: "https://api.confluent.cloud/connect/v1"
+KAFKA_CLOUD_API_KEY: "V4EHJ6ZKTYCO6F7T"
+KAFKA_CLOUD_API_SECRET: "wfLTWMIMPLBH3A5l4PsdUWb2kmlbW6Dg19vS+v7qSgv2v/RBJumItutFJwnf61eO"
+
+KAFKA_ENDPOINT: "SASL_SSL://pkc-zpjg0.eu-central-1.aws.confluent.cloud:9092"
+JIRA_URL: "https://siobytes.atlassian.net/"
+JIRA_USERNAME: "simonowusupvh@gmail.com"
+JIRA_API_TOKEN: "9eRrUlWoFfcg5epIKCo91D35"
