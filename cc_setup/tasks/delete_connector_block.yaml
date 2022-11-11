@@ -11,7 +11,7 @@
 
     - name: Delete Connector via API
       ansible.builtin.uri:
-        url: "{{KAFKA_CLOUD_URL}}/environments/{{KAFKA_ENVIRONMENT_ID}}/clusters/{{KAFKA_CLUSTER_ID}}/connectors/{{ item }}"
+        url: "{{KAFKA_CLOUD_URL}}/environments/{{KAFKA_ENVIRONMENT_ID}}/clusters/{{KAFKA_CLUSTER_ID}}/connectors/{{item}}"
         method: DELETE
         # body_format: json
         # body: "{{ json_body }}"

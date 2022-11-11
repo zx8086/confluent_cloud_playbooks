@@ -6,5 +6,6 @@
 
 - name: Delete Connector
   include_tasks: tasks/delete_connector_block.yaml
+  no_log: True
   loop: 
     - JiraSourceConnector_1

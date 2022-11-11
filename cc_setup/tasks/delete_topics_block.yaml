@@ -11,7 +11,7 @@
 
     - name: Delete Kafka Topic via API
       ansible.builtin.uri:
-        url: "{{KAFKA_CLUSTER_URL}}/kafka/v3/clusters/{{KAFKA_CLUSTER_ID}}/topics/{{ item }}"
+        url: "{{KAFKA_CLUSTER_URL}}/kafka/v3/clusters/{{KAFKA_CLUSTER_ID}}/topics/{{item}}"
         method: DELETE
         # body_format: json
         # body: "{{ json_body }}"

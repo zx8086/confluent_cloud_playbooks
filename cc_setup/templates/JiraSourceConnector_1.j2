@@ -1,5 +1,5 @@
 {
-    "name": "JiraSourceConnector_1",
+    "name": "{{item}}",
     "config": {
         "cloud.environment": "prod",
         "cloud.provider": "aws",
@@ -14,14 +14,14 @@
         "kafka.auth.mode": "KAFKA_API_KEY",
         "kafka.endpoint": "{{KAFKA_ENDPOINT}}",
         "kafka.region": "eu-central-1",
-        "name": "JiraSourceConnector_1",
+        "name": "{{item}}",
         "output.data.format": "JSON",
         "tasks.max": "1",
         "topic.name.pattern": "jira_test_${resourceName}"
     },
     "tasks": [
     {
-    "connector": "JiraSourceConnector_1",
+    "connector": "{{item}}",
     "task": 1
     }
     ],
