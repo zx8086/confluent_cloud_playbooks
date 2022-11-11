@@ -16,8 +16,8 @@
         # body_format: json
         # body: "{{ json_body }}"
         timeout: 90
-        username: "ZY2BB44XKYZVTKWM"
-        password: "+6epNGKRq1M/G5L6TAvn6w6hHRb+0lBMUS+fhEw2eExKyJQwGdPve3GlA7BJgFRt"
+        url_username: "ZY2BB44XKYZVTKWM"
+        url_password: "+6epNGKRq1M/G5L6TAvn6w6hHRb+0lBMUS+fhEw2eExKyJQwGdPve3GlA7BJgFRt"
         follow_redirects: yes
         force_basic_auth: yes
         force: true
