@@ -11,8 +11,8 @@
     status_code: [200]
     return_content: yes
   ignore_errors: yes
-  register: get_topics
+  register: get_topic_list
 
 - name: Debug Variable - Get Topics via API
   ansible.builtin.debug:
-    var: get_topics
+    var: get_topic_list
