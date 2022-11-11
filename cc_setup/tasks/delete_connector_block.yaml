@@ -12,7 +12,7 @@
     - name: Delete Connector via API
       ansible.builtin.uri:
         url: "{{KAFKA_CLOUD_URL}}/environments/{{KAFKA_ENVIRONMENT_ID}}/clusters/{{KAFKA_CLUSTER_ID}}/connectors/{{ item }}"
-        method: POST
+        method: DELETE
         # body_format: json
         # body: "{{ json_body }}"
         timeout: 90
@@ -22,7 +22,7 @@
         force_basic_auth: yes
         status_code: [201, 204]
         return_content: yes
-      ignore_errors: yes
+      # ignore_errors: yes
       register: deleted_connector
 
     - name: Debug Variable - Delete Connector via API
