@@ -38,7 +38,7 @@
         status_code: [201, 204]
         return_content: yes
       ignore_errors: yes
-      no_log: True
+      # no_log: True
       register: created_connector
 
     - name: Debug Variable - Create Connector via API
