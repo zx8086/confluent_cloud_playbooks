@@ -1,0 +1,30 @@
+- name: Delete Kafka Topics Block
+  block:
+  
+    # - name: Drop ksqlDB Streams JSON Body Document For API
+    #   set_fact:
+    #     json_body: "{{ lookup('template', 'templates/DROP_STREAMS.j2') }}"
+
+    # - name: Debug Variable - json_body
+    #   ansible.builtin.debug:
+    #     var: json_body
+
+    - name: Delete Kafka Topics via API
+      ansible.builtin.uri:
+        url: "https://pkc-zpjg0.eu-central-1.aws.confluent.cloud:443/kafka/v3/clusters/lkc-57k1p8/topics/{{ item }}"
+        method: DELETE
+        # body_format: json
+        # body: "{{ json_body }}"
+        timeout: 90
+        headers:
+          username: "ZY2BB44XKYZVTKWM"
+          password: "+6epNGKRq1M/G5L6TAvn6w6hHRb+0lBMUS+fhEw2eExKyJQwGdPve3GlA7BJgFRt"
+        follow_redirects: yes
+        force: true
+        status_code: [200, 201]
+        return_content: yes
+      register: deleted_kafka_topic
+
+    - name: Debug Variable - Delete Kafka Topics via API
+      ansible.builtin.debug:
+        var: deleted_kafka_topic
