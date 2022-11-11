@@ -11,3 +11,7 @@
 - name: Create Connector
   import_tasks: create_connector.yaml
   tags: create_connector
+
+- name: Delete Connector
+  import_tasks: delete_connector.yaml
+  tags: delete_connector

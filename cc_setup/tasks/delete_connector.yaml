@@ -1,0 +1,10 @@
+##########################
+##                      ##
+## - Delete Connector - ##
+##                      ##
+##########################
+
+- name: Delete Connector
+  include_tasks: tasks/delete_connector_block.yaml
+  loop: 
+    - JiraSourceConnector_1
