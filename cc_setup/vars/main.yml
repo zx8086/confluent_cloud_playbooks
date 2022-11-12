@@ -21,6 +21,11 @@ CONNECTOR_LIST:
   - ServiceNowSourceConnector_0
   # - ElasticsearchSinkConnector_0
 
+CONNECTOR_PLUGIN_LIST:
+  - JiraSourceConnector
+  - ServiceNowSourceConnector
+  # - ElasticsearchSinkConnector
+
 KAFKA_SERVICE_ACCOUNT_ID: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           39623962623536306634316537363434366337326439383232643539616235313161326266663537

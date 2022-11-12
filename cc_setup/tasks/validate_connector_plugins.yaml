@@ -1,0 +1,9 @@
+####################################
+##                                ##
+## - Validate Connector Plugins - ##
+##                                ##
+####################################
+
+- name: Validate Connector Plugins 
+  include_tasks: tasks/validate_connector_plugins_block.yaml
+  loop: "{{CONNECTOR_PLUGIN_LIST}}"

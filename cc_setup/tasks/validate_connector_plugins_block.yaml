@@ -1,0 +1,33 @@
+- name: Connector Plugins Block
+  block:
+  
+    - name: Update Connector Plugins JSON Body Document For API
+      set_fact:
+        json_body: "{{ lookup('template', 'templates/CONFIG_{{item}}.j2') }}"
+
+    - name: Debug Variable - json_body
+      ansible.builtin.debug:
+        var: json_body
+
+    - name: Update Connector Plugins via API
+      ansible.builtin.uri:
+        url: "{{CONFLUENT_CLOUD_API_URL}}/connect/v1/environments/{{ENVIRONMENT_ID}}/clusters/{{CLUSTER_ID}}/connector-plugins/{{item}}/config/validate"
+        method: PUT
+        body_format: json
+        headers:
+          Content-Type: "application/json"
+          Authorization: "{{CONFLUENT_CLOUD_API_TOKEN}}"
+        body: "{{ json_body }}"
+        timeout: 90
+        force: yes
+        status_code: [200]
+        return_content: yes
+      ignore_errors: yes
+      register: validated_connector_plugin
+
+    - name: Debug Variable - Create Connector via API
+      ansible.builtin.debug:
+        var: validated_connector_plugin
+
+
+# https://api.confluent.cloud/connect/v1/environments/{environment_id}/clusters/{kafka_cluster_id}/connector-plugins/{plugin_name}/config/validate
