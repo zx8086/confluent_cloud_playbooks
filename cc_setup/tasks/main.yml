@@ -17,9 +17,9 @@
   tags: delete_connector
 
 - name: Get Topics
-  import_tasks: get_topics.yaml
+  import_tasks: get_topic.yaml
   tags: get_topics
 
 - name: Delete Topic
-  import_tasks: delete_topics.yaml
+  import_tasks: delete_topic.yaml
   tags: delete_topic
