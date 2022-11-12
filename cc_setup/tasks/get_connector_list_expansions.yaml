@@ -1,11 +1,11 @@
 
 - name: Get Connector List via API
   ansible.builtin.uri:
-    url: "{{KAFKA_CLOUD_URL}}/environments/{{KAFKA_ENVIRONMENT_ID}}/clusters/{{KAFKA_CLUSTER_ID}}/connectors?expand=status"
+    url: "{{CONFLUENT_CLOUD_API_URL}}/connect/v1/environments/{{ENVIRONMENT_ID}}/clusters/{{CLUSTER_ID}}/connectors?expand=status"
     method: GET
     headers:
       Content-Type: "application/json"
-      Authorization: "{{KAFKA_CLOUD_API_TOKEN}}"
+      Authorization: "{{CONFLUENT_CLOUD_API_TOKEN}}"
     timeout: 90
     force: yes
     status_code: [200]
@@ -17,4 +17,15 @@
   ansible.builtin.debug:
     var: connector_list
 
-#     url: "{{KAFKA_CLOUD_URL}}/environments/{{KAFKA_ENVIRONMENT_ID}}/clusters/{{KAFKA_CLUSTER_ID}}/connectors?expand=info,status,id"
+# - name: Create Search Parameters For jmesquery Query
+#   ansible.builtin.set_fact:
+#     jmesquery: "[*].{id: id}"
+
+#   - name: Debug Variable - jmesquery
+#     ansible.builtin.debug:
+#       var: jmesquery
+#     when: debug_variables | bool
+
+#   - name: Filter JSON Response With json_query
+#     ansible.builtin.set_fact:
+#       delete_webhooks: "{{ get_webhooks.json | json_query(jmesquery) }}"
