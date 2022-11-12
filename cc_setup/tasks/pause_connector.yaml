@@ -1,0 +1,12 @@
+#########################
+##                     ##
+## - Pause Connector - ##
+##                     ##
+#########################
+
+- name: Pause Connector 
+  include_tasks: tasks/pause_connector_block.yaml
+  loop: 
+    - JiraSourceConnector_0
+    - ServiceNowSourceConnector_0
+    # - ElasticsearchSinkConnector_0

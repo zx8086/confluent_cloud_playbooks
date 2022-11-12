@@ -31,3 +31,11 @@
 - name: Update Connector
   import_tasks: update_connector.yaml
   tags: update_connector
+
+- name: Pause Connector
+  import_tasks: pause_connector.yaml
+  tags: paused_connector
+
+- name: Resume Connector
+  import_tasks: resume_connector.yaml
+  tags: resumed_connector
