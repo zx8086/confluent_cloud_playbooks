@@ -2,6 +2,11 @@
     "connector.class": "ServiceNowSource",
     "kafka.auth.mode": "SERVICE_ACCOUNT",
     "kafka.service.account.id": "{{KAFKA_SERVICE_ACCOUNT_ID}}",
+    "kafka.topic": "ServiceNow",
+    "output.data.format": "JSON",
+    "servicenow.url": "https://dev103328.service-now.com/",
+    "servicenow.table": "incident",
+    "servicenow.user": "admin",
     "tasks.max": "1",
     "name": "{{item}}"
 }
