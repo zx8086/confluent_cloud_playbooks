@@ -16,7 +16,7 @@
         body_format: json
         headers:
           Content-Type: "application/json"
-          Authorization: "{{KAFKA_CLOUD_API_TOKEN}}"
+          Authorization: "{{API_TOKEN}}"
         body: "{{ json_body }}"
         timeout: 90
         force: yes
