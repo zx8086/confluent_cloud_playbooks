@@ -1,0 +1,20 @@
+
+- name: Get Connector List via API
+  ansible.builtin.uri:
+    url: "{{KAFKA_CLOUD_URL}}/connect/v1/environments/{{KAFKA_ENVIRONMENT_ID}}/clusters/{{KAFKA_CLUSTER_ID}}/connectors?expand=info,status,id"
+    method: GET
+    headers:
+      Content-Type: "application/json"
+      Authorization: "{{KAFKA_CLOUD_API_TOKEN}}"
+    timeout: 90
+    force: yes
+    status_code: [200]
+    return_content: yes
+  ignore_errors: yes
+  register: connector_list
+
+- name: Debug Variable - Get Connector List via API
+  ansible.builtin.debug:
+    var: connector_list
+
+# https://api.confluent.cloud/connect/v1/environments/{environment_id}/clusters/{kafka_cluster_id}/connectors?expand=info,status,id

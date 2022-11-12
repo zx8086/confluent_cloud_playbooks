@@ -23,3 +23,7 @@
 - name: Delete Topic
   import_tasks: delete_topic.yaml
   tags: delete_topic
+
+- name: Get Connector List
+  import_tasks: get_connector_list_expansions.yaml
+  tags: get_connector_list
