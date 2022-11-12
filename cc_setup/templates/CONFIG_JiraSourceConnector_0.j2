@@ -1,5 +1,10 @@
 {
     "connector.class": "JiraSource",
+    "jira.resources": "issues, issue_comments, issue_transitions, resolutions, changelogs",
+    "jira.since": "2022-01-01 01:00",
+    "jira.url": "{{JIRA_URL}}",
+    "jira.username": "{{JIRA_USERNAME}}",
+    "output.data.format": "JSON",
     "kafka.auth.mode": "SERVICE_ACCOUNT",
     "kafka.service.account.id": "{{KAFKA_SERVICE_ACCOUNT_ID}}",
     "name": "{{item}}",
