@@ -8,5 +8,6 @@
   include_tasks: tasks/delete_connector_block.yaml
   no_log: True
   loop: 
-    - JiraSourceConnector_1
+    # - JiraSourceConnector_1
+    - ServiceNowSourceConnector_0
     # - ElasticsearchSinkConnector_0
