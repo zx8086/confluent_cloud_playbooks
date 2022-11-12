@@ -7,7 +7,7 @@
       Authorization: "{{CONFLUENT_CLOUD_API_TOKEN}}"
     timeout: 90
     force: yes
-    status_code: [200]
+    status_code: [200, 202]
     return_content: yes
   ignore_errors: yes
   register: paused_connector
