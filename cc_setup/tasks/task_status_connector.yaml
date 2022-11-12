@@ -1,0 +1,9 @@
+###############################
+##                           ##
+## - Task Status Connector - ##
+##                           ##
+###############################
+
+- name: Task Status Connector 
+  include_tasks: tasks/task_status_connector_block.yaml
+  loop: "{{CONNECTOR_LIST}}"

@@ -34,8 +34,17 @@
 
 - name: Pause Connector
   import_tasks: pause_connector.yaml
-  tags: paused_connector
+  tags: pause_connector
 
 - name: Resume Connector
   import_tasks: resume_connector.yaml
-  tags: resumed_connector
+  tags: resume_connector
+
+- name: Status Connector
+  import_tasks: status_connector.yaml
+  tags: status_connector
+
+- name: Task Status Connector
+  import_tasks: task_status_connector.yaml
+  tags: task_status_connector
+

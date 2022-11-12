@@ -1,0 +1,9 @@
+##########################
+##                      ##
+## - Status Connector - ##
+##                      ##
+##########################
+
+- name: Resume Connector 
+  include_tasks: tasks/status_connector_block.yaml
+  loop: "{{CONNECTOR_LIST}}"

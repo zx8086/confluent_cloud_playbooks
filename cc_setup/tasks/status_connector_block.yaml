@@ -1,0 +1,17 @@
+- name: Connector Status via API
+  ansible.builtin.uri:
+    url: "{{CONFLUENT_CLOUD_API_URL}}/connect/v1/environments/{{ENVIRONMENT_ID}}/clusters/{{CLUSTER_ID}}/connectors/{{item}}/status"
+    method: GET
+    headers:
+      Content-Type: "application/json"
+      Authorization: "{{CONFLUENT_CLOUD_API_TOKEN}}"
+    timeout: 90
+    force: yes
+    status_code: [200]
+    return_content: yes
+  ignore_errors: yes
+  register: connector_status
+
+- name: Debug Variable - Create Connector via API
+  ansible.builtin.debug:
+    var: connector_status
