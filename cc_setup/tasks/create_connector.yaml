@@ -7,6 +7,6 @@
 - name: Create Connector
   include_tasks: tasks/create_connector_block.yaml
   loop: 
-    # - JiraSourceConnector_1
+    - JiraSourceConnector_0
     - ServiceNowSourceConnector_0
     # - ElasticsearchSinkConnector_0
