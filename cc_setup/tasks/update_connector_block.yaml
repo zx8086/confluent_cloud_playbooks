@@ -20,7 +20,7 @@
         body: "{{ json_body }}"
         timeout: 90
         force: yes
-        status_code: [201, 204]
+        status_code: [200]
         return_content: yes
       ignore_errors: yes
       register: updated_connector
