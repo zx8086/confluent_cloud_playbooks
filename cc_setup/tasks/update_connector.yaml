@@ -1,0 +1,12 @@
+##########################
+##                      ##
+## - Update Connector - ##
+##                      ##
+##########################
+
+- name: Update Connector Configuration
+  include_tasks: tasks/update_connector_block.yaml
+  loop: 
+    - JiraSourceConnector_0
+    # - ServiceNowSourceConnector_0
+    # - ElasticsearchSinkConnector_0

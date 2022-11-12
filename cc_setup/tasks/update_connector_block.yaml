@@ -1,18 +1,18 @@
-- name: Create Connector Block
+- name: Update Connector Block
   block:
   
-    - name: Create Connector JSON Body Document For API
+    - name: Update Connector JSON Body Document For API
       set_fact:
-        json_body: "{{ lookup('template', 'templates/CREATE_{{item}}.j2') }}"
+        json_body: "{{ lookup('template', 'templates/CONFIG_{{item}}.j2') }}"
 
     - name: Debug Variable - json_body
       ansible.builtin.debug:
         var: json_body
 
-    - name: Create Connector via API
+    - name: Update Connector via API
       ansible.builtin.uri:
-        url: "{{CONFLUENT_CLOUD_API_URL}}/connect/v1/environments/{{ENVIRONMENT_ID}}/clusters/{{CLUSTER_ID}}/connectors"
-        method: POST
+        url: "{{CONFLUENT_CLOUD_API_URL}}/connect/v1/environments/{{ENVIRONMENT_ID}}/clusters/{{CLUSTER_ID}}/connectors/{{item}}/config"
+        method: PUT
         body_format: json
         headers:
           Content-Type: "application/json"
@@ -23,8 +23,8 @@
         status_code: [201, 204]
         return_content: yes
       ignore_errors: yes
-      register: created_connector
+      register: updated_connector
 
     - name: Debug Variable - Create Connector via API
       ansible.builtin.debug:
-        var: created_connector
+        var: updated_connector
