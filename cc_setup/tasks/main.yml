@@ -27,3 +27,7 @@
 - name: Get Connector List
   import_tasks: get_connector_list_expansions.yaml
   tags: get_connector_list
+
+- name: Update Connector
+  import_tasks: update_connector.yaml
+  tags: update_connector
