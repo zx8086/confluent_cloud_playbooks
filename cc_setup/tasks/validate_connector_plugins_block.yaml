@@ -31,7 +31,7 @@
 
     - name: Create Search Parameters For jmesquery Query
       ansible.builtin.set_fact:
-        jmesquery: "$.error_count"
+        jmesquery: "error_count"
 
     - name: Debug Variable - jmesquery
       ansible.builtin.debug:
