@@ -16,16 +16,3 @@
 - name: Debug Variable - Get Connector List via API
   ansible.builtin.debug:
     var: connector_list
-
-# - name: Create Search Parameters For jmesquery Query
-#   ansible.builtin.set_fact:
-#     jmesquery: "[*].{id: id}"
-
-#   - name: Debug Variable - jmesquery
-#     ansible.builtin.debug:
-#       var: jmesquery
-#     when: debug_variables | bool
-
-#   - name: Filter JSON Response With json_query
-#     ansible.builtin.set_fact:
-#       delete_webhooks: "{{ get_webhooks.json | json_query(jmesquery) }}"

@@ -1,6 +1,8 @@
 ---
 # vars file for cc_setup
 
+debug_variables: true
+
 CONFLUENT_CLOUD_API_URL: "https://api.confluent.cloud" # Confluent Cloud API URL for Connectors
 
 CONFLUENT_CLOUD_API_TOKEN: !vault |
