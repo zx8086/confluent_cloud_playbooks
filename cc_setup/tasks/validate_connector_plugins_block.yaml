@@ -38,11 +38,11 @@
         var: jmesquery
       when: debug_variables | bool
 
-    # - name: Filter JSON Response With json_query
-    #   ansible.builtin.set_fact:
-    #     delete_webhooks: "{{ get_webhooks.json | json_query(jmesquery) }}"
+    - name: Filter JSON Response With json_query
+      ansible.builtin.set_fact:
+        connector_plugin_error: "{{ validated_connector_plugin.json | json_query(jmesquery) }}"
 
-    # - name: Debug Variable - update_resilio_webhooks_id
-    #   ansible.builtin.debug:
-    #     var: update_resilio_webhooks_id
-    #   when: debug_variables | bool
+    - name: Debug Variable - connector_plugin_error
+      ansible.builtin.debug:
+        var: connector_plugin_error
+      when: debug_variables | bool
