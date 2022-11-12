@@ -5,7 +5,8 @@
     body_format: json
     headers:
       Content-Type: "application/json"
-      Authorization: "{{KAFKA_CLOUD_API_TOKEN}}"
+    url_username: "{{KAFKA_CLOUD_API_KEY}}"
+    url_password: "{{KAFKA_CLOUD_API_SECRET}}"
     timeout: 90
     force: yes
     status_code: [200]
