@@ -6,4 +6,4 @@
 
 - name: List Connector Plugins 
   include_tasks: tasks/list_connector_plugins_block.yaml
-  loop: "{{CONNECTOR_LIST}}"
+  # loop: "{{CONNECTOR_LIST}}"

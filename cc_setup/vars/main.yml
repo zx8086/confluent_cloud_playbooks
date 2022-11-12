@@ -1,7 +1,7 @@
 ---
 # vars file for cc_setup
 
-CONFLUENT_CLOUD_API_URL: "https://api.confluent.cloud"
+CONFLUENT_CLOUD_API_URL: "https://api.confluent.cloud" # Confluent Cloud API URL for Connectors
 
 CONFLUENT_CLOUD_API_TOKEN: !vault |
           $ANSIBLE_VAULT;1.1;AES256
@@ -22,9 +22,9 @@ CONNECTOR_LIST:
   # - ElasticsearchSinkConnector_0
 
 CONNECTOR_PLUGIN_LIST:
-  - JiraSourceConnector
-  - ServiceNowSourceConnector
-  # - ElasticsearchSinkConnector
+  - JiraSource
+  - ServiceNowSource
+  # - ElasticsearchSink
 
 KAFKA_SERVICE_ACCOUNT_ID: !vault |
           $ANSIBLE_VAULT;1.1;AES256
