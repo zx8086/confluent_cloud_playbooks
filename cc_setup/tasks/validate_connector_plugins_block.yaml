@@ -29,14 +29,14 @@
       ansible.builtin.debug:
         var: validated_connector_plugin
 
-    # - name: Create Search Parameters For jmesquery Query
-    #   ansible.builtin.set_fact:
-    #     jmesquery: "[*].{id: id}"
+    - name: Create Search Parameters For jmesquery Query
+      ansible.builtin.set_fact:
+        jmesquery: "$.error_count"
 
-    # - name: Debug Variable - jmesquery
-    #   ansible.builtin.debug:
-    #     var: jmesquery
-    #   when: debug_variables | bool
+    - name: Debug Variable - jmesquery
+      ansible.builtin.debug:
+        var: jmesquery
+      when: debug_variables | bool
 
     # - name: Filter JSON Response With json_query
     #   ansible.builtin.set_fact:
