@@ -3,7 +3,7 @@
   
     - name: Delete Connector via API
       ansible.builtin.uri:
-        url: "{CONFLUENT_CLOUD_API_URL}}/connect/v1/environments/{{ENVIRONMENT_ID}}/clusters/{{CLUSTER_ID}}/connectors/{{item}}"
+        url: "{{CONFLUENT_CLOUD_API_URL}}/connect/v1/environments/{{ENVIRONMENT_ID}}/clusters/{{CLUSTER_ID}}/connectors/{{item}}"
         method: DELETE
         body_format: json
         headers:
