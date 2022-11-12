@@ -2,11 +2,9 @@
   ansible.builtin.uri:
     url: "{{CONFLUENT_CLOUD_API_URL}}/connect/v1/environments/{{ENVIRONMENT_ID}}/clusters/{{CLUSTER_ID}}/connectors/{{item}}/resume"
     method: PUT
-    body_format: json
     headers:
       Content-Type: "application/json"
       Authorization: "{{CONFLUENT_CLOUD_API_TOKEN}}"
-    body: "{{ json_body }}"
     timeout: 90
     force: yes
     status_code: [200]
