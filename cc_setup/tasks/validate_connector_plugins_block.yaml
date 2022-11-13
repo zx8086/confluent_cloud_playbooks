@@ -48,11 +48,9 @@
         var: connector_plugin_error
       when: debug_variables | bool
 
-##
     - name: Create Search Parameters For jmesquery Query
       ansible.builtin.set_fact:
-        jmesquery: "configs[*].value.errors[0]"
-        # jmesquery: "configs[*].value.errors[*]"
+        jmesquery: "configs[*].value.errors[0:20]"
 
     - name: Debug Variable - jmesquery Value Errors
       ansible.builtin.debug:
