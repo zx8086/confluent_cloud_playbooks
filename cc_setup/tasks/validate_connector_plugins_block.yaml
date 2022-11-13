@@ -49,20 +49,20 @@
       when: debug_variables | bool
 
 ##
-    # - name: Create Search Parameters For jmesquery Query
-    #   ansible.builtin.set_fact:
-    #     jmesquery: "configs.[*].*"
+    - name: Create Search Parameters For jmesquery Query
+      ansible.builtin.set_fact:
+        jmesquery: "configs[*].*"
 
-    # - name: Debug Variable - jmesquery Value Errors
-    #   ansible.builtin.debug:
-    #     var: jmesquery
-    #   when: debug_variables | bool
+    - name: Debug Variable - jmesquery Value Errors
+      ansible.builtin.debug:
+        var: jmesquery
+      when: debug_variables | bool
 
-    # - name: Filter JSON Response With json_query
-    #   ansible.builtin.set_fact:
-    #     connector_plugin_value_errors: "{{ validated_connector_plugin.json | json_query(jmesquery) }}"
+    - name: Filter JSON Response With json_query
+      ansible.builtin.set_fact:
+        connector_plugin_value_errors: "{{ validated_connector_plugin.json | json_query(jmesquery) }}"
 
-    # - name: Debug Variable - connector_plugin_value_errors
-    #   ansible.builtin.debug:
-    #     var: connector_plugin_value_errors
-    #   when: debug_variables | bool
+    - name: Debug Variable - connector_plugin_value_errors
+      ansible.builtin.debug:
+        var: connector_plugin_value_errors
+      when: debug_variables | bool
