@@ -32,6 +32,7 @@
     - name: Create Search Parameters For jmesquery Query
       ansible.builtin.set_fact:
         jmesquery: "error_count"
+      when: debug_variables | bool
 
     - name: Debug Variable - jmesquery
       ansible.builtin.debug:
@@ -51,7 +52,7 @@
       ansible.builtin.set_fact:
         jmesquery: "*.*.value.errors"
 
-    - name: Debug Variable - jmesquery
+    - name: Debug Variable - jmesquery Value Errors
       ansible.builtin.debug:
         var: jmesquery
       when: debug_variables | bool
@@ -60,7 +61,7 @@
       ansible.builtin.set_fact:
         connector_plugin_value_errors: "{{ validated_connector_plugin.json | json_query(jmesquery) }}"
 
-    - name: Debug Variable - connector_plugin_error
+    - name: Debug Variable - connector_plugin_value_errors
       ansible.builtin.debug:
         var: connector_plugin_value_errors
       when: debug_variables | bool
