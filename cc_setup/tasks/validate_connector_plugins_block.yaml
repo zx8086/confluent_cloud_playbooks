@@ -50,16 +50,16 @@
 ##
     - name: Create Search Parameters For jmesquery Query
       ansible.builtin.set_fact:
-        value_jmesquery: "*.*.value.errors"
+        jmesquery: "[*].[*].value.errors"
 
     - name: Debug Variable - jmesquery Value Errors
       ansible.builtin.debug:
-        var: value_jmesquery
+        var: jmesquery
       when: debug_variables | bool
 
     - name: Filter JSON Response With json_query
       ansible.builtin.set_fact:
-        connector_plugin_value_errors: "{{ validated_connector_plugin.json | json_query(value_jmesquery) }}"
+        connector_plugin_value_errors: "{{ validated_connector_plugin.json | json_query(jmesquery) }}"
 
     - name: Debug Variable - connector_plugin_value_errors
       ansible.builtin.debug:
