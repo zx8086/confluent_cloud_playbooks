@@ -50,7 +50,8 @@
 ##
     - name: Create Search Parameters For jmesquery Query
       ansible.builtin.set_fact:
-        jmesquery: "*.[*].[*].errors"
+        jmesquery: "*.*.value.errors.*"
+        # jmesquery: "*.[*].[*].errors"
 
     - name: Debug Variable - jmesquery Value Errors
       ansible.builtin.debug:

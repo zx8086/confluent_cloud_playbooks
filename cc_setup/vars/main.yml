@@ -24,7 +24,7 @@ CONNECTOR_LIST:
 
 CONNECTOR_PLUGIN_LIST:
   - JiraSource
-  # - ServiceNowSource
+  - ServiceNowSource
   # - ElasticsearchSink
 
 KAFKA_SERVICE_ACCOUNT_ID: !vault |
