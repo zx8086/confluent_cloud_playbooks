@@ -58,6 +58,10 @@
         var: jmesquery
       when: debug_variables | bool
 
+    - name: Debug Variable - Create Connector via API
+      ansible.builtin.debug:
+        var: validated_connector_plugin
+
     - name: Filter JSON Response With json_query
       ansible.builtin.set_fact:
         connector_plugin_value_errors: "{{ validated_connector_plugin.json | json_query(jmesquery) }}"
