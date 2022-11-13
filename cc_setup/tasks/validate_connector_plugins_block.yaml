@@ -1,7 +1,7 @@
-- name: Connector Plugins Block
+- name: Validate Connector Plugins Block
   block:
   
-    - name: Update Connector Plugins JSON Body Document For API
+    - name: Validate Connector Plugins JSON Body Document For API
       set_fact:
         json_body: "{{ lookup('template', 'templates/CONFIG_{{item}}Connector_0.j2') }}"
 
@@ -9,7 +9,7 @@
       ansible.builtin.debug:
         var: json_body
 
-    - name: Update Connector Plugins via API
+    - name: Validate Connector Plugins via API
       ansible.builtin.uri:
         url: "{{CONFLUENT_CLOUD_API_URL}}/connect/v1/environments/{{ENVIRONMENT_ID}}/clusters/{{CLUSTER_ID}}/connector-plugins/{{item}}/config/validate"
         method: PUT
@@ -25,7 +25,7 @@
       ignore_errors: yes
       register: validated_connector_plugin
 
-    - name: Debug Variable - Create Connector via API
+    - name: Debug Variable - validated_connector_plugin
       ansible.builtin.debug:
         var: validated_connector_plugin
 
@@ -52,7 +52,7 @@
       ansible.builtin.set_fact:
         jmesquery: "configs[*].value.errors[0]"
 
-    - name: Debug Variable - jmesquery Value Errors
+    - name: Debug Variable - jmesquery
       ansible.builtin.debug:
         var: jmesquery
       when: debug_variables | bool
