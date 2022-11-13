@@ -1,6 +1,6 @@
 - name: Get Topics via API
   ansible.builtin.uri:
-    url: "{{KAFKA_CLUSTER_URL}}/kafka/v3/clusters/{{KAFKA_CLUSTER_ID}}/topics"
+    url: "{{CONFLUENT_CLOUD_API_URL}}/kafka/v3/clusters/{{CLUSTER_ID}}/topics"
     method: GET
     body_format: json
     headers:
