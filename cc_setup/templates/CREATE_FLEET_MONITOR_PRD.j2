@@ -1,5 +1,6 @@
 {
-	"name": "DS Kafka Connector | {{item}} ",
+
+	"name": "DS Kafka Connector {{ENVIRONMENT_SHORT}} | {{item}} ",
 	"namespace": "digital_selling",
 	"description": "Monitor for checking Kafka Connector Status",
 	"package": {
@@ -64,7 +65,7 @@
 							},
 							"urls": {
 								"type": "text",
-								"value": "https://connect.dev.shared-services.eu.pvh.cloud:8083/connectors/{{item}}/status"
+								"value": "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/{{item}}/status"
 							},
 							"password": {
 								"type": "password",
@@ -118,7 +119,7 @@
 							},
 							"tags": {
 								"type": "yaml",
-								"value": "[\"beta\",\"shared-services\",\"digital selling\"]" 
+								"value": "[\"production\",\"digital selling\"]"
 							},
 							"schedule": {
 								"type": "text",

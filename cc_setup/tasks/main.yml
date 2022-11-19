@@ -59,3 +59,7 @@
 - name: Create Connector Monitor
   import_tasks: create_connector_monitor.yaml
   tags: create_connector_monitor
+
+- name: Delete Connector Monitor
+  import_tasks: delete_connector_monitor.yaml
+  tags: delete_connector_monitor

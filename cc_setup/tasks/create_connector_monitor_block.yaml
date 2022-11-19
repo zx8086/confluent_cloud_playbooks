@@ -3,7 +3,7 @@
   
     - name: Create Kafka Connector Monitor JSON Body Document For API
       set_fact:
-        json_body: "{{ lookup('template', 'templates/CREATE_FLEET_MONITOR.j2') }}"
+        json_body: "{{ lookup('template', 'templates/CREATE_FLEET_MONITOR_{{ENVIRONMENT_SHORT}}.j2') }}"
 
     - name: Debug Variable - json_body
       ansible.builtin.debug:
