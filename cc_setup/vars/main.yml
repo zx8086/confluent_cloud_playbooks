@@ -2,6 +2,65 @@
 # vars file for cc_setup
 debug_variables: true
 
+#  PVH Confluent Mesosphere Setup
+
+FLEET_API_URL: "https://kibana.siobytes.com/api/fleet"
+
+FLEET_API_TOKEN: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          66653334376136613664636632376336366439643730316438633232353164613534623966326664
+          6264616337333931323330353633326663616566376531330a666334383433613538376533386637
+          39663136643166326234646630383436306563386365306265376363393638663638613465336136
+          3936633631353965620a646439373162313464643332616262313739643561373532346436316366
+          62313030383664333337306364363536396263303132326433396464323963346563326530643132
+          3661376562626462326663613637346432643362633465316133
+
+KAFKA_CONNECTOR_NAME: 
+  - gdam-sink-products
+  # - couchbase-source-price-v2
+  # - pim-MDM-source-articles
+  # - linebook-sink-prices
+  # - gdam-lb-product-image-sink
+  # - dynamodb-sink-look
+  # - gdam-sink-products-details
+  # - pim-MDM-source-products
+  # - dynamodb-sink-look-items
+  # - pim-MDM-source-variants
+  # - couchbase-sink-price-sub-document-v2
+  # - couchbase-sink-price-document-v2
+  # - weconnect-source-account-synchronization-9dbe3e68-29cb-47ee-b4a3-6d2ecdf61f2b
+  # - pim-couchbase-source-articles-05-11-2022-RELOAD
+  # - couchbase-sink-options-17-11-2022
+  # - pim-couchbase-source-products-31-10-2022-RELOAD
+  # - couchbase-sink-inseams-18-11-2022-2-seed-nodes
+  # - linebook-sink-43e86600-2d7c-4dde-b4ee-e61031788b713
+  # - couchbase-sink-distribution-curves-08-07-2022
+  # - sap-car-distribution-curves-source-14-11-2022-xx
+  # - couchbase-sink-customers-0daf6d15-c811-4c02-a296-eeb569d25c74
+  # - couchbase-sink-distribution-curve-details-20-06-2022
+  # - dam-lb-assets-sink-23-06-2022
+  # - couchbase-sink-styles-17-11-2022
+  # - couchbase-sink-prepack-details-20-06-2022
+  # - couchbase-sink-accounts-198fa2da-3358-11ed-a261-0242ac120002
+  # - moodcms-source-looks-30-06-2022
+  # - sap-draft-order-sink-cf8a9721-078d-47ca-b1bc-f3627a060615
+  # - weconnect-source-customers-dbfd9f1b-ea7b-47f7-99db-ae701af3d40c
+  # - weconnect-user-links-sink-7dcbd730-ba4d-4f0a-8343-a4b22531ad30
+  # - sap-car-prepacks-source-14-11-2022-xx
+  # - dam-lb-assets-source-6c58f277-e377-4840-bcc6-7338d6565c613
+  # - sap-source-season-delivery-dates-c808fffe-b2d7-44c2-946c-5ddd87587b1a
+  # - couchbase-sink-sizes-18-11-2022-2-seed-nodes
+  # - sap-source-season-dates-cf2fdaff-bce7-40c8-91c5-77663f8c1211
+  # - pim-couchbase-source-variants-29-09-2022
+  # - weconnect-sink-pim-products-mhcode-699711e8-6969-4ce9-6666-17
+  # - weconnect-source-customer-assignments-synchronization-3f8a8808-4a92-4a7c-8b34-b170cd8f7154
+  # - couchbase-sink-customers-29e181db-78b5-4220-be01-fb109c7246bc
+  # - weconnect-source-user-synchronization-97562c14-e598-446b-8e0b-d18b9fa2ed33
+  # - couchbase-sink-prepacks-25-10-2022
+  # - weconnect-source-8f988b73-7951-4336-8ab1-784b06ff07a5
+
+# Siobytes Confluent Cloud Setup
+
 CONFLUENT_CLOUD_API_URL: "https://api.confluent.cloud" # Confluent Cloud API URL for Connectors
 
 CONFLUENT_CLOUD_API_TOKEN: !vault |

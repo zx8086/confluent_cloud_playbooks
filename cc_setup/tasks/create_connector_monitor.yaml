@@ -1,0 +1,10 @@
+###################################
+##                               ##
+## - Create Connnector Monitor - ##
+##                               ##
+###################################
+
+- name: Resume Connector 
+  include_tasks: tasks/create_connector_monitor_block.yaml
+  loop: "{{ KAFKA_CONNECTOR_NAME }}"
+  # loop: "{{ connector_list.results }}"

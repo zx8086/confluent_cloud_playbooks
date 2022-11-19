@@ -55,3 +55,7 @@
 - name: Validate Connector Plugins
   import_tasks: validate_connector_plugins.yaml
   tags: validate_connector_plugins
+
+- name: Create Connector Monitor
+  import_tasks: create_connector_monitor.yaml
+  tags: create_connector_monitor
