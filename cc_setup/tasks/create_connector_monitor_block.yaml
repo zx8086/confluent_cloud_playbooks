@@ -24,6 +24,7 @@
         status_code: [200, 201]
         return_content: yes
       register: created_kafka_connector_monitor
+      ignore_errors: yes
 
     - name: Debug Variable - Created Kafka Connector Monitor
       ansible.builtin.debug:
