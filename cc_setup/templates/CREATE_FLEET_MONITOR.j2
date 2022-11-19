@@ -1,6 +1,6 @@
 {
 	
-	"name": "DS Kafka Connector | {{ KAFKA_CONNECTOR_NAME }} ",
+	"name": "DS Kafka Connector | {{KAFKA_CONNECTOR_NAME}} ",
 	"namespace": "digital_selling",
 	"description": "Monitor for checking Kafka Connector Status",
 	"package": {
@@ -65,7 +65,7 @@
 							},
 							"urls": {
 								"type": "text",
-								"value": "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/{{ KAFKA_CONNECTOR_NAME }}/status"
+								"value": "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/{{KAFKA_CONNECTOR_NAME}}/status"
 							},
 							"password": {
 								"type": "password",
@@ -143,7 +143,7 @@
 							},
 							"name": {
 								"type": "text",
-								"value": "DS Kafka Connector | {{ KAFKA_CONNECTOR_NAME }}"
+								"value": "DS Kafka Connector | {{KAFKA_CONNECTOR_NAME}}"
 							},
 							"response.include_headers": {
 								"type": "bool",
