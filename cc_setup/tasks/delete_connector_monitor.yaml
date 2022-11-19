@@ -2,7 +2,7 @@
 - name: Create Search Parameters For jmesquery Query
   ansible.builtin.set_fact:
     # jmesquery: "[*].{id: id}"
-    jmesquery: "[? name==`DS Kafka Connector`].{id: id}"
+    jmesquery: "[*].{id: id, name: name}"
 
 - name: Debug Variable - jmesquery
   ansible.builtin.debug:
