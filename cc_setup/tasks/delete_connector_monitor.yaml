@@ -22,7 +22,7 @@
 
     - name: Create Search Parameters for jmesquery Query
       ansible.builtin.set_fact:
-        jmesquery: "items[*].[?contains(name,'DSE')].{id: id}"
+        jmesquery: "items[*].[? name==`DSE - Kafka Connector - DEV | AwsLambdaSinkConnectorConnector_test2`].{id: id}"
         # DSE - Kafka Connector - DEV | AwsLambdaSinkConnectorConnector_test2
         # jmesquery: "items[*].name"
         # jmesquery: "[*].[*].id"
