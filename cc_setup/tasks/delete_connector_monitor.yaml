@@ -22,7 +22,7 @@
 
     - name: Create Search Parameters for jmesquery Query
       ansible.builtin.set_fact:
-        jmesquery: "items[*].id"
+        jmesquery: "items[*].name"
         # jmesquery: "[*].[*].id"
         # jmesquery: "[? name==`DSE`].{id: id}"
 # "domain.server[?contains(name,'server1')].port"
