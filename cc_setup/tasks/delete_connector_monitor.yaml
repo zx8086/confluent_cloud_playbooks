@@ -22,8 +22,9 @@
 
     - name: Create Search Parameters for jmesquery Query
       ansible.builtin.set_fact:
+        jmesquery: "name"
         # jmesquery: "[*].[*].id"
-        jmesquery: "[? name==`DSE`].{id: id}"
+        # jmesquery: "[? name==`DSE`].{id: id}"
 
 
     - name: Filter JSON Response with json_query
