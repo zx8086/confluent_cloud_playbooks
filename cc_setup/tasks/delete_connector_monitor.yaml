@@ -20,6 +20,17 @@
         var: get_package_policies
       when: debug_variables | bool
 
+    - name: Create Search Parameters for jmesquery Query
+      ansible.builtin.set_fact:
+        jmesquery: "[*].{id: id, name: name}"
+
+    - name: Filter JSON Response with json_query
+      ansible.builtin.set_fact:
+        delete_package_policies: "{{ get_package_policies.json | json_query(jmesquery) }}"  
+
+    - name: Debug Variable - get_package_policies
+      ansible.builtin.debug:
+        var: delete_package_policies
 
 # - name: Create Search Parameters For jmesquery Query
 #   ansible.builtin.set_fact:
