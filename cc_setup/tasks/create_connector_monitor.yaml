@@ -7,14 +7,14 @@
 - name: Create Connnector Monitor 
   include_tasks: tasks/create_connector_monitor_block.yaml
   loop: "{{DEV_CONNECTOR_LIST}}"
-  when: ENVIRONMENT_SHORT == "DEV"
+  when: ENVIRONMENT_SHORT == "DEV" OR ENVIRONMENT_SHORT == "ALL"
 
 - name: Create Connnector Monitor 
   include_tasks: tasks/create_connector_monitor_block.yaml
   loop: "{{TST_CONNECTOR_LIST}}"
-  when: ENVIRONMENT_SHORT == "TST"
+  when: ENVIRONMENT_SHORT == "TST" OR ENVIRONMENT_SHORT == "ALL"
 
 - name: Create Connnector Monitor 
   include_tasks: tasks/create_connector_monitor_block.yaml
   loop: "{{PRD_CONNECTOR_LIST}}"
-  when: ENVIRONMENT_SHORT == "PRD"
+  when: ENVIRONMENT_SHORT == "PRD" OR ENVIRONMENT_SHORT == "ALL"

@@ -4,7 +4,7 @@ debug_variables: true
 
 #  PVH Confluent Mesosphere Setup
 
-ENVIRONMENT_SHORT: "DEV"
+ENVIRONMENT_SHORT: "ALL"
 
 FLEET_API_URL: "https://kibana.siobytes.com/api/fleet"
 
@@ -21,20 +21,20 @@ FLEET_API_TOKEN: !vault |
 DEV_CONNECTOR_LIST:
   - couchbase-sink-options-include-logs-1
   - pim-legacy-apps-source-products
-  # - pimopt-products-sink-1
-  # - pim-legacy-apps-source-articles
-  # - linebook-products-variants-sink-10
-  # - pimopt-source-variants-01-11-2022-as-offset
-  # - pim-legacy-apps-source-variants
-  # - pimopt-variants-sink
-  # - pimopt-source-articles-01-11-2022-as-offset
-  # - pimopt-source-products-01-11-2022-as-offset
-  # - couchbase-sink-accounts-d0372db3-dd3a-4c64-ae83-469caef018e4
-  # - pim-MDM-source-products
-  # - pim-MDM-source-articles
-  # - pim-MDM-source-variants
-  # - AwsLambdaSinkConnectorConnector_test2
-  # - pimopt-articles-sink
+  - pimopt-products-sink-1
+  - pim-legacy-apps-source-articles
+  - linebook-products-variants-sink-10
+  - pimopt-source-variants-01-11-2022-as-offset
+  - pim-legacy-apps-source-variants
+  - pimopt-variants-sink
+  - pimopt-source-articles-01-11-2022-as-offset
+  - pimopt-source-products-01-11-2022-as-offset
+  - couchbase-sink-accounts-d0372db3-dd3a-4c64-ae83-469caef018e4
+  - pim-MDM-source-products
+  - pim-MDM-source-articles
+  - pim-MDM-source-variants
+  - AwsLambdaSinkConnectorConnector_test2
+  - pimopt-articles-sink
 
 # Testing
 TST_CONNECTOR_LIST:
