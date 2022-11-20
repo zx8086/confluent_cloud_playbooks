@@ -4,6 +4,17 @@
 ##                               ##
 ###################################
 
-- name: Resume Connector 
+- name: Create Connnector Monitor 
   include_tasks: tasks/create_connector_monitor_block.yaml
-  loop: "{{KAFKA_CONNECTOR_LIST}}"
+  loop: "{{DEV_CONNECTOR_LIST}}"
+  when: ENVIRONMENT_SHORT == "DEV"
+
+- name: Create Connnector Monitor 
+  include_tasks: tasks/create_connector_monitor_block.yaml
+  loop: "{{TST_CONNECTOR_LIST}}"
+  when: ENVIRONMENT_SHORT == "TST"
+
+- name: Create Connnector Monitor 
+  include_tasks: tasks/create_connector_monitor_block.yaml
+  loop: "{{PRD_CONNECTOR_LIST}}"
+  when: ENVIRONMENT_SHORT == "PRD"

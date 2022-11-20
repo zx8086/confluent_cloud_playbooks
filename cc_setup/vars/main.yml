@@ -17,87 +17,87 @@ FLEET_API_TOKEN: !vault |
           62313030383664333337306364363536396263303132326433396464323963346563326530643132
           3661376562626462326663613637346432643362633465316133
 
-# Testing
-# KAFKA_CONNECTOR_LIST:
-#   - weconnect-sink-pim-products-mhcode-699711e8-6969-4ce9-6666-2
-#   - couchbase-source-price-v2-dev
-#   - weconnect-user-links-sink-0043fcf8-8e2e-43a3-b385-a9f7e876a467
-#   - weconnect-sink-season-dates-7ec5d835-5a59-46f4-bbf8-95e88ea385e4
-#   - dam-digitalshowroom-assets-sink-POC-2
-#   - sap-source-season-delivery-dates-3487abd6-7a7a-4a64-9c03-6b8026819347
-#   - couchbase-sink-price-document-v2-stg
-#   - couchbase-source-price-v2-stg
-#   - dynamodb-sink-look-items-08-11-2022
-#   - gdam-sink-products-details-06-29-2022-dev
-#   - couchbase-sink-accounts-d0372db3-dd3a-4c64-ae83-469caef018e4
-#   - pim-MDM-source-variants
-#   - couchbase-sink-price-document-v2-dev
-#   - sap-stock-source-8ac598f0-cdad-4bcb-954a-834b58e01dbd
-#   - gdam-sink-products-details-20221031-new
-#   - couchbase-sink-sizes-V348-new
-#   - dynamodb-sink-look-08-11-2022
-#   - couchbase-sink-styles-v348-NEW-1
-#   - sap-draft-order-sink-20220907
-#   - weconnect-sink-season-delivery-dates-699711e8-6969-4ce9-6666-8
-#   - pimopt-source-variants-01-11-22-as-offset
-#   - couchbase-sink-distribution-curves-details
-#   - pimopt-source-products-monitoring-01-11-22-as-offset
-#   - couchbase-sink-price-sub-document-v2-stg
-#   - weconnect-source-customer-assignments-synchronization-86aa57b1-d3be-45a7-b161-9e1d71664f48
-#   - dam-digitalshowroom-assets-source-POC-3
-#   - couchbase-sink-customers-158c1911-affb-416d-ba68-8bbe38e2ebd9
-#   - weconnect-source-customers-20223003
-#   - moodcms-source-looks-1
-#   - gdam-sink-products-06-29-2022-dev
-#   - couchbase-sink-options-v348-b
-#   - pim-articles
-#   - gdam-sink-products
-#   - gdam-lb-product-image-sink
-#   - couchbase-sink-price-sub-document-v2-dev
-#   - couchbase-sink-distribution-curves
-#   - linebook-sink-f6666c54-8112-4c6e-ae56-1115748f26711
-#   - dam-lb-assets-source-457dfa36-365a-47a0-8daa-c7112be45911
-#   - dam-ds-assets-source-1da455bd-4c27-4ae2-9623-4596963db6c11
-#   - weconnect-source-prices-ac78900e-b723-4d0d-9ede-8f7dfef64340
-#   - couchbase-sink-prepack-details-25-08-2022
-#   - dam-lb-assets-sink
-#   - pim-MDM-source-products
-#   - weconnect-source-customers-98a5f063-8f0e-49df-baa7-04cbffdd56ag
-#   - weconnect-source-account-synchronization-24c498ff-7095-454d-951f-05ea00b26203-new1
-#   - couchbase-inseams-V348-new-1
-#   - sap-source-season-dates-c7564e23-6c0d-44bf-8cbf-15243026ccc4
-#   - weconnect-source-customer-assignments-synchronisation-timestamp-01
-#   - sap-car-distribution-curves-source-2
-#   - weconnect-source-customer-assignments-synchronisation-ctes-01
-#   - dam-ds-assets-sink-128fb568-ed82-47f5-8c68-a71877539990
-#   - couchbase-sink-customers-7220c419-6c21-4d5b-aefb-3697a5fd6d40
-#   - weconnect-source-user-synchronization-a52538a3-ee6a-45bf-8bc1-4d671287228c
-#   - pim-MDM-source-articles
-#   - dam-digitalshowroom-asset-details-sink-POC
-#   - linebook-sink-prices-4546124e-9420-48ef-a55d-1260cbca9717
-#   - couchbase-sink-prepacks
-
 # Development shared-services
-# KAFKA_CONNECTOR_LIST:
-#   - couchbase-sink-options-include-logs-1
-#   - pim-legacy-apps-source-products
-#   - pimopt-products-sink-1
-#   - pim-legacy-apps-source-articles
-#   - linebook-products-variants-sink-10
-#   - pimopt-source-variants-01-11-2022-as-offset
-#   - pim-legacy-apps-source-variants
-#   - pimopt-variants-sink
-#   - pimopt-source-articles-01-11-2022-as-offset
-#   - pimopt-source-products-01-11-2022-as-offset
-#   - couchbase-sink-accounts-d0372db3-dd3a-4c64-ae83-469caef018e4
-#   - pim-MDM-source-products
-#   - pim-MDM-source-articles
-#   - pim-MDM-source-variants
-#   - AwsLambdaSinkConnectorConnector_test2
-#   - pimopt-articles-sink
+DEV_CONNECTOR_LIST:
+  - couchbase-sink-options-include-logs-1
+  - pim-legacy-apps-source-products
+  # - pimopt-products-sink-1
+  # - pim-legacy-apps-source-articles
+  # - linebook-products-variants-sink-10
+  # - pimopt-source-variants-01-11-2022-as-offset
+  # - pim-legacy-apps-source-variants
+  # - pimopt-variants-sink
+  # - pimopt-source-articles-01-11-2022-as-offset
+  # - pimopt-source-products-01-11-2022-as-offset
+  # - couchbase-sink-accounts-d0372db3-dd3a-4c64-ae83-469caef018e4
+  # - pim-MDM-source-products
+  # - pim-MDM-source-articles
+  # - pim-MDM-source-variants
+  # - AwsLambdaSinkConnectorConnector_test2
+  # - pimopt-articles-sink
+
+# Testing
+TST_CONNECTOR_LIST:
+  - weconnect-sink-pim-products-mhcode-699711e8-6969-4ce9-6666-2
+  - couchbase-source-price-v2-dev
+  - weconnect-user-links-sink-0043fcf8-8e2e-43a3-b385-a9f7e876a467
+  - weconnect-sink-season-dates-7ec5d835-5a59-46f4-bbf8-95e88ea385e4
+  - dam-digitalshowroom-assets-sink-POC-2
+  - sap-source-season-delivery-dates-3487abd6-7a7a-4a64-9c03-6b8026819347
+  - couchbase-sink-price-document-v2-stg
+  - couchbase-source-price-v2-stg
+  - dynamodb-sink-look-items-08-11-2022
+  - gdam-sink-products-details-06-29-2022-dev
+  - couchbase-sink-accounts-d0372db3-dd3a-4c64-ae83-469caef018e4
+  - pim-MDM-source-variants
+  - couchbase-sink-price-document-v2-dev
+  - sap-stock-source-8ac598f0-cdad-4bcb-954a-834b58e01dbd
+  - gdam-sink-products-details-20221031-new
+  - couchbase-sink-sizes-V348-new
+  - dynamodb-sink-look-08-11-2022
+  - couchbase-sink-styles-v348-NEW-1
+  - sap-draft-order-sink-20220907
+  - weconnect-sink-season-delivery-dates-699711e8-6969-4ce9-6666-8
+  - pimopt-source-variants-01-11-22-as-offset
+  - couchbase-sink-distribution-curves-details
+  - pimopt-source-products-monitoring-01-11-22-as-offset
+  - couchbase-sink-price-sub-document-v2-stg
+  - weconnect-source-customer-assignments-synchronization-86aa57b1-d3be-45a7-b161-9e1d71664f48
+  - dam-digitalshowroom-assets-source-POC-3
+  - couchbase-sink-customers-158c1911-affb-416d-ba68-8bbe38e2ebd9
+  - weconnect-source-customers-20223003
+  - moodcms-source-looks-1
+  - gdam-sink-products-06-29-2022-dev
+  - couchbase-sink-options-v348-b
+  - pim-articles
+  - gdam-sink-products
+  - gdam-lb-product-image-sink
+  - couchbase-sink-price-sub-document-v2-dev
+  - couchbase-sink-distribution-curves
+  - linebook-sink-f6666c54-8112-4c6e-ae56-1115748f26711
+  - dam-lb-assets-source-457dfa36-365a-47a0-8daa-c7112be45911
+  - dam-ds-assets-source-1da455bd-4c27-4ae2-9623-4596963db6c11
+  - weconnect-source-prices-ac78900e-b723-4d0d-9ede-8f7dfef64340
+  - couchbase-sink-prepack-details-25-08-2022
+  - dam-lb-assets-sink
+  - pim-MDM-source-products
+  - weconnect-source-customers-98a5f063-8f0e-49df-baa7-04cbffdd56ag
+  - weconnect-source-account-synchronization-24c498ff-7095-454d-951f-05ea00b26203-new1
+  - couchbase-inseams-V348-new-1
+  - sap-source-season-dates-c7564e23-6c0d-44bf-8cbf-15243026ccc4
+  - weconnect-source-customer-assignments-synchronisation-timestamp-01
+  - sap-car-distribution-curves-source-2
+  - weconnect-source-customer-assignments-synchronisation-ctes-01
+  - dam-ds-assets-sink-128fb568-ed82-47f5-8c68-a71877539990
+  - couchbase-sink-customers-7220c419-6c21-4d5b-aefb-3697a5fd6d40
+  - weconnect-source-user-synchronization-a52538a3-ee6a-45bf-8bc1-4d671287228c
+  - pim-MDM-source-articles
+  - dam-digitalshowroom-asset-details-sink-POC
+  - linebook-sink-prices-4546124e-9420-48ef-a55d-1260cbca9717
+  - couchbase-sink-prepacks
 
 # Production
-KAFKA_CONNECTOR_LIST:
+PRD_CONNECTOR_LIST:
   - gdam-sink-products
   - couchbase-source-price-v2
   - pim-MDM-source-articles
