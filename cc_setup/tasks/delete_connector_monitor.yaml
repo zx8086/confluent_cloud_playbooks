@@ -27,7 +27,7 @@
 
     - name: Filter JSON Response with json_query
       ansible.builtin.set_fact:
-        delete_package_policies: "{{ get_package_policies.json to_json | from_json | json_query(jmesquery) }}"  
+        delete_package_policies: "{{ get_package_policies.json | to_json | from_json | json_query(jmesquery) }}"  
 
     - name: Debug Variable - get_package_policies
       ansible.builtin.debug:
