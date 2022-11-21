@@ -8,6 +8,7 @@
         method: GET
         headers:
           Authorization: "{{ FLEET_API_TOKEN }}"
+          Content-Type: application/json
           kbn-xsrf: "kbn-xsrf"
         follow_redirects: yes
         force: yes
