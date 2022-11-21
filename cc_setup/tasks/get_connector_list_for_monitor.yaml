@@ -1,0 +1,48 @@
+- name: Create Connnector Monitor 
+  ansible.builtin.set_fact:
+    kafka_connect_connectors: "https://connect.dev.shared-services.eu.pvh.cloud/connectors"  
+  when: ENVIRONMENT_SHORT == "DEV"
+
+- name: Create Connnector Monitor 
+
+  when: ENVIRONMENT_SHORT == "TST"
+
+- name: Create Connnector Monitor 
+
+  when: ENVIRONMENT_SHORT == "PRD"
+
+
+- name: Delete Kafka Connector Monitor via API
+  block:
+
+    - name: Delete Kafka Connector Monitor via API
+      ansible.builtin.uri:
+        url: "{{ kafka_connect_connectors }}"
+        method: GET
+        headers:
+          Authorization: "{{ FLEET_API_TOKEN }}"
+          Content-Type: application/json
+          # kbn-xsrf: "kbn-xsrf"
+        follow_redirects: safe
+        force: yes
+        status_code: [200]
+        return_content: yes
+      register: get_connector_list_for_monitor
+
+    - name: Debug Variable - get_package_policies
+      ansible.builtin.debug:
+        var: get_connector_list_for_monitor
+      when: debug_variables | bool
+
+    # - name: Create Search Parameters for jmesquery Query
+    #   ansible.builtin.set_fact:
+    #     jmesquery: "items[?contains(name,`DS - Kafka Connector - {{ENVIRONMENT_SHORT}}`)].id"  
+
+    # - name: Filter JSON Response with json_query
+    #   ansible.builtin.set_fact:
+    #     delete_package_policies: "{{ get_package_policies.json | to_json | from_json | json_query(jmesquery) }}"  
+
+    # - name: Debug Variable - get_package_policies
+    #   ansible.builtin.debug:
+    #     var: delete_package_policies
+    #   when: debug_variables | bool

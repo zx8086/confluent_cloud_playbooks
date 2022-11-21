@@ -35,7 +35,7 @@ DEV_CONNECTOR_LIST:
   - AwsLambdaSinkConnectorConnector_test2
   - pimopt-articles-sink
 
-# Testing
+# Testing beta53
 TST_CONNECTOR_LIST:
   - weconnect-sink-pim-products-mhcode-699711e8-6969-4ce9-6666-2
   - couchbase-source-price-v2-dev
@@ -95,7 +95,7 @@ TST_CONNECTOR_LIST:
   - linebook-sink-prices-4546124e-9420-48ef-a55d-1260cbca9717
   - couchbase-sink-prepacks
 
-# Production
+# Production production53
 PRD_CONNECTOR_LIST:
   - gdam-sink-products
   - couchbase-source-price-v2
