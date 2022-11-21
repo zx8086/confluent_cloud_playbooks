@@ -10,7 +10,7 @@
           Authorization: "{{ FLEET_API_TOKEN }}"
           kbn-xsrf: "kbn-xsrf"
         follow_redirects: yes
-        force: true
+        force: yes
         status_code: [200]
         return_content: yes
       register: get_package_policies
@@ -30,4 +30,4 @@
 
     - name: Debug Variable - get_package_policies
       ansible.builtin.debug:
-        var: delete_package_policies
+        var: delete_package_policies | bool
