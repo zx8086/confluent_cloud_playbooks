@@ -21,7 +21,7 @@
         url: "{{ kafka_connect_connector_url }}"
         method: GET
         headers:
-          Authorization: "{{ FLEET_API_TOKEN }}"
+          # Authorization: "{{ FLEET_API_TOKEN }}"
           Content-Type: application/json
           # kbn-xsrf: "kbn-xsrf"
         follow_redirects: safe
