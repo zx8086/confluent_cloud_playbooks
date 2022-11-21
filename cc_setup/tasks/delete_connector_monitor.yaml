@@ -10,7 +10,7 @@
           Authorization: "{{ FLEET_API_TOKEN }}"
           Content-Type: application/json
           kbn-xsrf: "kbn-xsrf"
-        follow_redirects: yes
+        follow_redirects: safe
         force: yes
         status_code: [200]
         return_content: yes
@@ -23,7 +23,7 @@
 
     - name: Create Search Parameters for jmesquery Query
       ansible.builtin.set_fact:
-        jmesquery: "items[?starts_with(name,`DS - Kafka Connector - {{ENVIRONMENT_SHORT}}`)].id"  
+        jmesquery: "items[?contains(name,`DS - Kafka Connector - {{ENVIRONMENT_SHORT}}`)].id"  
 
     - name: Filter JSON Response with json_query
       ansible.builtin.set_fact:
