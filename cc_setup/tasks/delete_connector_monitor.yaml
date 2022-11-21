@@ -1,14 +1,16 @@
 
-- name: Delete Kafka Connector Monitor via API
+- name: Get Kafka Monitor List via API
   block:
 
-    - name: Delete Kafka Connector Monitor via API
+    - name: Get Kafka Monitor List via API
       ansible.builtin.uri:
         url: "{{ FLEET_API_URL }}/package_policies"
         method: GET
         headers:
           Authorization: "{{ FLEET_API_TOKEN }}"
           Content-Type: application/json
+          cache-control: no-cache
+          content-enconding: gzip
           kbn-xsrf: "kbn-xsrf"
         follow_redirects: safe
         force: yes
