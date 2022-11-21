@@ -31,4 +31,5 @@
 
     - name: Debug Variable - get_package_policies
       ansible.builtin.debug:
-        var: delete_package_policies | bool
+        var: delete_package_policies
+      when: debug_variables | bool
