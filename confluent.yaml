@@ -1,5 +1,5 @@
 ---
-- name:  Confluent Cloud
+- name:  Confluent Cloud Playbooks for Automation
   hosts: all
   serial: 25
   gather_facts: yes 
