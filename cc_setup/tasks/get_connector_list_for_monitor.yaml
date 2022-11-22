@@ -25,6 +25,7 @@
           Content-Type: application/json
         follow_redirects: safe
         force: yes
+        remote_src: yes
         status_code: [200]
         return_content: yes
       register: get_connector_list
