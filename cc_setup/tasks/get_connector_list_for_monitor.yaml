@@ -10,7 +10,7 @@
 
 - name: Set Connect URL
   ansible.builtin.set_fact:
-    CONNECT_URL: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors"  
+    CONNECT_URL: "http://10.80.131.49:8083/connectors"  
   when: ENVIRONMENT_SHORT == "PRD"
 
 - name: Get Connector List via API
@@ -33,3 +33,4 @@
       ansible.builtin.debug:
         var: get_connector_list
       when: debug_variables | bool
+
