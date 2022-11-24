@@ -4,17 +4,43 @@
 ##                               ##
 ###################################
 
-- name: Create Connnector Monitor 
-  include_tasks: tasks/create_connector_monitor_block.yaml
-  loop: "{{DEV_CONNECTOR_LIST}}"
+- name:  Set Connect URL
+  ansible.builtin.set_fact:
+    CONNECT_URL: "https://connect.dev.shared-services.eu.pvh.cloud/connectors"
   when: ENVIRONMENT_SHORT == "DEV"
 
-- name: Create Connnector Monitor 
-  include_tasks: tasks/create_connector_monitor_block.yaml
-  loop: "{{TST_CONNECTOR_LIST}}"
+- name: Set Connect URL
+  ansible.builtin.set_fact:
+    CONNECT_URL: "http://10.80.131.44:8083/connectors"  
   when: ENVIRONMENT_SHORT == "TST"
+
+- name: Set Connect URL
+  ansible.builtin.set_fact:
+    CONNECT_URL: "http://10.80.131.49:8083/connectors"  
+  when: ENVIRONMENT_SHORT == "PRD"
+
+- name: Get Connector List via API
+  block:
+    - name: Get Connector List via API
+      ansible.builtin.uri:
+        url: "{{CONNECT_URL}}"
+        method: GET
+        headers:
+          # Authorization: "{{ FLEET_API_TOKEN }}"
+          Content-Type: application/json
+        follow_redirects: safe
+        force: yes
+        remote_src: yes
+        status_code: [200]
+        return_content: yes
+      delegate_to: localhost
+      register: get_connector_list
+
+    - name: Debug Variable - get_connector_list
+      ansible.builtin.debug:
+        var: get_connector_list
+      when: debug_variables | bool
 
 - name: Create Connnector Monitor 
   include_tasks: tasks/create_connector_monitor_block.yaml
-  loop: "{{PRD_CONNECTOR_LIST}}"
-  when: ENVIRONMENT_SHORT == "PRD"
+  loop: "{{get_connector_list.json}}"

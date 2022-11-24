@@ -63,7 +63,3 @@
 - name: Delete Connector Monitor
   import_tasks: delete_connector_monitor.yaml
   tags: delete_connector_monitor
-
-- name: Get Connector List For Monitor
-  import_tasks: get_connector_list_for_monitor.yaml
-  tags: get_connector_list_for_monitor

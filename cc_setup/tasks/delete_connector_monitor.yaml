@@ -1,3 +1,54 @@
+###################################
+##                               ##
+## - Delete Connnector Monitor - ##
+##                               ##
+###################################
+
+# - name:  Set Connect URL
+#   ansible.builtin.set_fact:
+#     CONNECT_URL: "https://connect.dev.shared-services.eu.pvh.cloud/connectors"
+#   when: ENVIRONMENT_SHORT == "DEV"
+
+# - name: Set Connect URL
+#   ansible.builtin.set_fact:
+#     CONNECT_URL: "http://10.80.131.44:8083/connectors"  
+#   when: ENVIRONMENT_SHORT == "TST"
+
+# - name: Set Connect URL
+#   ansible.builtin.set_fact:
+#     CONNECT_URL: "http://10.80.131.49:8083/connectors"  
+#   when: ENVIRONMENT_SHORT == "PRD"
+
+# - name: Get Connector List via API
+
+- name: Get Kafka Monitor List via API
+  ansible.builtin.uri:
+    url: "{{ FLEET_API_URL }}/package_policies"
+    method: GET
+    headers:
+      Authorization: "{{ FLEET_API_TOKEN }}"
+      Content-Type: application/json
+      cache-control: no-cache
+      content-enconding: gzip
+      kbn-xsrf: "kbn-xsrf"
+      return_content: no
+  register: check_total_pages
+
+- debug: 
+    msg: "{{ check_total_pages }}"
+
+- name: Create Search Parameters for jmesquery Query
+  ansible.builtin.set_fact:
+    jmesquery: "total"  
+
+- name: Filter JSON Response with json_query
+  ansible.builtin.set_fact:
+    total_pages: "{{ check_total_pages.json | json_query(jmesquery) }}"  
+
+- name: Debug Variable - get_package_policies
+  ansible.builtin.debug:
+    var: total_pages
+  when: debug_variables | bool
 
 - name: Get Kafka Monitor List via API
   block:
@@ -16,22 +67,32 @@
         force: yes
         status_code: [200]
         return_content: yes
+        body_format: json
+        body:
+          top_level_only: false
+          page: "{{ item }}"
       register: get_package_policies
+      with_sequence: start=1 end=2
+      # with_sequence: start=1 end={{ total_pages }}
 
     - name: Debug Variable - get_package_policies
       ansible.builtin.debug:
         var: get_package_policies
       when: debug_variables | bool
 
-    - name: Create Search Parameters for jmesquery Query
-      ansible.builtin.set_fact:
-        jmesquery: "items[?contains(name,`DS - Kafka Connector - {{ENVIRONMENT_SHORT}}`)].id"  
+    # - name: Create Search Parameters for jmesquery Query
+    #   ansible.builtin.set_fact:
+    #     jmesquery: "items[?contains(contains,`DS - Kafka Connector - {{ENVIRONMENT_SHORT}}`)].id"  
 
-    - name: Filter JSON Response with json_query
-      ansible.builtin.set_fact:
-        delete_package_policies: "{{ get_package_policies.json | to_json | from_json | json_query(jmesquery) }}"  
+    # - name: Filter JSON Response with json_query
+    #   ansible.builtin.set_fact:
+    #     delete_package_policies: "{{ get_package_policies | to_json | from_json | json_query(jmesquery) }}"  
 
-    - name: Debug Variable - get_package_policies
-      ansible.builtin.debug:
-        var: delete_package_policies
-      when: debug_variables | bool
+    # - name: Debug Variable - get_package_policies
+    #   ansible.builtin.debug:
+    #     var: delete_package_policies
+    #   when: debug_variables | bool
+
+    # - name: Delete Connnector Monitor 
+    #   include_tasks: tasks/delete_connector_monitor_block.yaml
+    #   loop: "{{delete_package_policies}}"

@@ -4,8 +4,8 @@
 
     - name: Delete Kafka Connector Monitor via API
       ansible.builtin.uri:
-        url: "{{ FLEET_API_URL }}/package_policies"
-        method: GET
+        url: "{{ FLEET_API_URL }}/package_policies/{{item}}"
+        method: DELETE
         headers:
           Authorization: "{{ FLEET_API_TOKEN }}"
           kbn-xsrf: "kbn-xsrf"
@@ -20,7 +20,6 @@
         var: get_package_policies
       when: debug_variables | bool
 
-
 # - name: Create Search Parameters For jmesquery Query
 #   ansible.builtin.set_fact:
 #     # jmesquery: "[*].{id: id}"
@@ -30,7 +29,6 @@
 #   ansible.builtin.debug:
 #     var: jmesquery
 #   when: debug_variables | bool
-
 
 # - name: Delete Resilio Notification
 #   block:
@@ -83,16 +81,6 @@
 #   become: true
 #   tags:
 #     - delete-resilio-notifications
-
-
-
-
-
-
-
-
-
-
 
 
 # - name: Delete Kafka Connector Monitor via API
