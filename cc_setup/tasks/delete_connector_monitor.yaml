@@ -82,7 +82,7 @@
 
     - name: Create Search Parameters for jmesquery Query
       ansible.builtin.set_fact:
-        jmesquery: "*"
+        jmesquery: "*.*.*.id"
         # jmesquery: "content[*].items[?contains(contains,`DS - Kafka Connector - {{ENVIRONMENT_SHORT}}`)].id"  
 
     - name: Filter JSON Response with json_query
