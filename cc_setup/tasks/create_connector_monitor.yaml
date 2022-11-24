@@ -7,17 +7,17 @@
 - name:  Set Connect URL
   ansible.builtin.set_fact:
     CONNECT_URL: "https://connect.dev.shared-services.eu.pvh.cloud/connectors"
-  when: ENVIRONMENT_SHORT == "DEV"
+  when: ENVIRONMENT_SHORT == "dev"
 
 - name: Set Connect URL
   ansible.builtin.set_fact:
     CONNECT_URL: "http://10.80.131.44:8083/connectors"  
-  when: ENVIRONMENT_SHORT == "TST"
+  when: ENVIRONMENT_SHORT == "stg"
 
 - name: Set Connect URL
   ansible.builtin.set_fact:
     CONNECT_URL: "http://10.80.131.49:8083/connectors"  
-  when: ENVIRONMENT_SHORT == "PRD"
+  when: ENVIRONMENT_SHORT == "prd"
 
 - name: Get Connector List via API
   block:
