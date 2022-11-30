@@ -3,7 +3,7 @@
 debug_variables: true
 
 #  PVH Confluent Mesosphere Setup
-ENVIRONMENT_SHORT: "stg"
+ENVIRONMENT_SHORT: "prd"
 
 FLEET_API_URL: "https://kibana.siobytes.com/api/fleet"
 
