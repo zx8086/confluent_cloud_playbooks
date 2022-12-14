@@ -1,0 +1,31 @@
+#########################################
+##                                     ##
+## - Create API Health Check Monitor - ##
+##                                     ##
+#########################################
+
+# - name: Get Connector List via API
+#   block:
+#     - name: Get Connector List via API
+#       ansible.builtin.uri:
+#         url: "{{CONNECT_URL}}"
+#         method: GET
+#         headers:
+#           # Authorization: "{{ FLEET_API_TOKEN }}"
+#           Content-Type: application/json
+#         follow_redirects: safe
+#         force: yes
+#         remote_src: yes
+#         status_code: [200]
+#         return_content: yes
+#       delegate_to: localhost
+#       register: get_connector_list
+
+#     - name: Debug Variable - get_connector_list
+#       ansible.builtin.debug:
+#         var: get_connector_list
+#       when: debug_variables | bool
+
+- name: Create Connnector Monitor 
+  include_tasks: tasks/create_api_healthcheck_monitor_block.yaml
+  loop: "{{ API_HEALTHCHECK_LIST }}"

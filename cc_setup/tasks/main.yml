@@ -64,3 +64,7 @@
   import_tasks: delete_connector_monitor.yaml
   tags: delete_connector_monitor
 
+- name: Create API Health Check Monitor
+  import_tasks: create_api_healthcheck_monitor.yaml
+  tags: create_api_healthcheck_monitor
+  
