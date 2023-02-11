@@ -3,8 +3,14 @@
 debug_variables: true
 
 #  PVH Confluent Mesosphere Setup
-ENVIRONMENT_SHORT: "prd"
-ENVIRONMENT_LONG: "production"
+# ENVIRONMENT_SHORT: "prd"
+# ENVIRONMENT_LONG: "production"
+
+# ENVIRONMENT_SHORT: "stg"
+# ENVIRONMENT_LONG: "staging"
+
+ENVIRONMENT_SHORT: "dev"
+ENVIRONMENT_LONG: "development"
 
 # FLEET_API_URL: "https://kibana.siobytes.com/api/fleet"
 FLEET_API_URL: "https://kibana-europe.pvhcorp.com/api/fleet"
@@ -40,23 +46,27 @@ CONFLUENT_CLOUD_API_TOKEN: !vault |
 API_HEALTHCHECK_LIST:
   - authentication
   - authorization
-  - catalog
-  - customers
-  - delivery-dates
   - delivery-dates-service
   - distributioncurves
   - divisions
   - images
   - notifications-service
-  - notifications
+  - notifications-scheduler
+  - notifications-webhook
   - options
-  - orders
   - prepacks
   - prices
   - prices-api-v2
+  - prices-producer-v2
   - process-api
   - seasons
   - stock
+  # - customers
+  # - notifications
+  # - delivery-dates
+  # - catalog
+  # - orders
+
 
 CONNECTOR_LIST:
   - JiraSourceConnector_0

@@ -5,9 +5,8 @@
 	"package": {
 		"name": "synthetics",
 		"title": "Elastic Synthetics",
-		"version": "0.11.3",
-		"experimental_data_stream_features": []
-	},
+		"version": "0.11.5",
+		"experimental_data_stream_features": []},
 	"inputs": [
 			{
 				"policy_template": "synthetics",
@@ -44,7 +43,7 @@
 							},
 							"max_redirects": {
 								"type": "integer",
-								"value": "0"
+								"value": "5"
 							},
 							"enabled": {
 								"type": "bool",
@@ -64,7 +63,7 @@
 							},
 							"urls": {
 								"type": "text",
-								"value": "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/{{item}}/status"
+								"value": "{{CONNECT_URL}}/{{item}}/status"
 							},
 							"password": {
 								"type": "password",
@@ -118,7 +117,7 @@
 							},
 							"tags": {
 								"type": "yaml",
-								"value": "[\"staging\",\"beta53\",\"digital selling\"]" 
+								"value": "[\"{{ENVIRONMENT_LONG}}\",\"digital selling\",\"confluent\"]"
 							},
 							"schedule": {
 								"type": "text",
@@ -150,7 +149,7 @@
 							},
 							"check.response.body.negative": {
 								"type": "yaml",
-								"value": "[\"PROVISIONING\",\"STOPPED\",\"PAUSED\",\"FAILED\"]"
+								"value": "[\"PROVISIONING\",\"UNASSIGNED\",\"STOPPED\",\"PAUSED\",\"FAILED\"]"
 							},
 							"proxy_url": {
 								"type": "text",
@@ -172,8 +171,8 @@
 				"enabled": true
 			}
 		],
-  "vars": {},
+  	"vars": {},
 	"enabled": true,
-	"policy_id": "21e40940-75b0-11ed-ab8f-a1e0581d79a2",
+	"policy_id": "{{policy_id}}",
 	"force": true
 }
