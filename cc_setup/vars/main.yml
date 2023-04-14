@@ -2,15 +2,17 @@
 # vars file for cc_setup
 debug_variables: true
 
+#  ansible-playbook -i cc_setup/inventory/home.yaml confluent.yaml --limit targets --ask-vault-pass --tags create_connector_monitor
+
 #  PVH Confluent Mesosphere Setup
 # ENVIRONMENT_SHORT: "prd"
 # ENVIRONMENT_LONG: "production"
 
-# ENVIRONMENT_SHORT: "stg"
-# ENVIRONMENT_LONG: "staging"
+ENVIRONMENT_SHORT: "stg"
+ENVIRONMENT_LONG: "staging"
 
-ENVIRONMENT_SHORT: "dev"
-ENVIRONMENT_LONG: "development"
+# ENVIRONMENT_SHORT: "dev"
+# ENVIRONMENT_LONG: "development"
 
 # FLEET_API_URL: "https://kibana.siobytes.com/api/fleet"
 FLEET_API_URL: "https://kibana-europe.pvhcorp.com/api/fleet"
@@ -46,6 +48,7 @@ CONFLUENT_CLOUD_API_TOKEN: !vault |
 API_HEALTHCHECK_LIST:
   - authentication
   - authorization
+  - customer-assignments
   - delivery-dates-service
   - distributioncurves
   - divisions
@@ -61,6 +64,7 @@ API_HEALTHCHECK_LIST:
   - process-api
   - seasons
   - stock
+  - storytelling
   # - customers
   # - notifications
   # - delivery-dates
