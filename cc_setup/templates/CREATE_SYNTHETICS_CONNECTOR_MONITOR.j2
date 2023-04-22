@@ -1,0 +1,28 @@
+heartbeat.monitors:
+
+{% for item in get_connector_list.json %}
+- type: http
+  name: DS - Kafka Connector - {{ENVIRONMENT_SHORT}} | {{item}}
+  id: DS - Kafka Connector - {{ENVIRONMENT_SHORT}} | {{item}}
+  enabled: true
+  urls: "{{CONNECT_URL}}/{{item}}/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "{{ENVIRONMENT_LONG}}", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+{% endfor %}

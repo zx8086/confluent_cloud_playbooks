@@ -1,0 +1,95 @@
+###################################
+##                               ##
+## - Create Connnector Monitor - ##
+##                               ##
+###################################
+
+- name:  Set Connect URL
+  ansible.builtin.set_fact:
+    CONNECT_URL: "http://connect.dev.shared-services.eu.pvh.cloud/connectors"
+    policy_id: 6570a4f0-75a8-11ed-ab8f-a1e0581d79a2
+    # policy_id: 27323830-a158-11ed-93a2-9587a59e3cdd
+  when: ENVIRONMENT_SHORT == "dev"
+
+- name: Set Connect URL
+  ansible.builtin.set_fact:
+    CONNECT_URL: "http://connect.stg.shared-services.eu.pvh.cloud/connectors"
+    policy_id: 6570a4f0-75a8-11ed-ab8f-a1e0581d79a2
+    # policy_id: 684fdc70-a160-11ed-93a2-9587a59e3cdd
+  when: ENVIRONMENT_SHORT == "stg"
+
+- name: Set Connect URL
+  ansible.builtin.set_fact:
+    CONNECT_URL: "http://connect.prd.shared-services.eu.pvh.cloud/connectors"
+    policy_id: 6570a4f0-75a8-11ed-ab8f-a1e0581d79a2
+    # policy_id: 749c3f90-a161-11ed-93a2-9587a59e3cdd
+  when: ENVIRONMENT_SHORT == "prd"
+
+- name: Set Connect URL
+  ansible.builtin.set_fact:
+    # CONNECT_URL: "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors"
+    CONNECT_URL: "http://10.80.131.138:8083/connectors"
+    policy_id: 6570a4f0-75a8-11ed-ab8f-a1e0581d79a2
+    # policy_id: 684fdc70-a160-11ed-93a2-9587a59e3cdd
+  when: ENVIRONMENT_SHORT == "stg_dcos"
+
+- name: Set Connect URL
+  ansible.builtin.set_fact:
+    # CONNECT_URL: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors"
+    CONNECT_URL: "http://10.80.131.64:8083/connectors"
+    policy_id: 6570a4f0-75a8-11ed-ab8f-a1e0581d79a2
+    # policy_id: 749c3f90-a161-11ed-93a2-9587a59e3cdd
+  when: ENVIRONMENT_SHORT == "prd_dcos"
+
+- name: Get Connector List via API
+  block:
+    - name: Get Connector List via API
+      ansible.builtin.uri:
+        url: "{{CONNECT_URL}}"
+        method: GET
+        headers:
+          # Authorization: "{{ FLEET_API_TOKEN }}"
+          Content-Type: application/json
+        follow_redirects: safe
+        force: yes
+        remote_src: yes
+        status_code: [200]
+        return_content: yes
+      delegate_to: localhost
+      register: get_connector_list
+
+    - name: Debug Variable - get_connector_list
+      ansible.builtin.debug:
+        var: get_connector_list
+      when: debug_variables | bool
+
+- name: Template a file to create a Synthetics Connector Monitor
+  ansible.builtin.template:
+    src: cc_setup/templates/CREATE_SYNTHETICS_CONNECTOR_MONITOR.j2
+    dest: "./B2B_CORE_SERVICES/lightweight/connector.{{ENVIRONMENT_SHORT}}.yml"
+    # owner: bin
+    # group: wheel
+    mode: '0644'
+  delegate_to: localhost
+  delegate_facts: true
+  loop: "{{get_connector_list.json}}"
+
+- name: Deploy Lightweight Monitors to Elastic Project
+  local_action: 
+    module: shell
+    cmd: "SYNTHETICS_API_KEY=bkRtZW00Y0JvWk9SS2hZOTRONDk6ZmJOd09MU19RMHlaZDh3QWVCYXRYQQ== npm run push"
+    chdir: ./B2B_CORE_SERVICES
+  delegate_to: localhost
+  register: deploy_project_monitors
+
+- name: Debug Variable - deploy_project_monitors
+  ansible.builtin.debug:
+    var: deploy_project_monitors
+  when: debug_variables | bool
+
+
+
+
+
+
+

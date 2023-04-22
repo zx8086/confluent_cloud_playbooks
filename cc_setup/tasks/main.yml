@@ -68,3 +68,10 @@
   import_tasks: create_api_healthcheck_monitor.yaml
   tags: create_api_healthcheck_monitor
   
+- name: Create Connector Synthetics Monitor
+  import_tasks: create_synthetics_connector_monitor.yaml
+  tags: create_synthetics_connector_monitor
+
+- name: Create API Health Synthetics Monitor
+  import_tasks: create_synthetics_api_monitor.yaml
+  tags: create_synthetics_api_health_monitor

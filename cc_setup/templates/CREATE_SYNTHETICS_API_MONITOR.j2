@@ -1,0 +1,21 @@
+heartbeat.monitors:
+
+{% for item in API_HEALTHCHECK_LIST %}
+- type: http
+  name: DS - API Health - {{ENVIRONMENT_SHORT}} | {{item | capitalize}}
+  id: DS - API Health - {{ENVIRONMENT_SHORT}} | {{item | capitalize}}
+  enabled: true
+  urls: "https://{{item}}.{{ENVIRONMENT_SHORT}}.shared-services.eu.pvh.cloud/health"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "{{ENVIRONMENT_LONG}}", "api health"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200, 201, 202, 203, 204]
+  response:
+    include_body: 'always'
+
+{% endfor %}

@@ -8,8 +8,14 @@ debug_variables: true
 # ENVIRONMENT_SHORT: "prd"
 # ENVIRONMENT_LONG: "production"
 
-ENVIRONMENT_SHORT: "stg"
-ENVIRONMENT_LONG: "staging"
+ENVIRONMENT_SHORT: "prd_dcos"
+ENVIRONMENT_LONG: "production"
+
+# ENVIRONMENT_SHORT: "stg_dcos"
+# ENVIRONMENT_LONG: "staging"
+
+# ENVIRONMENT_SHORT: "stg"
+# ENVIRONMENT_LONG: "staging"
 
 # ENVIRONMENT_SHORT: "dev"
 # ENVIRONMENT_LONG: "development"

@@ -1,2 +1,12 @@
 ---
 # handlers file for cc_setup
+
+- name:  Deploy Project Monitors
+  local_action: 
+    module: command
+    cmd: SYNTHETICS_API_KEY=bkRtZW00Y0JvWk9SS2hZOTRONDk6ZmJOd09MU19RMHlaZDh3QWVCYXRYQQ== npm run push
+    chdir: ./B2B_CORE_SERVICES
+  delegate_to: localhost
+  listen: Deploy-Project-Monitors
+
+

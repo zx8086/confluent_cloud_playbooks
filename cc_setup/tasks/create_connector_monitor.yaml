@@ -21,8 +21,8 @@
 
 - name: Set Connect URL
   ansible.builtin.set_fact:
-    # CONNECT_URL: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors"
-    CONNECT_URL: "http://connect.prd.shared-services.eu.pvh.cloud/connectors"
+    CONNECT_URL: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors"
+    # CONNECT_URL: "http://connect.prd.shared-services.eu.pvh.cloud/connectors"
     policy_id: 6570a4f0-75a8-11ed-ab8f-a1e0581d79a2
     # policy_id: 749c3f90-a161-11ed-93a2-9587a59e3cdd
   when: ENVIRONMENT_SHORT == "prd"

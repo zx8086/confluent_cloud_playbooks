@@ -1,0 +1,698 @@
+heartbeat.monitors:
+
+- type: http
+  name: DS - Kafka Connector - prd | weconnect-source-account-synchronization
+  id: DS - Kafka Connector - prd | weconnect-source-account-synchronization
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/weconnect-source-account-synchronization/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | pim-source-variants-AMSAPP257-aws-003
+  id: DS - Kafka Connector - prd | pim-source-variants-AMSAPP257-aws-003
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-variants-AMSAPP257-aws-003/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | weconnect-products-mhcodes-sink
+  id: DS - Kafka Connector - prd | weconnect-products-mhcodes-sink
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/weconnect-products-mhcodes-sink/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-sink-prepack-details
+  id: DS - Kafka Connector - prd | couchbase-sink-prepack-details
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sink-prepack-details/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | sap-car-prepacks-source
+  id: DS - Kafka Connector - prd | sap-car-prepacks-source
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-car-prepacks-source/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-sizes-sink-reload
+  id: DS - Kafka Connector - prd | couchbase-sizes-sink-reload
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sizes-sink-reload/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-options-sink
+  id: DS - Kafka Connector - prd | couchbase-options-sink
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-options-sink/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-sink-distribution-curves
+  id: DS - Kafka Connector - prd | couchbase-sink-distribution-curves
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sink-distribution-curves/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | dynamodb-sink-look
+  id: DS - Kafka Connector - prd | dynamodb-sink-look
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/dynamodb-sink-look/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | pim-source-variants-2024WISPWI-reload
+  id: DS - Kafka Connector - prd | pim-source-variants-2024WISPWI-reload
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-variants-2024WISPWI-reload/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | sap-draft-order-sink
+  id: DS - Kafka Connector - prd | sap-draft-order-sink
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-draft-order-sink/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-sink-distribution-curve-details
+  id: DS - Kafka Connector - prd | couchbase-sink-distribution-curve-details
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sink-distribution-curve-details/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | sap-car-distribution-curves-source
+  id: DS - Kafka Connector - prd | sap-car-distribution-curves-source
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-car-distribution-curves-source/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-inseams-sink-reload
+  id: DS - Kafka Connector - prd | couchbase-inseams-sink-reload
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-inseams-sink-reload/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-styles-sink
+  id: DS - Kafka Connector - prd | couchbase-styles-sink
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-styles-sink/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-sizes-sink
+  id: DS - Kafka Connector - prd | couchbase-sizes-sink
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sizes-sink/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | dynamodb-sink-look-items
+  id: DS - Kafka Connector - prd | dynamodb-sink-look-items
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/dynamodb-sink-look-items/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | pim-source-articles-2024WISPWI-reload
+  id: DS - Kafka Connector - prd | pim-source-articles-2024WISPWI-reload
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-articles-2024WISPWI-reload/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | sap-source-season-dates
+  id: DS - Kafka Connector - prd | sap-source-season-dates
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-source-season-dates/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | weconnect-source-customers
+  id: DS - Kafka Connector - prd | weconnect-source-customers
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/weconnect-source-customers/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | pim-source-products-2024WISPWI-reload
+  id: DS - Kafka Connector - prd | pim-source-products-2024WISPWI-reload
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-products-2024WISPWI-reload/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | pim-source-products-AMSAPP257-aws-003
+  id: DS - Kafka Connector - prd | pim-source-products-AMSAPP257-aws-003
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-products-AMSAPP257-aws-003/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-inseams-sink
+  id: DS - Kafka Connector - prd | couchbase-inseams-sink
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-inseams-sink/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | pim-source-articles-AMSAPP257-aws-003
+  id: DS - Kafka Connector - prd | pim-source-articles-AMSAPP257-aws-003
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-articles-AMSAPP257-aws-003/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | weconnect-source-customer-assignments-synchronization
+  id: DS - Kafka Connector - prd | weconnect-source-customer-assignments-synchronization
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/weconnect-source-customer-assignments-synchronization/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-options-sink-reload
+  id: DS - Kafka Connector - prd | couchbase-options-sink-reload
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-options-sink-reload/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | sap-source-season-delivery-dates
+  id: DS - Kafka Connector - prd | sap-source-season-delivery-dates
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-source-season-delivery-dates/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-styles-sink-reload
+  id: DS - Kafka Connector - prd | couchbase-styles-sink-reload
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-styles-sink-reload/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-sink-prepacks
+  id: DS - Kafka Connector - prd | couchbase-sink-prepacks
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sink-prepacks/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
