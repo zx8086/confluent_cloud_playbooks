@@ -4,10 +4,25 @@
 ##                               ##
 ###################################
 
+- name:  Set Connect URL
+  ansible.builtin.set_fact:
+    ENVIRONMENT_LONG: "development"
+  when: ENVIRONMENT_SHORT == "dev"
+
+- name: Set Connect URL
+  ansible.builtin.set_fact:
+    ENVIRONMENT_LONG: "staging"
+  when: ENVIRONMENT_SHORT == "stg"
+
+- name: Set Connect URL
+  ansible.builtin.set_fact:
+    ENVIRONMENT_LONG: "production"
+  when: ENVIRONMENT_SHORT == "prd"
+
 - name: Template a file to create a Synthetics API Check Monitor
   ansible.builtin.template:
     src: cc_setup/templates/CREATE_SYNTHETICS_API_MONITOR.j2
-    dest: "./B2B_CORE_SERVICES/lightweight/api_health.{{ENVIRONMENT_SHORT}}.yml"
+    dest: "./B2B_SERVICES/lightweight/kong/api_health.{{ENVIRONMENT_SHORT}}.yml"
     # owner: bin
     # group: wheel
     mode: '0644'
@@ -15,11 +30,11 @@
   delegate_facts: true
   loop: "{{API_HEALTHCHECK_LIST}}"
 
-- name:  Deploy Lightweight Monitors to Elastic Project
+- name: Deploy Lightweight Monitors to Elastic Project
   local_action: 
     module: shell
-    cmd: "SYNTHETICS_API_KEY=bkRtZW00Y0JvWk9SS2hZOTRONDk6ZmJOd09MU19RMHlaZDh3QWVCYXRYQQ== npm run push"
-    chdir: ./B2B_CORE_SERVICES
+    cmd: "SYNTHETICS_API_KEY=VUhCTHFZY0JYdGVaRXRhcEs4NHQ6VUdMcV9Pa3JSN2FraGlzNHQySk1GQQ== npm run push"
+    chdir: ./B2B_SERVICES
   delegate_to: localhost
   register: deploy_project_monitors
 

@@ -1,10 +1,10 @@
 heartbeat.monitors:
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | weconnect-source-8f988b73-7951-4336-8ab1-784b06ff07a5
-  id: DS - Kafka Connector - prd_dcos | weconnect-source-8f988b73-7951-4336-8ab1-784b06ff07a5
+  name: DS - Kafka Connector - prd | weconnect-source-account-synchronization
+  id: DS - Kafka Connector - prd | weconnect-source-account-synchronization
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/weconnect-source-8f988b73-7951-4336-8ab1-784b06ff07a5/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/weconnect-source-account-synchronization/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -25,10 +25,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | dynamodb-sink-look-items-11-01-2023
-  id: DS - Kafka Connector - prd_dcos | dynamodb-sink-look-items-11-01-2023
+  name: DS - Kafka Connector - prd | pim-source-variants-AMSAPP257-aws-004
+  id: DS - Kafka Connector - prd | pim-source-variants-AMSAPP257-aws-004
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/dynamodb-sink-look-items-11-01-2023/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-variants-AMSAPP257-aws-004/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -49,10 +49,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | weconnect-source-account-synchronization-9dbe3e68-29cb-47ee-b4a3-6d2ecdf61f2b
-  id: DS - Kafka Connector - prd_dcos | weconnect-source-account-synchronization-9dbe3e68-29cb-47ee-b4a3-6d2ecdf61f2b
+  name: DS - Kafka Connector - prd | weconnect-products-mhcodes-sink
+  id: DS - Kafka Connector - prd | weconnect-products-mhcodes-sink
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/weconnect-source-account-synchronization-9dbe3e68-29cb-47ee-b4a3-6d2ecdf61f2b/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/weconnect-products-mhcodes-sink/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -73,10 +73,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | dynamodb-sink-look
-  id: DS - Kafka Connector - prd_dcos | dynamodb-sink-look
+  name: DS - Kafka Connector - prd | couchbase-sink-prepack-details
+  id: DS - Kafka Connector - prd | couchbase-sink-prepack-details
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/dynamodb-sink-look/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sink-prepack-details/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -97,10 +97,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | pim-MDM-source-variants-AMSAPP257
-  id: DS - Kafka Connector - prd_dcos | pim-MDM-source-variants-AMSAPP257
+  name: DS - Kafka Connector - prd | sap-car-prepacks-source
+  id: DS - Kafka Connector - prd | sap-car-prepacks-source
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/pim-MDM-source-variants-AMSAPP257/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-car-prepacks-source/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -121,10 +121,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | pim-MDM-source-products-AMSAPP257
-  id: DS - Kafka Connector - prd_dcos | pim-MDM-source-products-AMSAPP257
+  name: DS - Kafka Connector - prd | couchbase-sizes-sink-reload
+  id: DS - Kafka Connector - prd | couchbase-sizes-sink-reload
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/pim-MDM-source-products-AMSAPP257/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sizes-sink-reload/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -145,10 +145,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | linebook-sink-43e86600-2d7c-4dde-b4ee-e61031788b713
-  id: DS - Kafka Connector - prd_dcos | linebook-sink-43e86600-2d7c-4dde-b4ee-e61031788b713
+  name: DS - Kafka Connector - prd | couchbase-options-sink
+  id: DS - Kafka Connector - prd | couchbase-options-sink
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/linebook-sink-43e86600-2d7c-4dde-b4ee-e61031788b713/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-options-sink/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -169,10 +169,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | gdam-sink-products-details-12-01-2023
-  id: DS - Kafka Connector - prd_dcos | gdam-sink-products-details-12-01-2023
+  name: DS - Kafka Connector - prd | pim-source-articles-2024WISPSP-reload
+  id: DS - Kafka Connector - prd | pim-source-articles-2024WISPSP-reload
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/gdam-sink-products-details-12-01-2023/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-articles-2024WISPSP-reload/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -193,10 +193,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | sap-car-distribution-curves-source-14-11-2022-xx
-  id: DS - Kafka Connector - prd_dcos | sap-car-distribution-curves-source-14-11-2022-xx
+  name: DS - Kafka Connector - prd | couchbase-sink-distribution-curves
+  id: DS - Kafka Connector - prd | couchbase-sink-distribution-curves
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/sap-car-distribution-curves-source-14-11-2022-xx/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sink-distribution-curves/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -217,10 +217,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | couchbase-sink-price-sub-document-v2
-  id: DS - Kafka Connector - prd_dcos | couchbase-sink-price-sub-document-v2
+  name: DS - Kafka Connector - prd | dynamodb-sink-look
+  id: DS - Kafka Connector - prd | dynamodb-sink-look
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/couchbase-sink-price-sub-document-v2/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/dynamodb-sink-look/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -241,10 +241,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | pim-MDM-source-articles-AMSAPP257
-  id: DS - Kafka Connector - prd_dcos | pim-MDM-source-articles-AMSAPP257
+  name: DS - Kafka Connector - prd | sap-draft-order-sink
+  id: DS - Kafka Connector - prd | sap-draft-order-sink
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/pim-MDM-source-articles-AMSAPP257/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-draft-order-sink/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -265,10 +265,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | gdam-sink-products-11-01-2023
-  id: DS - Kafka Connector - prd_dcos | gdam-sink-products-11-01-2023
+  name: DS - Kafka Connector - prd | couchbase-sink-distribution-curve-details
+  id: DS - Kafka Connector - prd | couchbase-sink-distribution-curve-details
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/gdam-sink-products-11-01-2023/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sink-distribution-curve-details/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -289,10 +289,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | dam-lb-assets-sink-23-06-2022
-  id: DS - Kafka Connector - prd_dcos | dam-lb-assets-sink-23-06-2022
+  name: DS - Kafka Connector - prd | sap-car-distribution-curves-source
+  id: DS - Kafka Connector - prd | sap-car-distribution-curves-source
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/dam-lb-assets-sink-23-06-2022/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-car-distribution-curves-source/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -313,10 +313,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | couchbase-sink-price-document-v2
-  id: DS - Kafka Connector - prd_dcos | couchbase-sink-price-document-v2
+  name: DS - Kafka Connector - prd | couchbase-inseams-sink-reload
+  id: DS - Kafka Connector - prd | couchbase-inseams-sink-reload
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/couchbase-sink-price-document-v2/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-inseams-sink-reload/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -337,10 +337,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | pim-source-variants-AMSAPP257
-  id: DS - Kafka Connector - prd_dcos | pim-source-variants-AMSAPP257
+  name: DS - Kafka Connector - prd | couchbase-styles-sink
+  id: DS - Kafka Connector - prd | couchbase-styles-sink
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/pim-source-variants-AMSAPP257/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-styles-sink/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -361,10 +361,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | pim-source-products-AMSAPP257
-  id: DS - Kafka Connector - prd_dcos | pim-source-products-AMSAPP257
+  name: DS - Kafka Connector - prd | couchbase-sizes-sink
+  id: DS - Kafka Connector - prd | couchbase-sizes-sink
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/pim-source-products-AMSAPP257/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sizes-sink/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -385,10 +385,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | moodcms-source-looks-30-06-2022
-  id: DS - Kafka Connector - prd_dcos | moodcms-source-looks-30-06-2022
+  name: DS - Kafka Connector - prd | dynamodb-sink-look-items
+  id: DS - Kafka Connector - prd | dynamodb-sink-look-items
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/moodcms-source-looks-30-06-2022/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/dynamodb-sink-look-items/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -409,10 +409,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | sap-draft-order-sink-cf8a9721-078d-47ca-b1bc-f3627a060615
-  id: DS - Kafka Connector - prd_dcos | sap-draft-order-sink-cf8a9721-078d-47ca-b1bc-f3627a060615
+  name: DS - Kafka Connector - prd | sap-source-season-dates
+  id: DS - Kafka Connector - prd | sap-source-season-dates
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/sap-draft-order-sink-cf8a9721-078d-47ca-b1bc-f3627a060615/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-source-season-dates/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -433,10 +433,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | weconnect-source-customers-dbfd9f1b-ea7b-47f7-99db-ae701af3d40c
-  id: DS - Kafka Connector - prd_dcos | weconnect-source-customers-dbfd9f1b-ea7b-47f7-99db-ae701af3d40c
+  name: DS - Kafka Connector - prd | pim-source-variants-2024WISPSP-reload
+  id: DS - Kafka Connector - prd | pim-source-variants-2024WISPSP-reload
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/weconnect-source-customers-dbfd9f1b-ea7b-47f7-99db-ae701af3d40c/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-variants-2024WISPSP-reload/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -457,10 +457,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | sap-car-prepacks-source-14-11-2022-xx
-  id: DS - Kafka Connector - prd_dcos | sap-car-prepacks-source-14-11-2022-xx
+  name: DS - Kafka Connector - prd | weconnect-source-customers
+  id: DS - Kafka Connector - prd | weconnect-source-customers
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/sap-car-prepacks-source-14-11-2022-xx/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/weconnect-source-customers/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -481,10 +481,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | pim-source-articles-AMSAPP257
-  id: DS - Kafka Connector - prd_dcos | pim-source-articles-AMSAPP257
+  name: DS - Kafka Connector - prd | pim-source-products-AMSAPP257-aws-004
+  id: DS - Kafka Connector - prd | pim-source-products-AMSAPP257-aws-004
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/pim-source-articles-AMSAPP257/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-products-AMSAPP257-aws-004/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -505,10 +505,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | sap-source-season-delivery-dates-c808fffe-b2d7-44c2-946c-5ddd87587b1a
-  id: DS - Kafka Connector - prd_dcos | sap-source-season-delivery-dates-c808fffe-b2d7-44c2-946c-5ddd87587b1a
+  name: DS - Kafka Connector - prd | couchbase-inseams-sink
+  id: DS - Kafka Connector - prd | couchbase-inseams-sink
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/sap-source-season-delivery-dates-c808fffe-b2d7-44c2-946c-5ddd87587b1a/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-inseams-sink/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -529,10 +529,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | linebook-sink-prices
-  id: DS - Kafka Connector - prd_dcos | linebook-sink-prices
+  name: DS - Kafka Connector - prd | pim-source-articles-AMSAPP257-aws-004
+  id: DS - Kafka Connector - prd | pim-source-articles-AMSAPP257-aws-004
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/linebook-sink-prices/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-articles-AMSAPP257-aws-004/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -553,10 +553,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | couchbase-source-price-v2
-  id: DS - Kafka Connector - prd_dcos | couchbase-source-price-v2
+  name: DS - Kafka Connector - prd | weconnect-source-customer-assignments-synchronization
+  id: DS - Kafka Connector - prd | weconnect-source-customer-assignments-synchronization
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/couchbase-source-price-v2/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/weconnect-source-customer-assignments-synchronization/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -577,10 +577,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | sap-source-season-dates-cf2fdaff-bce7-40c8-91c5-77663f8c1211
-  id: DS - Kafka Connector - prd_dcos | sap-source-season-dates-cf2fdaff-bce7-40c8-91c5-77663f8c1211
+  name: DS - Kafka Connector - prd | couchbase-options-sink-reload
+  id: DS - Kafka Connector - prd | couchbase-options-sink-reload
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/sap-source-season-dates-cf2fdaff-bce7-40c8-91c5-77663f8c1211/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-options-sink-reload/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -601,10 +601,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | gdam-lb-product-image-sink-11-01-2023
-  id: DS - Kafka Connector - prd_dcos | gdam-lb-product-image-sink-11-01-2023
+  name: DS - Kafka Connector - prd | sap-source-season-delivery-dates
+  id: DS - Kafka Connector - prd | sap-source-season-delivery-dates
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/gdam-lb-product-image-sink-11-01-2023/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-source-season-delivery-dates/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -625,10 +625,34 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd_dcos | weconnect-source-customer-assignments-synchronization-3f8a8808-4a92-4a7c-8b34-b170cd8f7154
-  id: DS - Kafka Connector - prd_dcos | weconnect-source-customer-assignments-synchronization-3f8a8808-4a92-4a7c-8b34-b170cd8f7154
+  name: DS - Kafka Connector - prd | couchbase-styles-sink-reload
+  id: DS - Kafka Connector - prd | couchbase-styles-sink-reload
   enabled: true
-  urls: "http://10.80.131.64:8083/connectors/weconnect-source-customer-assignments-synchronization-3f8a8808-4a92-4a7c-8b34-b170cd8f7154/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-styles-sink-reload/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | couchbase-sink-prepacks
+  id: DS - Kafka Connector - prd | couchbase-sink-prepacks
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-sink-prepacks/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s

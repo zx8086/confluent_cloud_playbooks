@@ -1,10 +1,10 @@
 heartbeat.monitors:
 
 - type: http
-  name: DS - Kafka Connector - dev | pim-source-variants-delta-monitoring-aws
-  id: DS - Kafka Connector - dev | pim-source-variants-delta-monitoring-aws
+  name: DS - Kafka Connector - dev | weconnect-source-account-synchronization
+  id: DS - Kafka Connector - dev | weconnect-source-account-synchronization
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/pim-source-variants-delta-monitoring-aws/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/weconnect-source-account-synchronization/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -25,10 +25,34 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | weconnect-source-account-synchronization
-  id: DS - Kafka Connector - dev | weconnect-source-account-synchronization
+  name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_ARTICLES_V3_RELOAD
+  id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_ARTICLES_V3_RELOAD
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/weconnect-source-account-synchronization/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_ARTICLES_V3_RELOAD/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_INSEAMS
+  id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_INSEAMS
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_INSEAMS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -145,34 +169,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | delta-couchbase-variant-v3-sink
-  id: DS - Kafka Connector - dev | delta-couchbase-variant-v3-sink
+  name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_ARTICLES_V3
+  id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_ARTICLES_V3
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/delta-couchbase-variant-v3-sink/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "development", "confluent"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - dev | couchbase-options-sink
-  id: DS - Kafka Connector - dev | couchbase-options-sink
-  enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/couchbase-options-sink/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_ARTICLES_V3/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -241,6 +241,30 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_OPTIONS
+  id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_OPTIONS
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_OPTIONS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - dev | sap-car-distribution-curves-source
   id: DS - Kafka Connector - dev | sap-car-distribution-curves-source
   enabled: true
@@ -269,6 +293,102 @@ heartbeat.monitors:
   id: DS - Kafka Connector - dev | couchbase-sink-distribution-curve-details
   enabled: true
   urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/couchbase-sink-distribution-curve-details/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | sap-draft-order-sink
+  id: DS - Kafka Connector - dev | sap-draft-order-sink
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/sap-draft-order-sink/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | C_SOURCE_PIM_VARIANTS
+  id: DS - Kafka Connector - dev | C_SOURCE_PIM_VARIANTS
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_VARIANTS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_PRODUCTS_V3
+  id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_PRODUCTS_V3
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRODUCTS_V3/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_VARIANTS_V3
+  id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_VARIANTS_V3
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_VARIANTS_V3/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -337,58 +457,34 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | couchbase-styles-sink
-  id: DS - Kafka Connector - dev | couchbase-styles-sink
-  enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/couchbase-styles-sink/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "development", "confluent"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - dev | couchbase-sizes-sink
-  id: DS - Kafka Connector - dev | couchbase-sizes-sink
-  enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/couchbase-sizes-sink/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "development", "confluent"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - Kafka Connector - dev | dynamodb-sink-look-items
   id: DS - Kafka Connector - dev | dynamodb-sink-look-items
   enabled: true
   urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/dynamodb-sink-look-items/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_BRANDS_DIVISIONS
+  id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_BRANDS_DIVISIONS
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_BRANDS_DIVISIONS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -433,10 +529,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | delta-couchbase-article-v3-sink
-  id: DS - Kafka Connector - dev | delta-couchbase-article-v3-sink
+  name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_STYLES
+  id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_STYLES
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/delta-couchbase-article-v3-sink/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_STYLES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -457,10 +553,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | couchbase-inseams-sink-non-deprecated
-  id: DS - Kafka Connector - dev | couchbase-inseams-sink-non-deprecated
+  name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_VARIANTS_V3_RELOAD
+  id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_VARIANTS_V3_RELOAD
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/couchbase-inseams-sink-non-deprecated/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_VARIANTS_V3_RELOAD/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -481,10 +577,82 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | pim-source-products-delta-monitoring-aws
-  id: DS - Kafka Connector - dev | pim-source-products-delta-monitoring-aws
+  name: DS - Kafka Connector - dev | C_SOURCE_SAP_BRANDS_DIVISIONS
+  id: DS - Kafka Connector - dev | C_SOURCE_SAP_BRANDS_DIVISIONS
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/pim-source-products-delta-monitoring-aws/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_BRANDS_DIVISIONS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | C_SOURCE_PIM_PRODUCTS
+  id: DS - Kafka Connector - dev | C_SOURCE_PIM_PRODUCTS
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_PRODUCTS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | weconnect-source-customers
+  id: DS - Kafka Connector - dev | weconnect-source-customers
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/weconnect-source-customers/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | C_SOURCE_PIM_VARIANTS_V3_RELOAD
+  id: DS - Kafka Connector - dev | C_SOURCE_PIM_VARIANTS_V3_RELOAD
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_VARIANTS_V3_RELOAD/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -553,10 +721,34 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | delta-couchbase-product2g-v3-sink
-  id: DS - Kafka Connector - dev | delta-couchbase-product2g-v3-sink
+  name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_PRODUCTS_V3_RELOAD
+  id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_PRODUCTS_V3_RELOAD
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/delta-couchbase-product2g-v3-sink/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRODUCTS_V3_RELOAD/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_SIZES
+  id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_SIZES
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SIZES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -625,10 +817,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | couchbase-inseams-sink
-  id: DS - Kafka Connector - dev | couchbase-inseams-sink
+  name: DS - Kafka Connector - dev | weconnect-source-customer-assignments-synchronization
+  id: DS - Kafka Connector - dev | weconnect-source-customer-assignments-synchronization
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/couchbase-inseams-sink/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/weconnect-source-customer-assignments-synchronization/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -649,10 +841,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | weconnect-source-customer-assignments-synchronization
-  id: DS - Kafka Connector - dev | weconnect-source-customer-assignments-synchronization
+  name: DS - Kafka Connector - dev | C_SOURCE_PIM_ARTICLES_V3_RELOAD
+  id: DS - Kafka Connector - dev | C_SOURCE_PIM_ARTICLES_V3_RELOAD
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/weconnect-source-customer-assignments-synchronization/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_ARTICLES_V3_RELOAD/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -697,10 +889,34 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | pim-source-articles-delta-monitoring-aws
-  id: DS - Kafka Connector - dev | pim-source-articles-delta-monitoring-aws
+  name: DS - Kafka Connector - dev | C_SOURCE_PIM_ARTICLES
+  id: DS - Kafka Connector - dev | C_SOURCE_PIM_ARTICLES
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/pim-source-articles-delta-monitoring-aws/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_ARTICLES/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | C_SOURCE_PIM_PRODUCTS_V3_RELOAD
+  id: DS - Kafka Connector - dev | C_SOURCE_PIM_PRODUCTS_V3_RELOAD
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_PRODUCTS_V3_RELOAD/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s

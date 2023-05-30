@@ -1,0 +1,506 @@
+heartbeat.monitors:
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | gdam-sink-products-11-01-2023
+  id: DS - Kafka Connector - prd_dcos | gdam-sink-products-11-01-2023
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/gdam-sink-products-11-01-2023/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | pim-MDM-source-variants-AMSAPP257-dcos
+  id: DS - Kafka Connector - prd_dcos | pim-MDM-source-variants-AMSAPP257-dcos
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/pim-MDM-source-variants-AMSAPP257-dcos/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | couchbase-sink-price-document-v2
+  id: DS - Kafka Connector - prd_dcos | couchbase-sink-price-document-v2
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/couchbase-sink-price-document-v2/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | dynamodb-sink-look-items-11-01-2023
+  id: DS - Kafka Connector - prd_dcos | dynamodb-sink-look-items-11-01-2023
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/dynamodb-sink-look-items-11-01-2023/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | pim-source-articles-AMSAPP257-dcos
+  id: DS - Kafka Connector - prd_dcos | pim-source-articles-AMSAPP257-dcos
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/pim-source-articles-AMSAPP257-dcos/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | weconnect-source-account-synchronization-9dbe3e68-29cb-47ee-b4a3-6d2ecdf61f2b
+  id: DS - Kafka Connector - prd_dcos | weconnect-source-account-synchronization-9dbe3e68-29cb-47ee-b4a3-6d2ecdf61f2b
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/weconnect-source-account-synchronization-9dbe3e68-29cb-47ee-b4a3-6d2ecdf61f2b/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | dynamodb-sink-look
+  id: DS - Kafka Connector - prd_dcos | dynamodb-sink-look
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/dynamodb-sink-look/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | sap-draft-order-sink-cf8a9721-078d-47ca-b1bc-f3627a060615
+  id: DS - Kafka Connector - prd_dcos | sap-draft-order-sink-cf8a9721-078d-47ca-b1bc-f3627a060615
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/sap-draft-order-sink-cf8a9721-078d-47ca-b1bc-f3627a060615/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | weconnect-source-customers-dbfd9f1b-ea7b-47f7-99db-ae701af3d40c
+  id: DS - Kafka Connector - prd_dcos | weconnect-source-customers-dbfd9f1b-ea7b-47f7-99db-ae701af3d40c
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/weconnect-source-customers-dbfd9f1b-ea7b-47f7-99db-ae701af3d40c/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | pim-MDM-source-articles-AMSAPP257-dcos
+  id: DS - Kafka Connector - prd_dcos | pim-MDM-source-articles-AMSAPP257-dcos
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/pim-MDM-source-articles-AMSAPP257-dcos/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | pim-source-products-AMSAPP257-dcos
+  id: DS - Kafka Connector - prd_dcos | pim-source-products-AMSAPP257-dcos
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/pim-source-products-AMSAPP257-dcos/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | sap-car-prepacks-source-14-11-2022-xx
+  id: DS - Kafka Connector - prd_dcos | sap-car-prepacks-source-14-11-2022-xx
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/sap-car-prepacks-source-14-11-2022-xx/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | sap-source-season-delivery-dates-c808fffe-b2d7-44c2-946c-5ddd87587b1a
+  id: DS - Kafka Connector - prd_dcos | sap-source-season-delivery-dates-c808fffe-b2d7-44c2-946c-5ddd87587b1a
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/sap-source-season-delivery-dates-c808fffe-b2d7-44c2-946c-5ddd87587b1a/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | pim-source-variants-AMSAPP257-dcos
+  id: DS - Kafka Connector - prd_dcos | pim-source-variants-AMSAPP257-dcos
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/pim-source-variants-AMSAPP257-dcos/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | pim-MDM-source-products-AMSAPP257-dcos
+  id: DS - Kafka Connector - prd_dcos | pim-MDM-source-products-AMSAPP257-dcos
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/pim-MDM-source-products-AMSAPP257-dcos/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | gdam-sink-products-details-12-01-2023
+  id: DS - Kafka Connector - prd_dcos | gdam-sink-products-details-12-01-2023
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/gdam-sink-products-details-12-01-2023/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | couchbase-source-price-v2
+  id: DS - Kafka Connector - prd_dcos | couchbase-source-price-v2
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/couchbase-source-price-v2/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | sap-car-distribution-curves-source-14-11-2022-xx
+  id: DS - Kafka Connector - prd_dcos | sap-car-distribution-curves-source-14-11-2022-xx
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/sap-car-distribution-curves-source-14-11-2022-xx/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | couchbase-sink-price-sub-document-v2
+  id: DS - Kafka Connector - prd_dcos | couchbase-sink-price-sub-document-v2
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/couchbase-sink-price-sub-document-v2/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | sap-source-season-dates-cf2fdaff-bce7-40c8-91c5-77663f8c1211
+  id: DS - Kafka Connector - prd_dcos | sap-source-season-dates-cf2fdaff-bce7-40c8-91c5-77663f8c1211
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/sap-source-season-dates-cf2fdaff-bce7-40c8-91c5-77663f8c1211/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd_dcos | weconnect-source-customer-assignments-synchronization-3f8a8808-4a92-4a7c-8b34-b170cd8f7154
+  id: DS - Kafka Connector - prd_dcos | weconnect-source-customer-assignments-synchronization-3f8a8808-4a92-4a7c-8b34-b170cd8f7154
+  enabled: true
+  urls: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/weconnect-source-customer-assignments-synchronization-3f8a8808-4a92-4a7c-8b34-b170cd8f7154/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+

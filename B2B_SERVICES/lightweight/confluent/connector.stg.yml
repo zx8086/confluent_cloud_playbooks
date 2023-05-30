@@ -1,10 +1,10 @@
 heartbeat.monitors:
 
 - type: http
-  name: DS - Kafka Connector - stg | pim-source-variants-delta-monitoring-aws
-  id: DS - Kafka Connector - stg | pim-source-variants-delta-monitoring-aws
+  name: DS - Kafka Connector - stg | weconnect-source-account-synchronization
+  id: DS - Kafka Connector - stg | weconnect-source-account-synchronization
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/pim-source-variants-delta-monitoring-aws/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/weconnect-source-account-synchronization/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -25,10 +25,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | weconnect-source-account-synchronization
-  id: DS - Kafka Connector - stg | weconnect-source-account-synchronization
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_INSEAMS
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_INSEAMS
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/weconnect-source-account-synchronization/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_INSEAMS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -145,30 +145,6 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | couchbase-options-sink
-  id: DS - Kafka Connector - stg | couchbase-options-sink
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/couchbase-options-sink/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - Kafka Connector - stg | sap-source-season-delivery-dates-3487abd6-7a7a-4a64-9c03-6b8026819347
   id: DS - Kafka Connector - stg | sap-source-season-delivery-dates-3487abd6-7a7a-4a64-9c03-6b8026819347
   enabled: true
@@ -197,6 +173,30 @@ heartbeat.monitors:
   id: DS - Kafka Connector - stg | couchbase-sink-distribution-curves
   enabled: true
   urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/couchbase-sink-distribution-curves/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_OPTIONS
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_OPTIONS
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_OPTIONS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -289,10 +289,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | weconnect-source-prices
-  id: DS - Kafka Connector - stg | weconnect-source-prices
+  name: DS - Kafka Connector - stg | C_SOURCE_PIM_VARIANTS
+  id: DS - Kafka Connector - stg | C_SOURCE_PIM_VARIANTS
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/weconnect-source-prices/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_VARIANTS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -313,10 +313,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | couchbase-styles-sink
-  id: DS - Kafka Connector - stg | couchbase-styles-sink
+  name: DS - Kafka Connector - stg | weconnect-source-prices
+  id: DS - Kafka Connector - stg | weconnect-source-prices
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/couchbase-styles-sink/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/weconnect-source-prices/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -361,10 +361,34 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | couchbase-sizes-sink
-  id: DS - Kafka Connector - stg | couchbase-sizes-sink
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/couchbase-sizes-sink/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_STYLES/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SOURCE_PIM_PRODUCTS
+  id: DS - Kafka Connector - stg | C_SOURCE_PIM_PRODUCTS
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_PRODUCTS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -433,30 +457,6 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | pim-source-products-delta-monitoring-aws
-  id: DS - Kafka Connector - stg | pim-source-products-delta-monitoring-aws
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/pim-source-products-delta-monitoring-aws/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - Kafka Connector - stg | couchbase-sink-customers
   id: DS - Kafka Connector - stg | couchbase-sink-customers
   enabled: true
@@ -505,10 +505,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | couchbase-sink-accounts
-  id: DS - Kafka Connector - stg | couchbase-sink-accounts
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SIZES
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SIZES
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/couchbase-sink-accounts/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SIZES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -529,10 +529,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | couchbase-inseams-sink
-  id: DS - Kafka Connector - stg | couchbase-inseams-sink
+  name: DS - Kafka Connector - stg | couchbase-sink-accounts
+  id: DS - Kafka Connector - stg | couchbase-sink-accounts
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/couchbase-inseams-sink/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/couchbase-sink-accounts/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -649,34 +649,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | linebook-sink-prices
-  id: DS - Kafka Connector - stg | linebook-sink-prices
+  name: DS - Kafka Connector - stg | C_SOURCE_PIM_ARTICLES
+  id: DS - Kafka Connector - stg | C_SOURCE_PIM_ARTICLES
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/linebook-sink-prices/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | pim-source-articles-delta-monitoring-aws
-  id: DS - Kafka Connector - stg | pim-source-articles-delta-monitoring-aws
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/pim-source-articles-delta-monitoring-aws/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_ARTICLES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
