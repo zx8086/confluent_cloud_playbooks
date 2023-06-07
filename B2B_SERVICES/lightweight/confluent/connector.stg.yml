@@ -1,6 +1,30 @@
 heartbeat.monitors:
 
 - type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_LOOK_VIDEOS_PDFS
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_LOOK_VIDEOS_PDFS
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_LOOK_VIDEOS_PDFS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - stg | weconnect-source-account-synchronization
   id: DS - Kafka Connector - stg | weconnect-source-account-synchronization
   enabled: true
@@ -361,10 +385,58 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_BRANDS_DIVISIONS
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_BRANDS_DIVISIONS
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_BRANDS_DIVISIONS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES
   id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES
   enabled: true
   urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_STYLES/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SOURCE_SAP_BRANDS_DIVISIONS
+  id: DS - Kafka Connector - stg | C_SOURCE_SAP_BRANDS_DIVISIONS
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_BRANDS_DIVISIONS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s

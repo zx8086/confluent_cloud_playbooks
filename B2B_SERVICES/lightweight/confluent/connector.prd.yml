@@ -25,30 +25,6 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | pim-source-variants-AMSAPP257-aws-004
-  id: DS - Kafka Connector - prd | pim-source-variants-AMSAPP257-aws-004
-  enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-variants-AMSAPP257-aws-004/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "production", "confluent"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - Kafka Connector - prd | weconnect-products-mhcodes-sink
   id: DS - Kafka Connector - prd | weconnect-products-mhcodes-sink
   enabled: true
@@ -149,30 +125,6 @@ heartbeat.monitors:
   id: DS - Kafka Connector - prd | couchbase-options-sink
   enabled: true
   urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/couchbase-options-sink/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "production", "confluent"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - prd | pim-source-articles-2024WISPSP-reload
-  id: DS - Kafka Connector - prd | pim-source-articles-2024WISPSP-reload
-  enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-articles-2024WISPSP-reload/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -313,6 +265,30 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - prd | C_SOURCE_PIM_VARIANTS
+  id: DS - Kafka Connector - prd | C_SOURCE_PIM_VARIANTS
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_VARIANTS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - prd | couchbase-inseams-sink-reload
   id: DS - Kafka Connector - prd | couchbase-inseams-sink-reload
   enabled: true
@@ -433,10 +409,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | pim-source-variants-2024WISPSP-reload
-  id: DS - Kafka Connector - prd | pim-source-variants-2024WISPSP-reload
+  name: DS - Kafka Connector - prd | C_SOURCE_PIM_PRODUCTS
+  id: DS - Kafka Connector - prd | C_SOURCE_PIM_PRODUCTS
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-variants-2024WISPSP-reload/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_PRODUCTS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -481,30 +457,6 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | pim-source-products-AMSAPP257-aws-004
-  id: DS - Kafka Connector - prd | pim-source-products-AMSAPP257-aws-004
-  enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-products-AMSAPP257-aws-004/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "production", "confluent"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - Kafka Connector - prd | couchbase-inseams-sink
   id: DS - Kafka Connector - prd | couchbase-inseams-sink
   enabled: true
@@ -529,10 +481,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | pim-source-articles-AMSAPP257-aws-004
-  id: DS - Kafka Connector - prd | pim-source-articles-AMSAPP257-aws-004
+  name: DS - Kafka Connector - prd | weconnect-source-customer-assignments-synchronization
+  id: DS - Kafka Connector - prd | weconnect-source-customer-assignments-synchronization
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/pim-source-articles-AMSAPP257-aws-004/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/weconnect-source-customer-assignments-synchronization/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -553,10 +505,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | weconnect-source-customer-assignments-synchronization
-  id: DS - Kafka Connector - prd | weconnect-source-customer-assignments-synchronization
+  name: DS - Kafka Connector - prd | C_SOURCE_PIM_ARTICLES
+  id: DS - Kafka Connector - prd | C_SOURCE_PIM_ARTICLES
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/weconnect-source-customer-assignments-synchronization/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_ARTICLES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
