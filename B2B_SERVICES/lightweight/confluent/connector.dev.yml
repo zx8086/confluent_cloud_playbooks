@@ -337,30 +337,6 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | weconnect-source-customers
-  id: DS - Kafka Connector - dev | weconnect-source-customers
-  enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/weconnect-source-customers/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "development", "confluent"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_LOOK_VIDEO_PDF_ITEM
   id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_LOOK_VIDEO_PDF_ITEM
   enabled: true
@@ -1061,6 +1037,30 @@ heartbeat.monitors:
   id: DS - Kafka Connector - dev | couchbase-sink-accounts
   enabled: true
   urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/couchbase-sink-accounts/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | C_SOURCE_WECONNECT_CUSTOMERS2
+  id: DS - Kafka Connector - dev | C_SOURCE_WECONNECT_CUSTOMERS2
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_WECONNECT_CUSTOMERS2/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
