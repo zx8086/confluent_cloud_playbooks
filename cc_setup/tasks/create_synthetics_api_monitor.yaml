@@ -4,7 +4,6 @@
 ##                               ##
 ###################################
 
-
 - name: Set encrypted API key
   set_fact:
     api_key: !vault |
@@ -34,8 +33,6 @@
   ansible.builtin.template:
     src: cc_setup/templates/CREATE_SYNTHETICS_API_MONITOR.j2
     dest: "./B2B_SERVICES/lightweight/kong/api_health.{{ENVIRONMENT_SHORT}}.yml"
-    # owner: bin
-    # group: wheel
     mode: '0644'
   delegate_to: localhost
   delegate_facts: true
