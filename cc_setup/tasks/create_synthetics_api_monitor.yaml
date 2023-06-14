@@ -4,6 +4,7 @@
 ##                               ##
 ###################################
 
+
 - name: Set encrypted API key
   set_fact:
     api_key: !vault |
