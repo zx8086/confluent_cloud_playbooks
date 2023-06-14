@@ -8,7 +8,7 @@ heartbeat.monitors:
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "confluent"]   
+  tags: ["digital selling", "development", "confluent"]
   alert.status.enabled: true
   check.request:
     method: GET
@@ -217,6 +217,30 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - dev | C_SINK_SAP_DRAFT_ORDER
+  id: DS - Kafka Connector - dev | C_SINK_SAP_DRAFT_ORDER
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_SAP_DRAFT_ORDER/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - dev | dynamodb-sink-look-items
   id: DS - Kafka Connector - dev | dynamodb-sink-look-items
   enabled: true
@@ -341,6 +365,30 @@ heartbeat.monitors:
   id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_LOOK_VIDEO_PDF_ITEM
   enabled: true
   urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_LOOK_VIDEO_PDF_ITEM/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "development", "confluent"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - dev | C_SOURCE_WECONNECT_CUSTOMER_ACCOUNT
+  id: DS - Kafka Connector - dev | C_SOURCE_WECONNECT_CUSTOMER_ACCOUNT
+  enabled: true
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_WECONNECT_CUSTOMER_ACCOUNT/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -961,30 +1009,6 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | couchbase-sink-customers
-  id: DS - Kafka Connector - dev | couchbase-sink-customers
-  enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/couchbase-sink-customers/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "development", "confluent"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - Kafka Connector - dev | C_SINK_COUCHBASE_PRODUCTS_V3_RELOAD
   id: DS - Kafka Connector - dev | C_SINK_COUCHBASE_PRODUCTS_V3_RELOAD
   enabled: true
@@ -1033,10 +1057,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | couchbase-sink-accounts
-  id: DS - Kafka Connector - dev | couchbase-sink-accounts
+  name: DS - Kafka Connector - dev | C_SOURCE_WECONNECT_CUSTOMER_ASSIGNMENTS
+  id: DS - Kafka Connector - dev | C_SOURCE_WECONNECT_CUSTOMER_ASSIGNMENTS
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/couchbase-sink-accounts/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_WECONNECT_CUSTOMER_ASSIGNMENTS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -1057,10 +1081,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - dev | C_SOURCE_WECONNECT_CUSTOMERS2
-  id: DS - Kafka Connector - dev | C_SOURCE_WECONNECT_CUSTOMERS2
+  name: DS - Kafka Connector - dev | C_SOURCE_WECONNECT_CUSTOMERS
+  id: DS - Kafka Connector - dev | C_SOURCE_WECONNECT_CUSTOMERS
   enabled: true
-  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_WECONNECT_CUSTOMERS2/status"
+  urls: "http://connect.dev.shared-services.eu.pvh.cloud/connectors/C_SOURCE_WECONNECT_CUSTOMERS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
