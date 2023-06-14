@@ -4,6 +4,16 @@
 ##                               ##
 ###################################
 
+- name: Set encrypted API key
+  set_fact:
+    api_key: !vault |
+      $ANSIBLE_VAULT;1.1;AES256
+      64376236663731343662306330393665323736656265373366373234333465396638313031666164
+      3237393765333766386561326565363531386433326562360a326339663635353931393063313934
+      33306237323965393230333337363935323661326632373165393562306539353832326631396137
+      3737383961376239330a323266376532313539633137656135313062613930303066613061383665
+      6133
+
 - name:  Set Connect URL
   ansible.builtin.set_fact:
     CONNECT_URL: "http://connect.dev.shared-services.eu.pvh.cloud/connectors"
@@ -70,7 +80,7 @@
 - name: Deploy Lightweight Monitors to Elastic Project
   local_action: 
     module: shell
-    cmd: "SYNTHETICS_API_KEY=VUhCTHFZY0JYdGVaRXRhcEs4NHQ6VUdMcV9Pa3JSN2FraGlzNHQySk1GQQ== npm run push"
+    cmd: "SYNTHETICS_API_KEY={{ api_key }} npm run push"
     chdir: ./B2B_SERVICES
   delegate_to: localhost
   register: deploy_project_monitors
