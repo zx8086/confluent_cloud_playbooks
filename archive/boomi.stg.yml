@@ -1,0 +1,18 @@
+heartbeat.monitors:
+
+- type: http
+  name: CCI - Boomi - stg | DCOS Atom
+  id: CCI - Boomi - stg | DCOS Atom
+  enabled: true
+  urls: "http://10.80.131.138:9090/_admin/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["cci", "staging", "boomi"]
+  alert.status.enabled: true
+  check.request:
+    method: 'HEAD'
+  response:
+    include_body: 'always'
+  check.response:
+    status: [200]

@@ -12,16 +12,16 @@ export default env => {
      * Configure global monitor settings
      */
     monitor: {
-      schedule: 1,
+      schedule: 30,
       locations: [],
-      privateLocations: ['Private'],
+      privateLocations: ['Private II'],
     },
     /**
      * Project monitors settings
      */
     project: {
-      id: 'B2B_CORE_SERVICES',
-      url: 'https://kibana-europe.pvhcorp.com',
+      id: 'B2B_WEBSHOP',
+      url: 'https://kibana-europe.pvhcorp.com/',
       space: 'developer-experience',
     },
   };

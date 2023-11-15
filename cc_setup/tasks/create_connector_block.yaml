@@ -22,7 +22,7 @@
         force: yes
         status_code: [201, 204]
         return_content: yes
-      ignore_errors: yes
+      ignore_errors: true
       register: created_connector
 
     - name: Debug Variable - Create Connector via API

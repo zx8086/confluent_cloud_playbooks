@@ -1,0 +1,218 @@
+heartbeat.monitors:
+
+- type: http
+  name: DS - Kafka Connector - stg_dcos | moodcms-source-looks-1
+  id: DS - Kafka Connector - stg_dcos | moodcms-source-looks-1
+  enabled: true
+  urls: "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/moodcms-source-looks-1/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg_dcos | gdam-sink-products-06-29-2022-dev
+  id: DS - Kafka Connector - stg_dcos | gdam-sink-products-06-29-2022-dev
+  enabled: true
+  urls: "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/gdam-sink-products-06-29-2022-dev/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg_dcos | weconnect-user-links-sink-0043fcf8-8e2e-43a3-b385-a9f7e876a467
+  id: DS - Kafka Connector - stg_dcos | weconnect-user-links-sink-0043fcf8-8e2e-43a3-b385-a9f7e876a467
+  enabled: true
+  urls: "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/weconnect-user-links-sink-0043fcf8-8e2e-43a3-b385-a9f7e876a467/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg_dcos | pim-MDM-source-articles-dcos-001
+  id: DS - Kafka Connector - stg_dcos | pim-MDM-source-articles-dcos-001
+  enabled: true
+  urls: "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/pim-MDM-source-articles-dcos-001/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg_dcos | gdam-sink-products-details-06-29-2022-dev
+  id: DS - Kafka Connector - stg_dcos | gdam-sink-products-details-06-29-2022-dev
+  enabled: true
+  urls: "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/gdam-sink-products-details-06-29-2022-dev/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg_dcos | pim-MDM-source-products-dcos-001
+  id: DS - Kafka Connector - stg_dcos | pim-MDM-source-products-dcos-001
+  enabled: true
+  urls: "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/pim-MDM-source-products-dcos-001/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg_dcos | weconnect-source-user-synchronization-a52538a3-ee6a-45bf-8bc1-4d671287228c
+  id: DS - Kafka Connector - stg_dcos | weconnect-source-user-synchronization-a52538a3-ee6a-45bf-8bc1-4d671287228c
+  enabled: true
+  urls: "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/weconnect-source-user-synchronization-a52538a3-ee6a-45bf-8bc1-4d671287228c/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg_dcos | pim-MDM-source-variants-dcos-001
+  id: DS - Kafka Connector - stg_dcos | pim-MDM-source-variants-dcos-001
+  enabled: true
+  urls: "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/pim-MDM-source-variants-dcos-001/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg_dcos | gdam-lb-product-image-sink-11-01-2023
+  id: DS - Kafka Connector - stg_dcos | gdam-lb-product-image-sink-11-01-2023
+  enabled: true
+  urls: "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors/gdam-lb-product-image-sink-11-01-2023/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+

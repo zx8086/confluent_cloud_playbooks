@@ -1,0 +1,35 @@
+const { journey, step, expect } = require('@elastic/synthetics');
+journey('DS - Synthetics Journey | b2b.tommy.com', async ({ page, context }) => {
+  step('Go to https://b2b.tommy.com/en', async () => {
+    await page.goto('https://b2b.tommy.com/en');
+    await page.getByTestId('accept-all-cookie-policy-btn').click();
+    await page.getByTestId('username-input').click();
+    await page.getByTestId('username-input').fill('simon.owusu@tommy.com');
+    await page.getByTestId('password-input').click();
+    await page.getByTestId('keepMeLoggedIn-input-checkbox').locator('path').click();
+    await page.getByTestId('password-input').click();
+    await page.getByTestId('password-input').fill('1NpKxIGpE7Y&c9');
+    await page.getByTestId('keepMeLoggedIn-input-checkbox').locator('path').click();
+    await page.getByTestId('login-btn').click();
+  });
+  // step('Direct Ordering', async () => {
+  //   await page.getByTestId('THB2B-btn').click();
+  //   await page.getByTestId('modal-actions-cancel').click();
+  //   await page.getByTestId('welcome-popup-btn').click();
+  //   await page.getByRole('button', { name: '156756 – PVH NETHERLANDS B.V.' }).click();
+  // });
+  // step('Switch Ordering', async () => {
+  //   await page.getByTestId('store-change-dropdown').click();
+  //   await page.getByTestId('store-change-dropdown').click();
+  // });
+  // step('Seasonal Ordering', async () => {
+  //   await page.getByRole('button', { name: 'Seasonal Ordering' }).click();
+  //   await page.getByTestId('modal-actions-cancel').click();
+  //   await page.getByRole('button', { name: '156756 – PVH NETHERLANDS B.V.' }).click();
+  //   await page.getByTestId('logout-button-IconText').click();
+  // });
+});
+
+
+//  npx @elastic/synthetics journeys
+// npx @elastic/synthetics push --auth c0RMQ0w0a0JGUHQzTFlOMFVPaWo6MTVqdU1mV3RSbFNKazRlaERIWDlLZw==  --url https://kibana-europe.pvhcorp.com/

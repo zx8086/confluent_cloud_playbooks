@@ -4,6 +4,11 @@ debug_variables: true
 
 #  ansible-playbook -i cc_setup/inventory/home.yaml confluent.yaml --limit targets --ask-vault-pass --tags create_connector_monitor
 #  ansible-playbook -i cc_setup/inventory/home.yaml confluent.yaml --limit targets --tags create_synthetics_connector_monitor --extra-vars "ENVIRONMENT_SHORT=dev"
+#  ansible-playbook -i cc_setup/inventory/home.yaml confluent.yaml --limit targets --tags create_synthetics_connector_monitor  --ask-vault-pass --extra-vars "ENVIRONMENT_SHORT=prd"
+# create_synthetics_api_health_monitor
+
+# ansible-playbook -i cc_setup/inventory/home.yaml confluent.yaml --limit targets --tags create_synthetics_connector_monitor  --ask-vault-pass --extra-vars "ENVIRONMENT_SHORT=dev"
+# ansible-playbook -i cc_setup/inventory/home.yaml confluent.yaml --limit targets --tags create_synthetics_api_health_monitor  --ask-vault-pass --extra-vars "ENVIRONMENT_SHORT=dev"
 
 
 #  PVH Confluent Mesosphere Setup
@@ -56,7 +61,8 @@ CONFLUENT_CLOUD_API_TOKEN: !vault |
 API_HEALTHCHECK_LIST:
   - authentication
   - authorization
-  # - customer-assignments
+  - brads
+  - customer-assignments
   - delivery-dates-service
   - distributioncurves
   - divisions
@@ -66,13 +72,13 @@ API_HEALTHCHECK_LIST:
   - notifications-webhook
   - options
   - prepacks
-  - prices
   - prices-api-v2
   - prices-producer-v2
   - process-api
   - seasons
-  - stock
-  - storytelling
+  - styles-v3
+  # - stock
+  # - storytelling
   # - customers
   # - notifications
   # - delivery-dates
