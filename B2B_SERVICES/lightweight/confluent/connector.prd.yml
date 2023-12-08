@@ -193,30 +193,6 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCTS_V3
-  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCTS_V3
-  enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRODUCTS_V3/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "production", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRICES_SUB_DOCUMENTS
   id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRICES_SUB_DOCUMENTS
   enabled: true
@@ -245,6 +221,30 @@ heartbeat.monitors:
   id: DS - Kafka Connector - prd | C_SOURCE_COUCHBASE_PRICES
   enabled: true
   urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_COUCHBASE_PRICES/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCTS_V3
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCTS_V3
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRODUCTS_V3/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -529,10 +529,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SOURCE_PIM_ARTICLES_RELOAD_V2
-  id: DS - Kafka Connector - prd | C_SOURCE_PIM_ARTICLES_RELOAD_V2
+  name: DS - Kafka Connector - prd | C_SOURCE_PIM_PRODUCTS
+  id: DS - Kafka Connector - prd | C_SOURCE_PIM_PRODUCTS
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_ARTICLES_RELOAD_V2/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_PRODUCTS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -553,10 +553,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SOURCE_PIM_PRODUCTS
-  id: DS - Kafka Connector - prd | C_SOURCE_PIM_PRODUCTS
+  name: DS - Kafka Connector - prd | C_SOURCE_PIM_VARIANTS_V3_RELOAD
+  id: DS - Kafka Connector - prd | C_SOURCE_PIM_VARIANTS_V3_RELOAD
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_PRODUCTS/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_VARIANTS_V3_RELOAD/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s

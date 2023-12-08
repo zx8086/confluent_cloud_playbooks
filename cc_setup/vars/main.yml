@@ -77,8 +77,8 @@ API_HEALTHCHECK_LIST:
   - process-api
   - seasons
   - styles-v3
+  - storytelling
   # - stock
-  # - storytelling
   # - customers
   # - notifications
   # - delivery-dates

@@ -20,30 +20,44 @@
   ansible.builtin.set_fact:
     CONNECT_URL: "http://connect.dev.shared-services.eu.pvh.cloud/connectors"
     ENVIRONMENT_LONG: "development"
+    PROJECT_NAME: "eu-shared-services_dev"
+    api_key: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          39623531306636333664363063633031313232306165643636316562646434656664343962303335
+          6662393938623464323439666361373036663232633338360a363235633239626332653835373734
+          35386637383336323136626534396330303963376339663932326534336438643735306664653838
+          3531396231663934340a366633663436646538363836393230643530653836353639623563356630
+          31376461303531356635326563636333313636393137626439393236383361323865663433316131
+          39383639363861353337316235336466653338643434323036633363393563363536333761343331
+          363339616530663932646239303935613462
   when: ENVIRONMENT_SHORT == "dev"
 
 - name: Set Connect URL
   ansible.builtin.set_fact:
     CONNECT_URL: "http://connect.stg.shared-services.eu.pvh.cloud/connectors"
     ENVIRONMENT_LONG: "staging"
+    PROJECT_NAME: "B2B_SERVICES"
   when: ENVIRONMENT_SHORT == "stg"
 
 - name: Set Connect URL
   ansible.builtin.set_fact:
     CONNECT_URL: "http://connect.prd.shared-services.eu.pvh.cloud/connectors"
     ENVIRONMENT_LONG: "production"
+    PROJECT_NAME: "B2B_SERVICES"
   when: ENVIRONMENT_SHORT == "prd"
 
 - name: Set Connect URL
   ansible.builtin.set_fact:
     CONNECT_URL: "http://kafka-connect.beta53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors"
     ENVIRONMENT_LONG: "staging"
+    PROJECT_NAME: "B2B_SERVICES"
   when: ENVIRONMENT_SHORT == "stg_dcos"
 
 - name: Set Connect URL
   ansible.builtin.set_fact:
     CONNECT_URL: "http://kafka-connect.production53.kafka.marathon.dcos-eu.pvhcorp.com:8083/connectors"
     ENVIRONMENT_LONG: "production"
+    PROJECT_NAME: "B2B_SERVICES"
   when: ENVIRONMENT_SHORT == "prd_dcos"
 
 - name: Get Connector List via API
@@ -71,7 +85,7 @@
 - name: Template a file to create a Synthetics Connector Monitor
   ansible.builtin.template:
     src: cc_setup/templates/CREATE_SYNTHETICS_CONNECTOR_MONITOR.j2
-    dest: "./B2B_SERVICES/lightweight/confluent/connector.{{ENVIRONMENT_SHORT}}.yml"
+    dest: "./{{ PROJECT_NAME }}/lightweight/confluent/connector.{{ENVIRONMENT_SHORT}}.yml"
     # owner: bin
     # group: wheel
     mode: '0644'
@@ -83,7 +97,7 @@
   local_action: 
     module: shell
     cmd: "SYNTHETICS_API_KEY={{ api_key }} npm run push"
-    chdir: ./B2B_SERVICES
+    chdir: "./{{ PROJECT_NAME }}"
   delegate_to: localhost
   register: deploy_project_monitors
 
