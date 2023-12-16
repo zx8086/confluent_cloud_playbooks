@@ -1,0 +1,22 @@
+{
+  "name": "confluent_cloud_playbooks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zx8086/confluent_cloud_playbooks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zx8086/confluent_cloud_playbooks/issues"
+  },
+  "homepage": "https://github.com/zx8086/confluent_cloud_playbooks#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.10.4"
+  }
+}

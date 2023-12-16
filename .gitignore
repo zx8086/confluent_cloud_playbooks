@@ -1,2 +1,7 @@
 cc_setup/templates/CREATE_SYNTHETICS_API_MONITOR.j2
 cc_setup/tasks/create_synthetics_api_monitor.yaml
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

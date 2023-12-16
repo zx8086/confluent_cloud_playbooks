@@ -1,14 +1,14 @@
 heartbeat.monitors:
 
 - type: http
-  name: DS - API Health - dev | Authentication
-  id: DS - API Health - dev | Authentication
+  name: DS - API Health - stg | Authentication
+  id: DS - API Health - stg | Authentication
   enabled: true
-  urls: "https://authentication.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://authentication.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -18,14 +18,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Brads
-  id: DS - API Health - dev | Brads
+  name: DS - API Health - stg | Authorization
+  id: DS - API Health - stg | Authorization
   enabled: true
-  urls: "https://brads.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://authorization.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -35,14 +35,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Customer-assignments
-  id: DS - API Health - dev | Customer-assignments
+  name: DS - API Health - stg | Brads
+  id: DS - API Health - stg | Brads
   enabled: true
-  urls: "https://customer-assignments.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://brads.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -52,14 +52,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Delivery-dates-service
-  id: DS - API Health - dev | Delivery-dates-service
+  name: DS - API Health - stg | Customer-assignments
+  id: DS - API Health - stg | Customer-assignments
   enabled: true
-  urls: "https://delivery-dates-service.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://customer-assignments.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -69,14 +69,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Distributioncurves
-  id: DS - API Health - dev | Distributioncurves
+  name: DS - API Health - stg | Delivery-dates-service
+  id: DS - API Health - stg | Delivery-dates-service
   enabled: true
-  urls: "https://distributioncurves.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://delivery-dates-service.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -86,14 +86,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Divisions
-  id: DS - API Health - dev | Divisions
+  name: DS - API Health - stg | Distributioncurves
+  id: DS - API Health - stg | Distributioncurves
   enabled: true
-  urls: "https://divisions.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://distributioncurves.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -103,14 +103,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Images
-  id: DS - API Health - dev | Images
+  name: DS - API Health - stg | Divisions
+  id: DS - API Health - stg | Divisions
   enabled: true
-  urls: "https://images.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://divisions.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -120,14 +120,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Notifications-service
-  id: DS - API Health - dev | Notifications-service
+  name: DS - API Health - stg | Images
+  id: DS - API Health - stg | Images
   enabled: true
-  urls: "https://notifications-service.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://images.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -137,14 +137,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Notifications-scheduler
-  id: DS - API Health - dev | Notifications-scheduler
+  name: DS - API Health - stg | Notifications-service
+  id: DS - API Health - stg | Notifications-service
   enabled: true
-  urls: "https://notifications-scheduler.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://notifications-service.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -154,14 +154,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Notifications-webhook
-  id: DS - API Health - dev | Notifications-webhook
+  name: DS - API Health - stg | Notifications-scheduler
+  id: DS - API Health - stg | Notifications-scheduler
   enabled: true
-  urls: "https://notifications-webhook.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://notifications-scheduler.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -171,14 +171,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Options
-  id: DS - API Health - dev | Options
+  name: DS - API Health - stg | Notifications-webhook
+  id: DS - API Health - stg | Notifications-webhook
   enabled: true
-  urls: "https://options.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://notifications-webhook.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -188,14 +188,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Prepacks
-  id: DS - API Health - dev | Prepacks
+  name: DS - API Health - stg | Options
+  id: DS - API Health - stg | Options
   enabled: true
-  urls: "https://prepacks.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://options.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -205,14 +205,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Prices-api-v2
-  id: DS - API Health - dev | Prices-api-v2
+  name: DS - API Health - stg | Prepacks
+  id: DS - API Health - stg | Prepacks
   enabled: true
-  urls: "https://prices-api-v2.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://prepacks.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -222,14 +222,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Prices-producer-v2
-  id: DS - API Health - dev | Prices-producer-v2
+  name: DS - API Health - stg | Prices-api-v2
+  id: DS - API Health - stg | Prices-api-v2
   enabled: true
-  urls: "https://prices-producer-v2.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://prices-api-v2.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -239,14 +239,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Process-api
-  id: DS - API Health - dev | Process-api
+  name: DS - API Health - stg | Prices-producer-v2
+  id: DS - API Health - stg | Prices-producer-v2
   enabled: true
-  urls: "https://process-api.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://prices-producer-v2.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -256,14 +256,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Seasons
-  id: DS - API Health - dev | Seasons
+  name: DS - API Health - stg | Process-api
+  id: DS - API Health - stg | Process-api
   enabled: true
-  urls: "https://seasons.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://process-api.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -273,14 +273,14 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Styles-v3
-  id: DS - API Health - dev | Styles-v3
+  name: DS - API Health - stg | Seasons
+  id: DS - API Health - stg | Seasons
   enabled: true
-  urls: "https://styles-v3.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://seasons.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET
@@ -290,14 +290,31 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Storytelling
-  id: DS - API Health - dev | Storytelling
+  name: DS - API Health - stg | Styles-v3
+  id: DS - API Health - stg | Styles-v3
   enabled: true
-  urls: "https://storytelling.dev.shared-services.eu.pvh.cloud/health"
+  urls: "https://styles-v3.stg.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
+  tags: ["digital selling", "staging", "api health"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200, 201, 202, 203, 204]
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - API Health - stg | Storytelling
+  id: DS - API Health - stg | Storytelling
+  enabled: true
+  urls: "https://storytelling.stg.shared-services.eu.pvh.cloud/health"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "api health"]   
   alert.status.enabled: true
   check.request:
     method: GET

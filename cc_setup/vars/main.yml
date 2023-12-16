@@ -60,7 +60,6 @@ CONFLUENT_CLOUD_API_TOKEN: !vault |
 
 API_HEALTHCHECK_LIST:
   - authentication
-  - authorization
   - brads
   - customer-assignments
   - delivery-dates-service
@@ -78,12 +77,11 @@ API_HEALTHCHECK_LIST:
   - seasons
   - styles-v3
   - storytelling
-  # - stock
+  # - authorization
   # - customers
-  # - notifications
-  # - delivery-dates
   # - catalog
-  # - orders
+  # - restproxy
+  # - corrected-delivery-dates
 
 
 CONNECTOR_LIST:
