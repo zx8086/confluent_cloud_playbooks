@@ -7,6 +7,8 @@ export default env => {
     },
     playwrightOptions: {
       ignoreHTTPSErrors: false,
+      viewport: { width: 1920, height: 1200 },
+      timezoneId: 'Europe/Amsterdam',
     },
     /**
      * Configure global monitor settings

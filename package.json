@@ -17,6 +17,7 @@
   "homepage": "https://github.com/zx8086/confluent_cloud_playbooks#readme",
   "devDependencies": {
     "@playwright/test": "^1.40.1",
-    "@types/node": "^20.10.4"
+    "@types/node": "^20.10.4",
+    "playwright": "^1.40.1"
   }
 }

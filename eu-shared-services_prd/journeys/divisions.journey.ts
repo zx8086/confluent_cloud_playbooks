@@ -5,9 +5,13 @@ journey('DS - API Journey | Divisions - prd', async ({ context }: { context: any
     id: 'Divisions',
     schedule: 30,
     screenshot: 'off',
+    throttling: false,
+    tags: ['production', 'digital_selling', 'eu-shared-services'],
   });
 
-  step('GET - Brands', async () => {
+// Get GET all the divisions for a brand /divistion/brand
+
+  step('GET - Get all the brands with corresponding division codes', async () => {
     const brandResponse = await context.request.get('https://divisions.prd.shared-services.eu.pvh.cloud/v1/brands');
     const brandBody = await brandResponse.json();
     console.log(JSON.stringify(brandBody));
@@ -17,17 +21,16 @@ journey('DS - API Journey | Divisions - prd', async ({ context }: { context: any
     verifyCompanyDetails(brandBody);
   });
 
-  step('GET - Divisions for a Brand', async () => {
+  step('GET - Get a division for a brand', async () => {
     const divisionResponse = await context.request.get('https://divisions.prd.shared-services.eu.pvh.cloud/v1/divisions/TH/division/01');
     const divisionBody = await divisionResponse.json();
     console.log(JSON.stringify(divisionBody));
-
     verifyResponse(divisionResponse, 200);
     verifyResponseStructureDivisionBrand(divisionBody);
     validateDateFields(divisionBody);
   });
 
-  step('GET - Season for a Brand', async () => {
+  step('GET - Get a season for a brand', async () => {
     const seasonResponse = await context.request.get('https://divisions.prd.shared-services.eu.pvh.cloud/v1/divisions/TH/division/01/seasons/C41');
     const seasonBody = await seasonResponse.json();
     console.log(JSON.stringify(seasonBody));
