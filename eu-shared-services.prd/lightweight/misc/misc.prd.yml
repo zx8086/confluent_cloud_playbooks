@@ -1,0 +1,18 @@
+heartbeat.monitors:
+
+- type: http
+  name: DS - Kafka Server - prd | KSQL Db
+  id: DS - Kafka Server - prd | KSQL Db
+  enabled: true
+  urls: "https://ksql.prd.shared-services.eu.pvh.cloud/healthcheck"
+  max_redirects: '3'
+  schedule: '@every 10m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+  response:
+    include_body: 'always'

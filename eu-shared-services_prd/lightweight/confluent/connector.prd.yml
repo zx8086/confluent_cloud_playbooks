@@ -97,6 +97,30 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_PRODUCTS_1
+  id: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_PRODUCTS_1
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_MDM_PRODUCTS_1/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_ARTICLES_V3
   id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_ARTICLES_V3
   enabled: true
@@ -169,6 +193,30 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DATES
+  id: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DATES
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_SEASON_DATES/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_OPTIONS
   id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_OPTIONS
   enabled: true
@@ -217,10 +265,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRICES_SUB_DOCUMENTS
-  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRICES_SUB_DOCUMENTS
+  name: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DATES_IMPORT
+  id: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DATES_IMPORT
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRICES_SUB_DOCUMENTS/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_SEASON_DATES_IMPORT/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -245,6 +293,30 @@ heartbeat.monitors:
   id: DS - Kafka Connector - prd | C_SOURCE_COUCHBASE_PRICES
   enabled: true
   urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_COUCHBASE_PRICES/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRICES_SUB_DOCUMENTS
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRICES_SUB_DOCUMENTS
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRICES_SUB_DOCUMENTS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -313,10 +385,82 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SAP_SEASON_DATES
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SAP_SEASON_DATES
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DATES/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - prd | C_SINK_SAP_DRAFT_ORDER
   id: DS - Kafka Connector - prd | C_SINK_SAP_DRAFT_ORDER
   enabled: true
   urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_SAP_DRAFT_ORDER/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_ARTICLES_1
+  id: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_ARTICLES_1
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_MDM_ARTICLES_1/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_VARIANTS_1
+  id: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_VARIANTS_1
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_MDM_VARIANTS_1/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -361,10 +505,34 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | sap-source-season-dates
-  id: DS - Kafka Connector - prd | sap-source-season-dates
+  name: DS - Kafka Connector - prd | C_SOURCE_PIM_ARTICLES_1
+  id: DS - Kafka Connector - prd | C_SOURCE_PIM_ARTICLES_1
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-source-season-dates/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_ARTICLES_1/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_BRANDS_DIVISIONS
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_BRANDS_DIVISIONS
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_BRANDS_DIVISIONS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -433,82 +601,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_PRODUCTS
-  id: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_PRODUCTS
-  enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_MDM_PRODUCTS/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "production", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PREPACKS_DETAILS
   id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PREPACKS_DETAILS
   enabled: true
   urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PREPACKS_DETAILS/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "production", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PREPACK_ITEMS
-  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PREPACK_ITEMS
-  enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PREPACK_ITEMS/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "production", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_VARIANTS_V3_RELOAD
-  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_VARIANTS_V3_RELOAD
-  enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_VARIANTS_V3_RELOAD/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -553,10 +649,58 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_VARIANTS
-  id: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_VARIANTS
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_VARIANTS_V3_RELOAD
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_VARIANTS_V3_RELOAD
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_MDM_VARIANTS/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_VARIANTS_V3_RELOAD/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | C_SOURCE_SAP_BRANDS_DIVISIONS
+  id: DS - Kafka Connector - prd | C_SOURCE_SAP_BRANDS_DIVISIONS
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_BRANDS_DIVISIONS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -601,10 +745,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SOURCE_PIM_VARIANTS_V3_RELOAD
-  id: DS - Kafka Connector - prd | C_SOURCE_PIM_VARIANTS_V3_RELOAD
+  name: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DELIVERY_DATES_IMPORT
+  id: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DELIVERY_DATES_IMPORT
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_VARIANTS_V3_RELOAD/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_SEASON_DELIVERY_DATES_IMPORT/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -649,10 +793,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_ARTICLES
-  id: DS - Kafka Connector - prd | C_SOURCE_PIM_MDM_ARTICLES
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SIZES
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SIZES
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_MDM_ARTICLES/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SIZES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -673,10 +817,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SIZES
-  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SIZES
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES_IMPORT
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES_IMPORT
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SIZES/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES_IMPORT/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -745,10 +889,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SOURCE_PIM_ARTICLES
-  id: DS - Kafka Connector - prd | C_SOURCE_PIM_ARTICLES
+  name: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DELIVERY_DATES
+  id: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DELIVERY_DATES
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_ARTICLES/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_SEASON_DELIVERY_DATES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -769,10 +913,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | sap-source-season-delivery-dates
-  id: DS - Kafka Connector - prd | sap-source-season-delivery-dates
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SAP_SEASON_DATES_IMPORT
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SAP_SEASON_DATES_IMPORT
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/sap-source-season-delivery-dates/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DATES_IMPORT/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s

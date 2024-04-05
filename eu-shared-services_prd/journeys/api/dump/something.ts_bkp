@@ -1,0 +1,126 @@
+import { journey, step, monitor, expect } from '@elastic/synthetics';
+
+journey('DS - API Journey | Divisions - prd', async ({ context }: { context: any }) => {
+  monitor.use({
+    id: 'Divisions',
+    schedule: 30,
+    screenshot: 'off',
+  });
+
+  step('GET Brands API', async () => {
+    const brandResponse = await context.request.get('https://divisions.prd.shared-services.eu.pvh.cloud/v1/brands');
+    const brandBody = await brandResponse.json();
+    console.log(JSON.stringify(brandBody));
+
+    verifyResponse(brandResponse, 200);
+    verifyResponseStructure(brandBody);
+    verifyCompanyDetails(brandBody);
+  });
+
+  step('GET Divisions for a Brand API', async () => {
+    const divisionResponse = await context.request.get('https://divisions.prd.shared-services.eu.pvh.cloud/v1/divisions/TH/division/01');
+    const divisionBody = await divisionResponse.json();
+    console.log(JSON.stringify(divisionBody));
+
+    verifyResponse(divisionResponse, 200);
+    verifyResponseStructureDivisionBrand(divisionBody);
+    validateDateFields(divisionBody);
+  });
+
+  step('GET Divisions for TH Brand API', async () => {
+    const thDivisionResponse = await context.request.get('https://divisions.prd.shared-services.eu.pvh.cloud/v1/divisions/TH');
+    const thDivisionBody = await thDivisionResponse.json();
+    console.log(JSON.stringify(thDivisionBody));
+
+    verifyResponse(thDivisionResponse, 200);
+    verifyResponseStructure(thDivisionBody);
+    verifyDivisionDetails(thDivisionBody);
+  });
+
+  // ... rest of your code ...
+
+  function verifyDivisionDetails(responseBody) {
+    const items = responseBody.items;
+    expect(items).toHaveLength(8);
+
+    // Example: Verify details for each division
+    const divisionDetails = [
+      {
+        code: '01',
+        name: 'TH Menswear',
+      },
+      {
+        code: '02',
+        name: 'Tommy Jeans',
+      },
+      // Add more division details here...
+    ];
+
+    for (const detail of divisionDetails) {
+      const division = items.find((item) => item.code === detail.code);
+      expect(division).toBeDefined();
+      expect(division.name).toBe(detail.name);
+      // You can add more verification here if needed.
+    }
+  }
+
+  // ... rest of your code ...
+});
+
+
+
+
+--- 
+
+import { journey, step, monitor, expect } from '@elastic/synthetics';
+
+const BASE_API_URL = 'https://divisions.prd.shared-services.eu.pvh.cloud/v1';
+
+journey('DS - API Journey | Divisions - prd', async ({ context }: { context: any }) => {
+  monitor.use({
+    id: 'Divisions',
+    schedule: 30,
+    screenshot: 'off',
+  });
+
+  // Define an array of brand codes
+  const brandCodes = ['TH', 'CKEU', 'IZEU', 'MK', 'MKEU', 'NIKE', 'MK', 'THEU'];
+
+  // Loop through each brand and fetch data
+  for (const brandCode of brandCodes) {
+    step(`GET Brand Data for ${brandCode}`, async () => {
+      const brandData = await fetchBrandData(brandCode);
+      console.log(JSON.stringify(brandData));
+
+      verifyBrandData(brandData);
+    });
+  }
+
+  // Define a function to fetch brand data
+  async function fetchBrandData(brandCode: string) {
+    const response = await context.request.get(`${BASE_API_URL}/brands/${brandCode}`);
+    return await response.json();
+  }
+
+  // Define a function to verify brand data
+  function verifyBrandData(brandData) {
+    verifyResponse(brandData, 200);
+    verifyResponseStructure(brandData);
+    verifyCompanyDetails(brandData);
+  }
+
+  // ... rest of your code ...
+
+  // Define other helper functions and steps here...
+});
+
+
+---
+
+export function isValidDate(date: string) {
+  if (Date.parse(date)) {
+    return true;
+  } else {
+    return false;
+  }
+}

@@ -1,73 +1,51 @@
 import { journey, step, monitor, expect } from "@elastic/synthetics";
 
-async function shouldSkipTest(seasonBody) {
-    if (seasonBody.items.length === 0) {
-        console.log(`Season data has zero items. Skipping this test.`);
-        return true;
-    }
-    return false;
-}
-
-journey("DS - API Journey | Seasons - prd", async ({ context }: { context: any }) => {
+journey("DS - API Journey | Seasons (ext) - prd", async ({ context }: { context: any }) => {
     monitor.use({
-        id: "Seasons",
+        id: "Seasons_Extended",
         schedule: 30,
         screenshot: "off",
         throttling: false,
         tags: ["production", "digital_selling", "eu-shared-services"],
     });
 
-    const seasonCode = "C43";
+    // Define the season code
+    const seasonCode = "C44";
 
     const brands = [
         {
-            brandCode: "CK",
-            divisionCodes: [
-                "61",
-                "62",
-                "63",
-                "65",
-                "67",
-                "68",
-                "69",
-                "70",
-                "71",
-                "72",
-                "77",
-            ],
+            brandCode: "TH",
+            divisionCodes: ["01", "02", "03", "04", "05", "07", "08", "09", "10", "11", "18"],
         },
         {
-            brandCode: "TH",
-            divisionCodes: [
-                "01",
-                "02",
-                "03",
-                "04",
-                "05",
-                "07",
-                "08",
-                "09",
-                "10",
-                "11",
-                "18",
-            ],
+            brandCode: "CK",
+            divisionCodes: ["61", "62", "63", "65", "67", "68", "69", "70", "71", "72", "77"],
         },
     ];
+
+    let stepCount = 0;
 
     for (const brand of brands) {
         const brandCode = brand.brandCode;
         for (const divisionCode of brand.divisionCodes) {
             const apiEndpoint = `https://seasons.prd.shared-services.eu.pvh.cloud/v2/seasons/${brandCode}/season/${seasonCode}/divisions/${divisionCode}`;
 
-            step(`GET - Get a season for brand ${brandCode} and division ${divisionCode}`, async () => {
+            stepCount++; // Increment the step count
+
+            step(`Step ${stepCount}: GET - Get Season ${seasonCode} for Brand ${brandCode} and Division ${divisionCode}`, async () => {
                 const seasonResponse = await context.request.get(apiEndpoint);
                 const seasonBody = await seasonResponse.json();
-                console.log(`Season data for brand ${brandCode} and division ${divisionCode}:`, JSON.stringify(seasonBody));
+                console.log(`Seasonal data for Brand ${brandCode} and Division ${divisionCode}:`, JSON.stringify(seasonBody));
 
-                if (await shouldSkipTest(seasonBody)) {
-                    return; // Skip the test step
-                }
+                // Use soft assertions for your tests
+                // const softExpect = expect.configure({ soft: true });
+                // const softAssertion = softExpect(seasonBody.items.length).toBeGreaterThan(0);
 
+                // if (!softAssertion.passed) {
+                //     console.log(`Soft assertion failed: Season data has zero items.`);
+                // }
+
+                // Continue with other test steps
                 verifyResponse(seasonResponse, 200);
                 verifyResponseStructureSeasonBrand(seasonBody);
                 validateDateValuesSeasonBrand(seasonBody);

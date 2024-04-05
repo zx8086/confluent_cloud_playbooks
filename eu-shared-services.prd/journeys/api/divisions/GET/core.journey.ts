@@ -1,8 +1,8 @@
 import { journey, step, monitor, expect } from '@elastic/synthetics';
 
-journey('DS - API Journey | Divisions - prd', async ({ context }: { context: any }) => {
+journey('DS - API Journey | Divisions (core) - prd', async ({ context }: { context: any }) => {
   monitor.use({
-    id: 'Divisions',
+    id: 'Divisions_Core',
     schedule: 30,
     screenshot: 'off',
     throttling: false,
@@ -10,8 +10,7 @@ journey('DS - API Journey | Divisions - prd', async ({ context }: { context: any
   });
 
 // Get GET all the divisions for a brand /divistion/brand
-
-  step('GET - Get all the brands with corresponding division codes', async () => {
+  step('GET - Get all the Brands with corresponding Division codes', async () => {
     const brandResponse = await context.request.get('https://divisions.prd.shared-services.eu.pvh.cloud/v1/brands');
     const brandBody = await brandResponse.json();
     console.log(JSON.stringify(brandBody));
@@ -21,16 +20,17 @@ journey('DS - API Journey | Divisions - prd', async ({ context }: { context: any
     verifyCompanyDetails(brandBody);
   });
 
-  step('GET - Get a division for a brand', async () => {
+  step('GET - Get a Division for a Brand', async () => {
     const divisionResponse = await context.request.get('https://divisions.prd.shared-services.eu.pvh.cloud/v1/divisions/TH/division/01');
     const divisionBody = await divisionResponse.json();
     console.log(JSON.stringify(divisionBody));
+
     verifyResponse(divisionResponse, 200);
     verifyResponseStructureDivisionBrand(divisionBody);
     validateDateFields(divisionBody);
   });
 
-  step('GET - Get a season for a brand', async () => {
+  step('GET - Get a Season for a Brand', async () => {
     const seasonResponse = await context.request.get('https://divisions.prd.shared-services.eu.pvh.cloud/v1/divisions/TH/division/01/seasons/C41');
     const seasonBody = await seasonResponse.json();
     console.log(JSON.stringify(seasonBody));
@@ -58,8 +58,18 @@ journey('DS - API Journey | Divisions - prd', async ({ context }: { context: any
     const items = responseBody.items;
     expect(items).toHaveLength(7);
 
+// TH --> 01,02,04,05, 09,10
+// CK --> 61,62,64,65,69,70,77
+
+
     // Verify details for each company code
     const companyDetails = [
+      {
+        companyCode: 'THEU',
+        name: 'Tommy Hilfiger',
+        divisionCodes: ['01','02','03','04','05','07','08','09','10','11','18'],
+        salesOrganizationCodes: ['THE1', 'INLC'],
+      },
       {
         companyCode: 'CKEU',
         name: 'Calvin Klein',
@@ -67,10 +77,10 @@ journey('DS - API Journey | Divisions - prd', async ({ context }: { context: any
         salesOrganizationCodes: ['CK07', 'INCK'],
       },
       {
-        companyCode: 'THEU',
-        name: 'Tommy Hilfiger',
-        divisionCodes: ['01','02','03','04','05','07','08','09','10','11','18'],
-        salesOrganizationCodes: ['THE1', 'INLC'],
+        companyCode: 'MK',
+        name: 'Michael Kors',
+        divisionCodes: ['91'],
+        salesOrganizationCodes: ['PBE1'],
       },
       {
         companyCode: 'IZEU',
@@ -79,9 +89,9 @@ journey('DS - API Journey | Divisions - prd', async ({ context }: { context: any
         salesOrganizationCodes: ['PBE1'],
       },
       {
-        companyCode: 'MK',
-        name: 'Michael Kors',
-        divisionCodes: ['91'],
+        companyCode: 'NIKE',
+        name: 'NIKE',
+        divisionCodes: ['97'],
         salesOrganizationCodes: ['PBE1'],
       },
     ];

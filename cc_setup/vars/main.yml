@@ -10,7 +10,6 @@ debug_variables: true
 # ansible-playbook -i cc_setup/inventory/home.yaml confluent.yaml --limit targets --tags create_synthetics_connector_monitor  --ask-vault-pass --extra-vars "ENVIRONMENT_SHORT=dev"
 # ansible-playbook -i cc_setup/inventory/home.yaml confluent.yaml --limit targets --tags create_synthetics_api_health_monitor  --ask-vault-pass --extra-vars "ENVIRONMENT_SHORT=dev"
 
-
 #  PVH Confluent Mesosphere Setup
 # ENVIRONMENT_SHORT: "prd"
 # ENVIRONMENT_LONG: "production"
@@ -77,12 +76,11 @@ API_HEALTHCHECK_LIST:
   - seasons
   - styles-v3
   - storytelling
+  - corrected-delivery-dates
   # - authorization
   # - customers
   # - catalog
   # - restproxy
-  # - corrected-delivery-dates
-
 
 CONNECTOR_LIST:
   - JiraSourceConnector_0

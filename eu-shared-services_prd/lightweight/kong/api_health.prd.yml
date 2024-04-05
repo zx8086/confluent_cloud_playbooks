@@ -18,23 +18,6 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - prd | Authorization
-  id: DS - API Health - prd | Authorization
-  enabled: true
-  urls: "https://authorization.prd.shared-services.eu.pvh.cloud/health"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "production", "api health"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200, 201, 202, 203, 204]
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - API Health - prd | Brads
   id: DS - API Health - prd | Brads
   enabled: true
@@ -311,6 +294,23 @@ heartbeat.monitors:
   id: DS - API Health - prd | Storytelling
   enabled: true
   urls: "https://storytelling.prd.shared-services.eu.pvh.cloud/health"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "api health"]   
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200, 201, 202, 203, 204]
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - API Health - prd | Corrected-delivery-dates
+  id: DS - API Health - prd | Corrected-delivery-dates
+  enabled: true
+  urls: "https://corrected-delivery-dates.prd.shared-services.eu.pvh.cloud/health"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
