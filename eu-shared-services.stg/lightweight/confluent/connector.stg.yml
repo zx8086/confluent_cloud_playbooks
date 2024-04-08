@@ -601,6 +601,30 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PVHD_SITE_MASTER
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PVHD_SITE_MASTER
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PVHD_SITE_MASTER/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_BRANDS_DIVISIONS
   id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_BRANDS_DIVISIONS
   enabled: true
