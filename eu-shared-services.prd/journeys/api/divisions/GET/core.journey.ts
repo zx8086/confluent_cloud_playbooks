@@ -9,7 +9,7 @@ journey('DS - API Journey | Divisions (core) - prd', async ({ context }: { conte
     tags: ['production', 'digital_selling', 'eu-shared-services'],
   });
 
-// GET all the divisions for a brand /divistion/brand
+// GET all the divisions for a brand /division/brand
   step.soft('GET - Get all the Brands with corresponding Division codes', async () => {
     const brandResponse = await context.request.get('https://divisions.prd.shared-services.eu.pvh.cloud/v1/brands');
     const brandBody = await brandResponse.json();
@@ -57,6 +57,7 @@ journey('DS - API Journey | Divisions (core) - prd', async ({ context }: { conte
   function verifyCompanyDetails(responseBody) {
     const items = responseBody.items;
     expect(items).toHaveLength(7);
+
 
     // Verify details for each company code
     const companyDetails = [
