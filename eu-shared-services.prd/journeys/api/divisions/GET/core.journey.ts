@@ -58,10 +58,6 @@ journey('DS - API Journey | Divisions (core) - prd', async ({ context }: { conte
     const items = responseBody.items;
     expect(items).toHaveLength(7);
 
-// TH --> 01,02,04,05, 09,10
-// CK --> 61,62,64,65,69,70,77
-
-
     // Verify details for each company code
     const companyDetails = [
       {
