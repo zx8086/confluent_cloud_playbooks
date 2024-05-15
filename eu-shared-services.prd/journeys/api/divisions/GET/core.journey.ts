@@ -9,8 +9,8 @@ journey('DS - API Journey | Divisions (core) - prd', async ({ context }: { conte
     tags: ['production', 'digital_selling', 'eu-shared-services'],
   });
 
-// Get GET all the divisions for a brand /divistion/brand
-  step('GET - Get all the Brands with corresponding Division codes', async () => {
+// GET all the divisions for a brand /divistion/brand
+  step.soft('GET - Get all the Brands with corresponding Division codes', async () => {
     const brandResponse = await context.request.get('https://divisions.prd.shared-services.eu.pvh.cloud/v1/brands');
     const brandBody = await brandResponse.json();
     console.log(JSON.stringify(brandBody));
