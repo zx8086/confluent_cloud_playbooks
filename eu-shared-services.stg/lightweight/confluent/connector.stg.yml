@@ -1,10 +1,10 @@
 heartbeat.monitors:
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_INSEAMS
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_INSEAMS
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3_RELOAD
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3_RELOAD
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_INSEAMS/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_ARTICLES_V3_RELOAD/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -25,10 +25,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3_RELOAD
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3_RELOAD
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_INSEAMS
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_INSEAMS
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_ARTICLES_V3_RELOAD/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_INSEAMS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -121,10 +121,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SIZES_RELOAD
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SIZES_RELOAD
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SIZES_RELOAD/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_ARTICLES_V3/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -145,10 +145,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SIZES_RELOAD
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SIZES_RELOAD
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_ARTICLES_V3/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SIZES_RELOAD/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -433,10 +433,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES
+  name: DS - Kafka Connector - stg | C_SOURCE_SAP_PVHD_SITE_MASTER
+  id: DS - Kafka Connector - stg | C_SOURCE_SAP_PVHD_SITE_MASTER
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DATES/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_PVHD_SITE_MASTER/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -457,10 +457,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SOURCE_SAP_PVHD_SITE_MASTER
-  id: DS - Kafka Connector - stg | C_SOURCE_SAP_PVHD_SITE_MASTER
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_PVHD_SITE_MASTER/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DATES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -625,10 +625,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PRODUCT_IMAGES
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PRODUCT_IMAGES
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_STYLES/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRODUCT_IMAGES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -649,10 +649,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PRODUCT_IMAGES
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PRODUCT_IMAGES
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRODUCT_IMAGES/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_STYLES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
