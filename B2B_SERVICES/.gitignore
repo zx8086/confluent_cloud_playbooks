@@ -1,3 +1,0 @@
-node_modules/
-.synthetics/
-cc_setup/tasks/create_synthetics_api_monitor.yaml
