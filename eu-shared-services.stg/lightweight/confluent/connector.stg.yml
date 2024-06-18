@@ -49,6 +49,54 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3_RELOAD
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3_RELOAD
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_ARTICLES_V3_RELOAD/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_LOOK_ASSETS
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_LOOK_ASSETS
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_LOOK_ASSETS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_INSEAMS_RELOAD
   id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_INSEAMS_RELOAD
   enabled: true
@@ -145,10 +193,58 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - stg | C_SOURCE_SAP_SEASON_DATES
+  id: DS - Kafka Connector - stg | C_SOURCE_SAP_SEASON_DATES
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_SEASON_DATES/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - stg | C_SOURCE_SAP_PREPACKS
   id: DS - Kafka Connector - stg | C_SOURCE_SAP_PREPACKS
   enabled: true
   urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_PREPACKS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES_RELOAD
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES_RELOAD
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_STYLES_RELOAD/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -221,414 +317,6 @@ heartbeat.monitors:
   id: DS - Kafka Connector - stg | C_SOURCE_PIM_VARIANTS
   enabled: true
   urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_VARIANTS/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SOURCE_SAP_PVHD_SITE_MASTER
-  id: DS - Kafka Connector - stg | C_SOURCE_SAP_PVHD_SITE_MASTER
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_PVHD_SITE_MASTER/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DATES/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SINK_SAP_DRAFT_ORDER
-  id: DS - Kafka Connector - stg | C_SINK_SAP_DRAFT_ORDER
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_SAP_DRAFT_ORDER/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SOURCE_PIM_MDM_PRODUCTS
-  id: DS - Kafka Connector - stg | C_SOURCE_PIM_MDM_PRODUCTS
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_MDM_PRODUCTS/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PREPACKS_DETAILS
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PREPACKS_DETAILS
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PREPACKS_DETAILS/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SOURCE_SAP_DISTRIBUTION_CURVES
-  id: DS - Kafka Connector - stg | C_SOURCE_SAP_DISTRIBUTION_CURVES
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_DISTRIBUTION_CURVES/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_VARIANTS_V3_RELOAD
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_VARIANTS_V3_RELOAD
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_VARIANTS_V3_RELOAD/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SOURCE_SAP_BRANDS_DIVISIONS
-  id: DS - Kafka Connector - stg | C_SOURCE_SAP_BRANDS_DIVISIONS
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_BRANDS_DIVISIONS/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SOURCE_PIM_PRODUCTS
-  id: DS - Kafka Connector - stg | C_SOURCE_PIM_PRODUCTS
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_PRODUCTS/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES_IMPORT
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES_IMPORT
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES_IMPORT/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PRICES_DOCUMENTS
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PRICES_DOCUMENTS
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRICES_DOCUMENTS/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SOURCE_PIM_ARTICLES
-  id: DS - Kafka Connector - stg | C_SOURCE_PIM_ARTICLES
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_ARTICLES/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES_IMPORT
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES_IMPORT
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DATES_IMPORT/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3_RELOAD
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_ARTICLES_V3_RELOAD
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_ARTICLES_V3_RELOAD/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_LOOK_ASSETS
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_LOOK_ASSETS
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_LOOK_ASSETS/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SOURCE_SAP_SEASON_DATES
-  id: DS - Kafka Connector - stg | C_SOURCE_SAP_SEASON_DATES
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_SEASON_DATES/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES_RELOAD
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_STYLES_RELOAD
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_STYLES_RELOAD/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -745,6 +433,78 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - stg | C_SOURCE_SAP_PVHD_SITE_MASTER
+  id: DS - Kafka Connector - stg | C_SOURCE_SAP_PVHD_SITE_MASTER
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_PVHD_SITE_MASTER/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DATES/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SINK_SAP_DRAFT_ORDER
+  id: DS - Kafka Connector - stg | C_SINK_SAP_DRAFT_ORDER
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_SAP_DRAFT_ORDER/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - stg | C_SOURCE_PIM_MDM_VARIANTS_1
   id: DS - Kafka Connector - stg | C_SOURCE_PIM_MDM_VARIANTS_1
   enabled: true
@@ -773,30 +533,6 @@ heartbeat.monitors:
   id: DS - Kafka Connector - stg | C_SOURCE_PIM_MDM_ARTICLES_1
   enabled: true
   urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_MDM_ARTICLES_1/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PREPACKS_DEFAULT
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PREPACKS_DEFAULT
-  enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PREPACKS_DEFAULT/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -913,6 +649,102 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
+  name: DS - Kafka Connector - stg | C_SOURCE_PIM_MDM_PRODUCTS
+  id: DS - Kafka Connector - stg | C_SOURCE_PIM_MDM_PRODUCTS
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_MDM_PRODUCTS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PREPACKS_DETAILS
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PREPACKS_DETAILS
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PREPACKS_DETAILS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SOURCE_SAP_DISTRIBUTION_CURVES
+  id: DS - Kafka Connector - stg | C_SOURCE_SAP_DISTRIBUTION_CURVES
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_DISTRIBUTION_CURVES/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_VARIANTS_V3_RELOAD
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_VARIANTS_V3_RELOAD
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_VARIANTS_V3_RELOAD/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
   name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES
   id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES
   enabled: true
@@ -937,10 +769,34 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SOURCE_PIM_VARIANTS_V3_RELOAD
-  id: DS - Kafka Connector - stg | C_SOURCE_PIM_VARIANTS_V3_RELOAD
+  name: DS - Kafka Connector - stg | C_SOURCE_SAP_BRANDS_DIVISIONS
+  id: DS - Kafka Connector - stg | C_SOURCE_SAP_BRANDS_DIVISIONS
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_VARIANTS_V3_RELOAD/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_BRANDS_DIVISIONS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SOURCE_PIM_PRODUCTS
+  id: DS - Kafka Connector - stg | C_SOURCE_PIM_PRODUCTS
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_PRODUCTS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -1033,10 +889,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_DISTRIBUTION_CURVES
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_DISTRIBUTION_CURVES
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES_IMPORT
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES_IMPORT
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_DISTRIBUTION_CURVES/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES_IMPORT/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -1057,10 +913,34 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PREPACKS_DETAILS_DEFAULT
-  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PREPACKS_DETAILS_DEFAULT
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PRICES_DOCUMENTS
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_PRICES_DOCUMENTS
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PREPACKS_DETAILS_DEFAULT/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRICES_DOCUMENTS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_DISTRIBUTION_CURVES
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_DISTRIBUTION_CURVES
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_DISTRIBUTION_CURVES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -1105,10 +985,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - stg | C_SOURCE_PIM_PRODUCTS_V3_RELOAD
-  id: DS - Kafka Connector - stg | C_SOURCE_PIM_PRODUCTS_V3_RELOAD
+  name: DS - Kafka Connector - stg | C_SOURCE_PIM_ARTICLES
+  id: DS - Kafka Connector - stg | C_SOURCE_PIM_ARTICLES
   enabled: true
-  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_PRODUCTS_V3_RELOAD/status"
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_ARTICLES/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -1133,6 +1013,30 @@ heartbeat.monitors:
   id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_OPTIONS_RELOAD
   enabled: true
   urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_OPTIONS_RELOAD/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "staging", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES_IMPORT
+  id: DS - Kafka Connector - stg | C_SINK_COUCHBASE_SAP_SEASON_DATES_IMPORT
+  enabled: true
+  urls: "http://connect.stg.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DATES_IMPORT/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
