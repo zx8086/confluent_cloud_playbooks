@@ -265,10 +265,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SOURCE_PIM_VARIANTS
-  id: DS - Kafka Connector - prd | C_SOURCE_PIM_VARIANTS
+  name: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DATES_IMPORT
+  id: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DATES_IMPORT
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_VARIANTS/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_SEASON_DATES_IMPORT/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -289,10 +289,10 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DATES_IMPORT
-  id: DS - Kafka Connector - prd | C_SOURCE_SAP_SEASON_DATES_IMPORT
+  name: DS - Kafka Connector - prd | C_SOURCE_PIM_VARIANTS
+  id: DS - Kafka Connector - prd | C_SOURCE_PIM_VARIANTS
   enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_SAP_SEASON_DATES_IMPORT/status"
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_VARIANTS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
