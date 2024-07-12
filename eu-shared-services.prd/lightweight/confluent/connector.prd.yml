@@ -1,30 +1,6 @@
 heartbeat.monitors:
 
 - type: http
-  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCT_IMAGES_DETAILS
-  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCT_IMAGES_DETAILS
-  enabled: true
-  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRODUCT_IMAGES_DETAILS/status"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "production", "confluent"]
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200]
-    body:
-      negative:
-        - PROVISIONING
-        - UNASSIGNED
-        - STOPPED
-        - PAUSED
-        - FAILED
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_INSEAMS
   id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_INSEAMS
   enabled: true
@@ -53,6 +29,30 @@ heartbeat.monitors:
   id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_ARTICLES_V3_RELOAD
   enabled: true
   urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_ARTICLES_V3_RELOAD/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCT_IMAGES_DETAILS
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCT_IMAGES_DETAILS
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRODUCT_IMAGES_DETAILS/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -293,6 +293,30 @@ heartbeat.monitors:
   id: DS - Kafka Connector - prd | C_SOURCE_PIM_VARIANTS
   enabled: true
   urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SOURCE_PIM_VARIANTS/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCT_IMAGES_DEFAULT
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCT_IMAGES_DEFAULT
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRODUCT_IMAGES_DEFAULT/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
@@ -869,6 +893,30 @@ heartbeat.monitors:
   id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES_IMPORT
   enabled: true
   urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_SAP_SEASON_DELIVERY_DATES_IMPORT/status"
+  max_redirects: '3'
+  schedule: '@every 1m'
+  timeout: 16s
+  tags: ["digital selling", "production", "confluent"]
+  alert.status.enabled: true
+  check.request:
+    method: GET
+  check.response:
+    status: [200]
+    body:
+      negative:
+        - PROVISIONING
+        - UNASSIGNED
+        - STOPPED
+        - PAUSED
+        - FAILED
+  response:
+    include_body: 'always'
+
+- type: http
+  name: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCT_IMAGES_DETAILS_DEFAULT
+  id: DS - Kafka Connector - prd | C_SINK_COUCHBASE_PRODUCT_IMAGES_DETAILS_DEFAULT
+  enabled: true
+  urls: "http://connect.prd.shared-services.eu.pvh.cloud/connectors/C_SINK_COUCHBASE_PRODUCT_IMAGES_DETAILS_DEFAULT/status"
   max_redirects: '3'
   schedule: '@every 1m'
   timeout: 16s
