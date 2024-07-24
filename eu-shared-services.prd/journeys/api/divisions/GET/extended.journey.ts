@@ -1,4 +1,4 @@
-import { journey, step, monitor, expect } from '@elastic/synthetics';
+import {expect, journey, monitor, step} from '@elastic/synthetics';
 
 journey('DS - API Journey | Divisions (ext) - prd', async ({ context }: { context: any }) => {
     monitor.use({
@@ -9,7 +9,7 @@ journey('DS - API Journey | Divisions (ext) - prd', async ({ context }: { contex
         tags: ['production', 'digital_selling', 'eu-shared-services'],
     });
 
-    // Skiped a few divisions as not able to do soft assertions - TH 06, 08, 11, 18, CK 63, 65, 71, 72
+    // Skipped a few divisions as not able to do soft assertions - TH 06, 08, 11, 18, CK 63, 65, 71, 72
     const brands = [
         {
             brandCode: 'TH',
