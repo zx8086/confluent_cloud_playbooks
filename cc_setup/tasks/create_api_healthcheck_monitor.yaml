@@ -26,6 +26,6 @@
 #         var: get_connector_list
 #       when: debug_variables | bool
 
-- name: Create Connnector Monitor 
+- name: Create Connector Monitor
   include_tasks: tasks/create_api_healthcheck_monitor_block.yaml
   loop: "{{ API_HEALTHCHECK_LIST }}"
