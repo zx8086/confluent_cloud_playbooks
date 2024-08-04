@@ -1,0 +1,46 @@
+{
+  "name": "DS - API Health - {{ ENVIRONMENT_SHORT }} | {{ item.name | capitalize }} SLO",
+  "description": "",
+  "indicator": {
+    "type": "sli.synthetics.availability",
+    "params": {
+      "projects": [
+        {
+          "label": "eu-shared-services.prd",
+          "value": "eu-shared-services.prd"
+        }
+      ],
+      "tags": [
+        {% for tag in CONSTANT_TAGS + [item.tag] %}
+        {
+          "value": "{{ tag }}",
+          "label": "{{ tag }}",
+          "data-test-subj": "syntheticsAvailabilityTagsSelectorSelectedValue"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ],
+      "monitorIds": [
+        {
+          "label": "DS - API Health - {{ ENVIRONMENT_SHORT }} | {{ item.name | capitalize }}",
+          "value": "DS - API Health - {{ ENVIRONMENT_SHORT }} | {{ item.name | capitalize }}-eu-shared-services.prd-developer-experience"
+        }
+      ],
+      "index": "synthetics-*",
+      "filter": ""
+    }
+  },
+  "budgetingMethod": "occurrences",
+  "timeWindow": {
+    "duration": "30d",
+    "type": "rolling"
+  },
+  "objective": {
+    "target": 0.99
+  },
+  "tags": {{ (CONSTANT_TAGS + [item.tag]) | to_json }},
+  "groupBy": [
+    "monitor.name",
+    "observer.geo.name",
+    "monitor.id"
+  ]
+}

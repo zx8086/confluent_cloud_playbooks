@@ -1,0 +1,44 @@
+# create_slo.yaml
+- name: Always print debug message
+  debug:
+    msg: "Executing create_slo.yaml"
+
+- name: Debug SLO variables
+  debug:
+    msg:
+      - "Item: {{ item | default('not set') }}"
+      - "CONSTANT_TAGS: {{ CONSTANT_TAGS | default('not set') }}"
+      - "ENVIRONMENT_SHORT: {{ ENVIRONMENT_SHORT | default('not set') }}"
+
+- name: Create SLO
+  block:
+    - name: Create SLO JSON Body
+      set_fact:
+        json_body: "{{ lookup('template', 'templates/CREATE_SLO.j2') }}"
+
+    - name: Debug Variable - json_body
+      ansible.builtin.debug:
+        var: json_body
+      when: debug_variables | bool
+
+    - name: Create SLO via API
+      ansible.builtin.uri:
+        url: "{{ OBSERVABILITY_API_URL }}/api/observability/slos"
+        method: POST
+        body_format: json
+        body: "{{ json_body }}"
+        headers:
+          Authorization: "ApiKey {{  OBSERVABILITY_API_TOKEN }}"
+          Content-Type: application/json
+          kbn-xsrf: "kbn-xsrf"
+        follow_redirects: yes
+        force: true
+        status_code: [200, 201]
+        return_content: yes
+      register: created_slo
+      ignore_errors: true
+
+    - name: Debug Variable - Created SLO
+      ansible.builtin.debug:
+        var: created_slo
+      when: debug_variables | bool

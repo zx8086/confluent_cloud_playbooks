@@ -1,4 +1,5 @@
 ---
+# main.yaml
 # vars file for cc_setup
 debug_variables: true
 
@@ -81,6 +82,123 @@ API_HEALTHCHECK_LIST:
   # - customers
   # - catalog
   # - restproxy
+
+OBSERVABILITY_API_URL: "https://eu-b2b.kb.eu-central-1.aws.cloud.es.io:9243/s/developer-experience"
+OBSERVABILITY_API_TOKEN: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  65316230656263373063633537636133323332323062613335306562343239373637643765636132
+  6663643230653537366638353936373766366537666163320a316139643634346665343435333534
+  35313161653638373439333166623465646564383763666239326236633361356338656338363062
+  3336633633313466370a636133333537373630636634393239343330636530633331366464323134
+  66326465353162393230356162346430326666316535396431616532616534306261623262366139
+  33613037643539306365663038353633303564303232653533653337356162323036353566393035
+  623334326630616237313336333865343733
+
+# Constants
+CONSTANT_TAGS:
+  - "api health"
+  - "eu-shared-services"
+  - "production"
+
+# Service-specific tags
+SERVICE_TAGS:
+  - "digital selling"
+  - "b2b ecom"
+  - "martech"
+
+SLO_LIST:
+  - name: authentication
+    tag: "digital selling"
+  - name: brads
+    tag: "digital selling"
+#  - name: catalog-service
+#    tag: "digital selling"
+#  - name: connectors-api
+#    tag: "digital selling"
+  - name: corrected-delivery-dates
+    tag: "digital selling"
+  - name: customer-assignments
+    tag: "digital selling"
+  - name: delivery-dates-service
+    tag: "digital selling"
+  - name: distributioncurves
+    tag: "digital selling"
+  - name: divisions
+    tag: "digital selling"
+  - name: images
+    tag: "digital selling"
+#  - name: images-v2
+#    tag: "digital selling"
+#  - name: kong-eu_b2becom_v2
+#    tag: "b2b ecom"
+#  - name: kong-eu_ddm
+#    tag: "martech"
+#  - name: kong-eu_martech_mnl
+#    tag: "martech"
+#  - name: kong-eu_oit
+#    tag: "digital selling"
+#  - name: kong-eu_shared_services
+#    tag: "digital selling"
+#  - name: lists-api
+#    tag: "digital selling"
+#  - name: localcore-service
+#    tag: "digital selling"
+#  - name: martech-marketing-consent
+#    tag: "martech"
+#  - name: martech-membership
+#    tag: "martech"
+#  - name: martech-mnl-voucher
+#    tag: "martech"
+  - name: notifications-scheduler
+    tag: "digital selling"
+  - name: notifications-service
+    tag: "digital selling"
+  - name: notifications-webhook
+    tag: "digital selling"
+  - name: options
+    tag: "digital selling"
+#  - name: orders-api-legacy
+#    tag: "digital selling"
+#  - name: pim-source-connector
+#    tag: "digital selling"
+#  - name: prana-document-management-service
+#    tag: "digital selling"
+#  - name: prana-email-service
+#    tag: "digital selling"
+#  - name: prana-import-export-service
+#    tag: "digital selling"
+#  - name: prana-notifications-service
+#    tag: "digital selling"
+#  - name: prana-order-service
+#    tag: "digital selling"
+#  - name: prana-users-service
+#    tag: "digital selling"
+  - name: prepacks
+    tag: "digital selling"
+  - name: prices-api-v2
+    tag: "digital selling"
+  - name: prices-producer-v2
+    tag: "digital selling"
+  - name: process-api
+    tag: "digital selling"
+#  - name: pvh-services-brads
+#    tag: "digital selling"
+  - name: seasons
+    tag: "digital selling"
+#  - name: storytelling-api
+#    tag: "digital selling"
+#  - name: styles-v3
+#    tag: "digital selling"
+#  - name: transformNuxeoKafkaRequest_msk
+#    tag: "digital selling"
+#  - name: webshop-assortments
+#    tag: "b2b ecom"
+#  - name: webshop-catalog-service
+#    tag: "b2b ecom"
+#  - name: webshop-hcl-integration-service
+#    tag: "b2b ecom"
+#  - name: webshop-notifications
+#    tag: "b2b ecom"
 
 CONNECTOR_LIST:
   - JiraSourceConnector_0

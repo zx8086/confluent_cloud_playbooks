@@ -49,6 +49,6 @@
         var: get_connector_list
       when: debug_variables | bool
 
-- name: Create Connnector Monitor 
+- name: Create Connector Monitor
   include_tasks: tasks/create_connector_monitor_block.yaml
   loop: "{{get_connector_list.json}}"

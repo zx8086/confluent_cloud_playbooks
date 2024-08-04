@@ -1,0 +1,4 @@
+# create_slo_monitor.yaml
+- name: Create SLO
+  include_tasks: tasks/create_slo_monitor_block.yaml
+  loop: "{{ SLO_LIST }}"

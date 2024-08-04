@@ -1,4 +1,5 @@
 ---
+# main.yaml
 # tasks file for cc_setup
 - name: Create Initial ksqlDB Setup
   import_tasks: create.yaml
@@ -75,3 +76,7 @@
 - name: Create API Health Synthetics Monitor
   import_tasks: create_synthetics_api_monitor.yaml
   tags: create_synthetics_api_health_monitor
+
+- name: Create SLO Monitor
+  import_tasks: create_slo_monitor.yaml
+  tags: create_slo_monitor
