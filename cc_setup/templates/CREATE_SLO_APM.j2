@@ -1,0 +1,25 @@
+{
+  "name": "APM Availability - {{ ENVIRONMENT_SHORT }} | {{ item.name | capitalize }} SLO",
+  "description": "",
+  "indicator": {
+    "type": "sli.apm.transactionErrorRate",
+    "params": {
+      "service": "{{ item.name }}",
+      "environment": "production",
+      "transactionType": "*",
+      "transactionName": "*",
+      "filter": "",
+      "index": "metrics-apm*,apm-*"
+     }
+   },
+  "budgetingMethod": "occurrences",
+  "timeWindow": {
+    "duration": "30d",
+    "type": "rolling"
+  },
+  "objective": {
+    "target": 0.99
+  },
+  "tags": {{ (CONSTANT_APM_TAGS + [item.tag]) | to_json }},
+  "groupBy": [ "transaction.type" ]
+}

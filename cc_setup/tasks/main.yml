@@ -77,6 +77,10 @@
   import_tasks: create_synthetics_api_monitor.yaml
   tags: create_synthetics_api_health_monitor
 
-- name: Create SLO Monitor
-  import_tasks: create_slo_monitor.yaml
-  tags: create_slo_monitor
+- name: Create SLO Synthetic Monitor
+  import_tasks: create_slo_synthetic_monitor.yaml
+  tags: create_slo_synthetic_monitor
+
+- name: Create SLO APM Monitor
+  import_tasks: create_slo_apm_monitor.yaml
+  tags: create_slo_apm_monitor

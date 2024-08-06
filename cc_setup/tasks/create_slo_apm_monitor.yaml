@@ -1,0 +1,4 @@
+# create_slo_apm_monitor.yaml
+- name: Create SLO
+  include_tasks: tasks/create_slo_apm_monitor_block.yaml
+  loop: "{{ APM_SERVICE_LIST }}"

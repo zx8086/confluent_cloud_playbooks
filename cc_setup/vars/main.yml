@@ -94,9 +94,96 @@ OBSERVABILITY_API_TOKEN: !vault |
   33613037643539306365663038353633303564303232653533653337356162323036353566393035
   623334326630616237313336333865343733
 
+APM_SERVICE_LIST:
+  - name: authentication-api
+    tag: "digital selling"
+  - name: catalog-service
+    tag: "digital selling"
+  - name: connectors-api
+    tag: "digital selling"
+  - name: corrected-delivery-dates-service
+    tag: "digital selling"
+  - name: customer-assignments
+    tag: "digital selling"
+  - name: distributioncurves-service
+    tag: "digital selling"
+  - name: divisions-api
+    tag: "digital selling"
+  - name: images-api
+    tag: "digital selling"
+  - name: images-v2
+    tag: "digital selling"
+  - name: kong-eu_b2becom_v2
+    tag: "b2b ecom"
+  - name: kong-eu_ddm
+    tag: "ddm"
+  - name: kong-eu_martech_mnl
+    tag: "martech"
+  - name: kong-eu_oit
+    tag: "digital selling"
+  - name: kong-eu_shared_services
+    tag: "digital selling"
+  - name: localcore-service
+    tag: "digital selling"
+  - name: lists-api
+    tag: "digital selling"
+  - name: martech-marketing-consent
+    tag: "martech"
+  - name: martech-membership
+    tag: "martech"
+  - name: martech-mnl-voucher
+    tag: "martech"
+  - name: notifications-scheduler-service
+    tag: "digital selling"
+  - name: notifications-service
+    tag: "digital selling"
+  - name: notifications-webhook-service
+    tag: "digital selling"
+  - name: options-api
+    tag: "digital selling"
+  - name: orders-api-legacy
+    tag: "digital selling"
+  - name: pim-source-connector
+    tag: "digital selling"
+  - name: prepacks
+    tag: "digital selling"
+  - name: prana-document-management-service
+    tag: "digital selling"
+  - name: prana-email-service
+    tag: "digital selling"
+  - name: prana-import-export-service
+    tag: "digital selling"
+  - name: prana-order-service
+    tag: "digital selling"
+  - name: prices-api-v2
+    tag: "digital selling"
+  - name: prices-producer-v2
+    tag: "digital selling"
+  - name: pvh-services-brads
+    tag: "digital selling"
+  - name: seasons-api
+    tag: "digital selling"
+  - name: storytelling-api
+    tag: "digital selling"
+  - name: styles-v3
+    tag: "digital selling"
+  - name: webshop-assortments
+    tag: "b2b ecom"
+  - name: webshop-catalog-service
+    tag: "b2b ecom"
+  - name: webshop-hcl-integration-service
+    tag: "b2b ecom"
+  - name: webshop-notifications
+    tag: "b2b ecom"
+
 # Constants
 CONSTANT_TAGS:
   - "api health"
+  - "eu-shared-services"
+  - "production"
+
+CONSTANT_APM_TAGS:
+  - "apm availability"
   - "eu-shared-services"
   - "production"
 
