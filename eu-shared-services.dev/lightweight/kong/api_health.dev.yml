@@ -171,23 +171,6 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - dev | Options
-  id: DS - API Health - dev | Options
-  enabled: true
-  urls: "https://options.dev.shared-services.eu.pvh.cloud/health"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "development", "api health"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200, 201, 202, 203, 204]
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - API Health - dev | Prepacks
   id: DS - API Health - dev | Prepacks
   enabled: true
