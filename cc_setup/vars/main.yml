@@ -69,7 +69,6 @@ API_HEALTHCHECK_LIST:
   - notifications-service
   - notifications-scheduler
   - notifications-webhook
-  - options
   - prepacks
   - prices-api-v2
   - prices-producer-v2
@@ -78,10 +77,11 @@ API_HEALTHCHECK_LIST:
   - styles-v3
   - storytelling
   - corrected-delivery-dates
-  # - authorization
-  # - customers
-  # - catalog
-  # - restproxy
+#   - authorization
+#   - customers
+#   - catalog
+#   - restproxy
+#   - options
 
 OBSERVABILITY_API_URL: "https://eu-b2b.kb.eu-central-1.aws.cloud.es.io:9243/s/developer-experience"
 OBSERVABILITY_API_TOKEN: !vault |

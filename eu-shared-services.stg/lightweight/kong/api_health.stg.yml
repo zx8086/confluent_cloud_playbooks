@@ -171,23 +171,6 @@ heartbeat.monitors:
     include_body: 'always'
 
 - type: http
-  name: DS - API Health - stg | Options
-  id: DS - API Health - stg | Options
-  enabled: true
-  urls: "https://options.stg.shared-services.eu.pvh.cloud/health"
-  max_redirects: '3'
-  schedule: '@every 1m'
-  timeout: 16s
-  tags: ["digital selling", "staging", "api health"]   
-  alert.status.enabled: true
-  check.request:
-    method: GET
-  check.response:
-    status: [200, 201, 202, 203, 204]
-  response:
-    include_body: 'always'
-
-- type: http
   name: DS - API Health - stg | Prepacks
   id: DS - API Health - stg | Prepacks
   enabled: true
